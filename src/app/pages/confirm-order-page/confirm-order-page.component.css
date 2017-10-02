@@ -1,0 +1,9 @@
+.design-page-title {
+  margin: auto;
+  text-align: center;
+}
+
+.beer-design-container {
+  display: flex;
+  justify-content: center;
+}

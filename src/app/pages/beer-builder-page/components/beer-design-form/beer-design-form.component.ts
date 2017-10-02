@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BeerService } from '../../../../services/beer-service.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { BeerService } from '../../../../services/beer-service.service';
 export class BeerDesignFormComponent implements OnInit {
   results: {};
 
-  constructor(private beerService: BeerService) { }
+  constructor(private beerService: BeerService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -25,5 +27,6 @@ export class BeerDesignFormComponent implements OnInit {
     this.beerService.postBeer(newBeer).subscribe(res => {
       this.results = res;
     });
+    this.router.navigate(['/confirm']);
   }
 }

@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { beerRoutes } from './routes/beer-routing';
 
 import { BeerService } from './services/beer-service.service';
+import { OrderService } from './services/order-service.service';
 
 import { AppComponent } from './app.component';
 import { BeerBuilderPageComponent } from './pages/beer-builder-page/beer-builder.component';
@@ -15,8 +16,9 @@ import { DesignLabelPageComponent } from './pages/design-label-page/design-label
 import { ConfirmOrderPageComponent } from './pages/confirm-order-page/confirm-order-page.component';
 import { PaymentManagementPageComponent } from './pages/payment-management-page/payment-management-page.component';
 import { OrderSucccessPageComponent } from './pages/order-succcess-page/order-succcess-page.component';
-import { BeerImageComponent } from './pages/beer-builder-page/components/beer-image/beer-image.component';
+import { BeerImageComponent } from './pages/reusables/beer-image/beer-image.component';
 import { BeerDesignFormComponent } from './pages/beer-builder-page/components/beer-design-form/beer-design-form.component';
+import { BeerOrderFormComponent } from './pages/confirm-order-page/components/beer-order-form/beer-order-form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { BeerDesignFormComponent } from './pages/beer-builder-page/components/be
     PaymentManagementPageComponent,
     OrderSucccessPageComponent,
     BeerImageComponent,
-    BeerDesignFormComponent
+    BeerDesignFormComponent,
+    BeerOrderFormComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { BeerDesignFormComponent } from './pages/beer-builder-page/components/be
     HttpModule,
     RouterModule.forRoot(beerRoutes),
   ],
-  providers: [BeerService],
+  providers: [BeerService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

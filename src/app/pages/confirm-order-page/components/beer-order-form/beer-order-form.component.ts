@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { OrderService } from '../../../../services/order-service.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { OrderService } from '../../../../services/order-service.service';
 export class BeerOrderFormComponent implements OnInit {
   results: Object;
 
-  constructor(private router: RouterModule,
+  constructor(private router: Router,
               private orderService: OrderService) { }
 
   ngOnInit() {
@@ -30,5 +30,6 @@ export class BeerOrderFormComponent implements OnInit {
     this.orderService.postOrder(newOrder).subscribe(res => {
       this.results = res;
     });
+    this.router.navigate(['/success']);
   }
 }

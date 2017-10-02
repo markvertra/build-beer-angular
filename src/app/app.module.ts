@@ -15,7 +15,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { DesignLabelPageComponent } from './pages/design-label-page/design-label-page.component';
 import { ConfirmOrderPageComponent } from './pages/confirm-order-page/confirm-order-page.component';
 import { PaymentManagementPageComponent } from './pages/payment-management-page/payment-management-page.component';
-import { OrderSucccessPageComponent } from './pages/order-succcess-page/order-succcess-page.component';
+import { OrderSuccessPageComponent } from './pages/order-success-page/order-success-page.component';
+
 import { BeerImageComponent } from './pages/reusables/beer-image/beer-image.component';
 import { BeerDesignFormComponent } from './pages/beer-builder-page/components/beer-design-form/beer-design-form.component';
 import { BeerOrderFormComponent } from './pages/confirm-order-page/components/beer-order-form/beer-order-form.component';
@@ -28,7 +29,7 @@ import { BeerOrderFormComponent } from './pages/confirm-order-page/components/be
     DesignLabelPageComponent,
     ConfirmOrderPageComponent,
     PaymentManagementPageComponent,
-    OrderSucccessPageComponent,
+    OrderSuccessPageComponent,
     BeerImageComponent,
     BeerDesignFormComponent,
     BeerOrderFormComponent

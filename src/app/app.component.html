@@ -3,7 +3,9 @@
   <h1>
     Welcome to beer-builder
   </h1>
-  <a [routerLink]="['/login']">Log In</a>
+  <a [routerLink]="['/']">Home</a>
+  <a *ngIf="!user" [routerLink]="['/login']">Log In</a>
+  <button *ngIf="user" (click)="logOut()">Log Out</button>
 </div>
 <hr>
 <router-outlet></router-outlet>

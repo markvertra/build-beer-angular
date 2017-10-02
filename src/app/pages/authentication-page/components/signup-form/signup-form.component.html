@@ -1,3 +1,10 @@
-<p>
-  signup-form works!
-</p>
+<form *ngIf="!user" (ngSubmit)="handleUserSignup(signupForm)" #signupForm="ngForm" class="log-form" >
+    <h2> Signup </h2>
+    <label> Username </label>
+    <input type="text" [(ngModel)]="username" name="username"/>
+    <br>
+    <label> Password </label>
+    <input type="password" [(ngModel)]="password" name="password"/>
+  
+    <button> Signup </button>
+  </form>

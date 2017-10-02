@@ -1,3 +1,5 @@
-<p>
-  beer-design-form works!
-</p>
+<form (ngSubmit)="handleNewBeer(beerForm)" #beerForm="ngForm" >
+  <label>Name</label>
+  <input type="text" name="name" [(ngModel)]="name">
+  <button type="submit">Create</button>
+</form>

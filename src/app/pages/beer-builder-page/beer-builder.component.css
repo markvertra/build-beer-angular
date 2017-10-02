@@ -1,4 +1,9 @@
+.design-page-title {
+  margin: auto;
+  text-align: center;
+}
+
 .beer-design-container {
   display: flex;
-  justify-content: space-around
+  justify-content: center;
 }

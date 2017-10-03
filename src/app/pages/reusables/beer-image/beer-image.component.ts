@@ -26,18 +26,19 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
   @Input() name;
   @Input() labelColor;
   @Input() labelFont;
+  @Input() labelFontColor;
 
   constructor() { }
 
   ngAfterViewInit() {
-    this.drawCanvas(this.color, this.opacity, this.capColor, this.labelColor, this.name, this.labelFont);
+    this.drawCanvas(this.color, this.opacity, this.capColor, this.labelColor, this.name, this.labelFont, this.labelFontColor);
   }
 
   ngOnChanges() {
-    this.drawCanvas(this.color, this.opacity, this.capColor, this.labelColor, this.name, this.labelFont);
+    this.drawCanvas(this.color, this.opacity, this.capColor, this.labelColor, this.name, this.labelFont, this.labelFontColor);
   }
 
-  drawCanvas(color, opacity, capColor, labelColor, name, font) {
+  drawCanvas(color, opacity, capColor, labelColor, name, font, fontColor) {
     const ctx: CanvasRenderingContext2D = this.myCanvas.nativeElement.getContext('2d');
     ctx.clearRect(0, 0, 1000, 1000);
 
@@ -72,11 +73,11 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
     this.drawLabel(ctx, labelColor);
     this.drawLabel(ctx, labelColor);
 
-    this.labelGraphics(ctx, name, font);
-    this.labelGraphics(ctx, name, font);
-    this.labelGraphics(ctx, name, font);
-    this.labelGraphics(ctx, name, font);
-    this.labelGraphics(ctx, name, font);
+    this.labelGraphics(ctx, name, font, fontColor);
+    this.labelGraphics(ctx, name, font, fontColor);
+    this.labelGraphics(ctx, name, font, fontColor);
+    this.labelGraphics(ctx, name, font, fontColor);
+    this.labelGraphics(ctx, name, font, fontColor);
 
   }
 
@@ -119,11 +120,29 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
     ctx.fill();
   }
 
-  labelGraphics(ctx, name, font) {
-    ctx.font = '24px ' + font;
+  labelGraphics(ctx, name, font, fontColor, icon = 'star') {
+    ctx.font = '18px ' + font;
     ctx.textAlign = 'center';
-    ctx.fillStyle = 'white';
-    ctx.fillText(name || '', 50, 300);
+    this.labelLogo(ctx, icon);
+    ctx.fillStyle = fontColor || 'white';
+    ctx.fillText(name || '', 75, 300);
+  }
+
+  labelLogo(ctx, icon) {
+    if (icon === 'star') {
+      ctx.beginPath();
+      ctx.moveTo(75, 325);
+      ctx.lineTo(85, 350);
+      ctx.lineTo(110, 345);
+      ctx.lineTo(90, 370);
+      ctx.lineTo(100, 400);
+      ctx.lineTo(75, 380);
+      ctx.lineTo(50, 400);
+      ctx.lineTo(60, 370);
+      ctx.lineTo(40, 345);
+      ctx.lineTo(65, 350);
+      ctx.fill();
+    }
   }
 
 }

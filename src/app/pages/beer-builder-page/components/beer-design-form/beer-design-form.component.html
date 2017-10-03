@@ -2,7 +2,7 @@
 
   <div class="form-element-container name-field-container">
     <label>Name</label>
-    <input type="text" name="name" [(ngModel)]="name" (change)="handleNameChange(name)" #beerName="ngModel" maxlength=30 required>
+    <input type="text" name="name" [(ngModel)]="name" (change)="handleNameChange(name)" #beerName="ngModel" maxlength=15 required>
     <h5>What it says on the label.</h5>
   </div>
 
@@ -60,23 +60,39 @@
   <div class="form-element-container label-text-field-container">
     <label>Label Colour</label>
     <select name="labelColor" [(ngModel)]="labelColor" (change)="handleLabelColorChange(labelColor)" required>
-      <option value="#0000FF">Blue</option>
-      <option value="#FF0000">Red</option>
-      <option value="#FFD700">Gold</option>
-      <option value="#C0C0C0">Silver</option>
-      <option value="#000000">Black</option>
+      <option *ngFor="let color of colors" value="{{ color.code }}">
+          {{ color.name }}
+      </option>
     </select>
     <h5>What colour would you like your label to be.</h5>
   </div>
 
+  <div class="form-element-container label-font-field-container">
+      <label>Label Font Colour</label>
+      <select name="labelFontColor" [(ngModel)]="labelFontColor" (change)="handleLabelFontColorChange(labelFontColor)" required>
+        <option *ngFor="let color of colors" value="{{ color.code }}">
+          {{ color.name }}
+        </option>
+      </select>
+      <h5>What colour would you like your label to be.</h5>
+    </div>
+
+  <div class="form-element-container label-text-field-container">
+      <label>Label Image</label>
+      <select name="labelImage" [(ngModel)]="labelImage" (change)="handleLabelImageChange(labelImage)">
+        <option value="https://image.flaticon.com/icons/png/128/7/7488.png">Star</option>
+        <option value="#FF0000">Skull</option>
+        <option value="#FFD700">Fist</option>
+      </select>
+      <h5>What will be on your label?</h5>
+    </div>
+
   <div class="form-element-container cap-color-field-container">
     <label>Cap Colour</label>
     <select name="capColor" [(ngModel)]="capColor" (change)="handleCapColorChange(capColor)" required>
-      <option value="#0000FF">Blue</option>
-      <option value="#FF0000">Red</option>
-      <option value="#FFD700">Gold</option>
-      <option value="#C0C0C0">Silver</option>
-      <option value="#000000">Black</option>
+      <option *ngFor="let color of colors" value="{{ color.code }}">
+        {{ color.name }}
+      </option>
     </select>
     <h5>What colour would you like your bottle cap to be.</h5>
   </div>

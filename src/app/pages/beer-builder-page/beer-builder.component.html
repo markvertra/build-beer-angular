@@ -1,5 +1,5 @@
 <div class="design-page-header">
-  <h2 class>Build your beer</h2>
+  <h2 class>Build your unique beer</h2>
   <h5>Choose a style, customise your beer (if you dare),
       design a label and bottle cap. Our master brewer will 
       review your selection, and within 48 hours suggest any 
@@ -13,6 +13,7 @@
                     [opacity]="opacity" 
                     [capColor]="capColor"
                     [labelColor]="labelColor"
+                    [labelFontColor]="labelFontColor"
                     [labelFont]="labelFont"
                     [name]="name"></app-beer-image>
   </div>
@@ -22,6 +23,7 @@
                           (onCapColorChange)="handleCapColorChange($event)"
                           (onNameChange)="handleNameChange($event)"
                           (onLabelColorChange)="handleLabelColorChange($event)"
+                          (onLabelFontColorChange)="handleLabelFontColorChange($event)"
                           (onBeerCreation)="handleBeerCreation($event)"
                           (onLabelFontChange)="handleLabelFontChange($event)"></app-beer-design-form>
   </div>

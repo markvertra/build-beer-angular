@@ -27,18 +27,22 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
   @Input() labelColor;
   @Input() labelFont;
   @Input() labelFontColor;
+  @Input() labelImage;
 
   constructor() { }
 
   ngAfterViewInit() {
-    this.drawCanvas(this.color, this.opacity, this.capColor, this.labelColor, this.name, this.labelFont, this.labelFontColor);
+    this.drawCanvas(this.color, this.opacity, this.capColor, this.labelColor,
+                    this.name, this.labelFont, this.labelFontColor, this.labelImage);
   }
 
   ngOnChanges() {
-    this.drawCanvas(this.color, this.opacity, this.capColor, this.labelColor, this.name, this.labelFont, this.labelFontColor);
+    this.drawCanvas(this.color, this.opacity, this.capColor, this.labelColor,
+                    this.name, this.labelFont, this.labelFontColor, this.labelImage);
+                    console.log(this.labelImage);
   }
 
-  drawCanvas(color, opacity, capColor, labelColor, name, font, fontColor) {
+  drawCanvas(color, opacity, capColor, labelColor, name, font, fontColor, labelImage) {
     const ctx: CanvasRenderingContext2D = this.myCanvas.nativeElement.getContext('2d');
     ctx.clearRect(0, 0, 1000, 1000);
 
@@ -73,11 +77,11 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
     this.drawLabel(ctx, labelColor);
     this.drawLabel(ctx, labelColor);
 
-    this.labelGraphics(ctx, name, font, fontColor);
-    this.labelGraphics(ctx, name, font, fontColor);
-    this.labelGraphics(ctx, name, font, fontColor);
-    this.labelGraphics(ctx, name, font, fontColor);
-    this.labelGraphics(ctx, name, font, fontColor);
+    this.labelGraphics(ctx, name, font, fontColor, labelImage);
+    this.labelGraphics(ctx, name, font, fontColor, labelImage);
+    this.labelGraphics(ctx, name, font, fontColor, labelImage);
+    this.labelGraphics(ctx, name, font, fontColor, labelImage);
+    this.labelGraphics(ctx, name, font, fontColor, labelImage);
 
   }
 
@@ -120,29 +124,58 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
     ctx.fill();
   }
 
-  labelGraphics(ctx, name, font, fontColor, icon = 'star') {
+  labelGraphics(ctx, name, font, fontColor, labelImage) {
     ctx.font = '18px ' + font;
     ctx.textAlign = 'center';
-    this.labelLogo(ctx, icon);
+    this.labelLogo(ctx, labelImage);
     ctx.fillStyle = fontColor || 'white';
     ctx.fillText(name || '', 75, 300);
   }
 
   labelLogo(ctx, icon) {
     if (icon === 'star') {
-      ctx.beginPath();
-      ctx.moveTo(75, 325);
-      ctx.lineTo(85, 350);
-      ctx.lineTo(110, 345);
-      ctx.lineTo(90, 370);
-      ctx.lineTo(100, 400);
-      ctx.lineTo(75, 380);
-      ctx.lineTo(50, 400);
-      ctx.lineTo(60, 370);
-      ctx.lineTo(40, 345);
-      ctx.lineTo(65, 350);
-      ctx.fill();
+      this.drawStar(ctx);
+    } else if (icon === 'badge') {
+      this.drawBadge(ctx);
+    } else if (icon === 'irongram') {
+      this.drawIron(ctx);
     }
+  }
+
+  drawStar(ctx) {
+    ctx.beginPath();
+    ctx.moveTo(75, 325);
+    ctx.lineTo(85, 350);
+    ctx.lineTo(110, 345);
+    ctx.lineTo(90, 370);
+    ctx.lineTo(100, 400);
+    ctx.lineTo(75, 380);
+    ctx.lineTo(50, 400);
+    ctx.lineTo(60, 370);
+    ctx.lineTo(40, 345);
+    ctx.lineTo(65, 350);
+    ctx.fill();
+  }
+
+  drawBadge(ctx) {
+    ctx.beginPath();
+    ctx.moveTo(75, 325);
+    ctx.quadraticCurveTo(92.5, 345, 110, 325);
+    ctx.quadraticCurveTo(92.5, 380, 75, 400);
+    ctx.quadraticCurveTo(57.5, 380, 40, 325);
+    ctx.quadraticCurveTo(57.5, 345, 75, 325);
+    ctx.fill();
+  }
+
+  drawIron(ctx) {
+    ctx.beginPath();
+    ctx.moveTo(75, 325);
+    ctx.lineTo(110, 345);
+    ctx.lineTo(110, 380);
+    ctx.lineTo(75, 400);
+    ctx.lineTo(40, 380);
+    ctx.lineTo(40, 345);
+    ctx.fill();
   }
 
 }

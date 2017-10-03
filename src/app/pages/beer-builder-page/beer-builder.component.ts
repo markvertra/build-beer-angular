@@ -21,6 +21,7 @@ export class BeerBuilderPageComponent implements OnInit {
   labelColor;
   labelFont;
   labelFontColor;
+  labelImage;
   @Output() onBeerCreation = new EventEmitter<object>();
   constructor() { }
 
@@ -45,6 +46,10 @@ export class BeerBuilderPageComponent implements OnInit {
 
   handleLabelFontColorChange(color) {
     this.labelFontColor = color;
+  }
+
+  handleLabelImageChange(image) {
+    this.labelImage = image;
   }
 
   handleLabelFontChange(font) {

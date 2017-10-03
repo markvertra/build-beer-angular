@@ -27,8 +27,7 @@
       <option value="Medium">Medium</option>
       <option value="Opaque">Opaque</option>
     </select>
-    <h5>How clear do you want your beer to be (note:
-      it is harder to tell when dark beers are clear).</h5>
+    <h5>How clear do you want your beer to be</h5>
   </div>
 
   <div class="form-element-container flavours-field-container">
@@ -80,9 +79,9 @@
   <div class="form-element-container label-text-field-container">
       <label>Label Image</label>
       <select name="labelImage" [(ngModel)]="labelImage" (change)="handleLabelImageChange(labelImage)">
-        <option value="https://image.flaticon.com/icons/png/128/7/7488.png">Star</option>
-        <option value="#FF0000">Skull</option>
-        <option value="#FFD700">Fist</option>
+        <option value="star">Star</option>
+        <option value="badge">Badge</option>
+        <option value="irongram">Irongram</option>
       </select>
       <h5>What will be on your label?</h5>
     </div>

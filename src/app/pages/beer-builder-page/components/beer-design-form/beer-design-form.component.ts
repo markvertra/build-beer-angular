@@ -36,6 +36,7 @@ export class BeerDesignFormComponent implements OnInit {
   @Output() onLabelColorChange = new EventEmitter<string>();
   @Output() onLabelFontChange = new EventEmitter<string>();
   @Output() onLabelFontColorChange = new EventEmitter<string>();
+  @Output() onLabelImageChange = new EventEmitter<string>();
   @Output() onBeerCreation = new EventEmitter<object>();
 
   constructor(private beerService: BeerService,
@@ -62,6 +63,10 @@ export class BeerDesignFormComponent implements OnInit {
 
   handleLabelColorChange(color) {
     this.onLabelColorChange.emit(color);
+  }
+
+  handleLabelImageChange(image) {
+    this.onLabelImageChange.emit(image);
   }
 
   handleLabelFontColorChange(color) {

@@ -14,6 +14,7 @@
                     [capColor]="capColor"
                     [labelColor]="labelColor"
                     [labelFontColor]="labelFontColor"
+                    [labelImage]="labelImage"
                     [labelFont]="labelFont"
                     [name]="name"></app-beer-image>
   </div>
@@ -23,6 +24,7 @@
                           (onCapColorChange)="handleCapColorChange($event)"
                           (onNameChange)="handleNameChange($event)"
                           (onLabelColorChange)="handleLabelColorChange($event)"
+                          (onLabelImageChange)="handleLabelImageChange($event)"
                           (onLabelFontColorChange)="handleLabelFontColorChange($event)"
                           (onBeerCreation)="handleBeerCreation($event)"
                           (onLabelFontChange)="handleLabelFontChange($event)"></app-beer-design-form>

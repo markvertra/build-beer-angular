@@ -39,6 +39,11 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
   drawCanvas(color, opacity, capColor, labelColor, name) {
     const ctx: CanvasRenderingContext2D = this.myCanvas.nativeElement.getContext('2d');
     ctx.clearRect(0, 0, 1000, 1000);
+
+    this.drawShadow(ctx);
+    this.drawShadow(ctx);
+    this.drawShadow(ctx);
+
     ctx.globalAlpha = opacity;
     ctx.fillStyle = color || '#000000';
     ctx.beginPath();
@@ -71,6 +76,7 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
     this.labelGraphics(ctx, name);
     this.labelGraphics(ctx, name);
     this.labelGraphics(ctx, name);
+
   }
 
   drawCap(ctx, capColor) {
@@ -91,6 +97,24 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
     ctx.quadraticCurveTo(75, 475, 150, 450);
     ctx.lineTo(150, 250);
     ctx.quadraticCurveTo(75, 255, 0, 250);
+    ctx.fill();
+  }
+
+  drawShadow(ctx) {
+    ctx.beginPath();
+    ctx.fillStyle = '#404040';
+    ctx.moveTo(150, 500);
+    ctx.lineTo(220, 250);
+    ctx.quadraticCurveTo(217, 225, 208, 210);
+    ctx.lineTo(220, 130);
+    ctx.quadraticCurveTo(230, 125, 222, 120);
+    ctx.lineTo(223, 116);
+    ctx.quadraticCurveTo(235, 111, 224, 106);
+    ctx.lineTo(184, 106);
+    ctx.quadraticCurveTo(173, 111, 183, 116);
+    ctx.lineTo(181, 120);
+    ctx.quadraticCurveTo(171, 125, 180, 130);
+    ctx.lineTo(150, 200);
     ctx.fill();
   }
 

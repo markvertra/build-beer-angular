@@ -42,9 +42,9 @@ export class BeerBuilderPageComponent implements OnInit {
 
   handleOpacityChange(opacity) {
     if (opacity === 'Clear') {
-      this.opacity = 0.5;
+      this.opacity = 0.7;
     } else if (opacity === 'Medium') {
-      this.opacity = 0.75;
+      this.opacity = 0.85;
     } else if (opacity === 'Opaque') {
       this.opacity = 1;
     }

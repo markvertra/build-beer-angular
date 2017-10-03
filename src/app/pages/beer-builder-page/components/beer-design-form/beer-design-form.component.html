@@ -2,7 +2,7 @@
 
   <div class="form-element-container name-field-container">
     <label>Name</label>
-    <input type="text" name="name" [(ngModel)]="name" (change)="handleNameChange(name)" #beerName="ngModel" required>
+    <input type="text" name="name" [(ngModel)]="name" (change)="handleNameChange(name)" #beerName="ngModel" maxlength=30 required>
     <h5>What it says on the label.</h5>
   </div>
 

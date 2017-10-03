@@ -13,7 +13,6 @@ import { SessionService } from './services/session-service.service';
 import { AppComponent } from './app.component';
 import { BeerBuilderPageComponent } from './pages/beer-builder-page/beer-builder.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { DesignLabelPageComponent } from './pages/design-label-page/design-label-page.component';
 import { ConfirmOrderPageComponent } from './pages/confirm-order-page/confirm-order-page.component';
 import { PaymentManagementPageComponent } from './pages/payment-management-page/payment-management-page.component';
 import { OrderSuccessPageComponent } from './pages/order-success-page/order-success-page.component';
@@ -24,13 +23,13 @@ import { BeerOrderFormComponent } from './pages/confirm-order-page/components/be
 import { AuthenticationPageComponent } from './pages/authentication-page/authentication-page.component';
 import { LoginFormComponent } from './pages/authentication-page/components/login-form/login-form.component';
 import { SignupFormComponent } from './pages/authentication-page/components/signup-form/signup-form.component';
+import { BeerCreationProcessComponent } from './pages/beer-creation-process/beer-creation-process.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BeerBuilderPageComponent,
     HomePageComponent,
-    DesignLabelPageComponent,
     ConfirmOrderPageComponent,
     PaymentManagementPageComponent,
     OrderSuccessPageComponent,
@@ -39,7 +38,8 @@ import { SignupFormComponent } from './pages/authentication-page/components/sign
     BeerOrderFormComponent,
     AuthenticationPageComponent,
     LoginFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    BeerCreationProcessComponent
   ],
   imports: [
     BrowserModule,

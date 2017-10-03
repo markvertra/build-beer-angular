@@ -1,8 +1,8 @@
-<h3> Thank you for creating your beer. Please select the quantity desired</h3>
-
 <form (ngSubmit)="handleNewOrder(orderForm)" #orderForm="ngForm" class="beer-build-form" >
     
   <div class="form-element-container quantity-field-container">
+      <h3> Thank you for creating your beer. Please select the quantity desired</h3>
+      <br>
     <label>Quantity</label>
     <select name="quantity" [(ngModel)]="quantity">
       <option value="20">20 500ml Bottles - €50</option>
@@ -13,9 +13,10 @@
     </select>
   </div>
 
-  <h4>Please enter your delivery details</h4>
+  
 
   <div class="form-element-container delivery-details-container">
+    <h3>Please enter your delivery details</h3>
     <div class="delivery-element">
       <label>First Name</label>
       <input type="text" name="firstName" [(ngModel)]="firstName">
@@ -28,6 +29,10 @@
       <label>Address</label>
       <input type="text" name="address" [(ngModel)]="address">
     </div>
+    <div class="delivery-element">
+        <label>City</label>
+        <input type="text" name="city" [(ngModel)]="city">
+      </div>
     <div class="delivery-element">
       <label>Post Code</label>
       <input type="text" name="postcode" [(ngModel)]="postcode">

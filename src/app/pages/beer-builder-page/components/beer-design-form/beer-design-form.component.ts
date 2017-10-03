@@ -9,13 +9,14 @@ import { BeerService } from '../../../../services/beer-service.service';
   providers: [ BeerService ]
 })
 export class BeerDesignFormComponent implements OnInit {
-  results: {};
+  results;
   style: String;
   @Output() onStyleChange = new EventEmitter<string>();
   @Output() onOpacityChange = new EventEmitter<string>();
   @Output() onCapColorChange = new EventEmitter<string>();
   @Output() onNameChange = new EventEmitter<string>();
   @Output() onLabelColorChange = new EventEmitter<string>();
+  @Output() onBeerCreation = new EventEmitter<object>();
 
   constructor(private beerService: BeerService,
               private router: Router) { }
@@ -46,13 +47,14 @@ export class BeerDesignFormComponent implements OnInit {
   handleNewBeer(form) {
     const newBeer = { name: form.value.name,
                       beerDetails: { style: form.value.style,
-                                     extraColourants: [form.value.colourants],
+                                     opacity: form.value.colourants,
                                      extraFlavours: [form.value.flavours],
                                      timeToAge: form.value.age },
-                      imageURL: form.value.labelURL};
+                      labelColor: form.value.labelColor,
+                      capColor: form.value.capColor };
     this.beerService.postBeer(newBeer).subscribe(res => {
       this.results = res;
+      this.onBeerCreation.emit(results);
     });
-    this.router.navigate(['/confirm']);
   }
 }

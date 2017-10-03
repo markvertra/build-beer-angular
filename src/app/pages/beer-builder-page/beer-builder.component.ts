@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-beer-builder-page',
@@ -19,9 +19,14 @@ export class BeerBuilderPageComponent implements OnInit {
   capColor;
   name;
   labelColor;
+  @Output() onBeerCreation = new EventEmitter<object>();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleBeerCreation(beer) {
+    this.onBeerCreation.emit(beer);
   }
 
   handleStyleChange(style) {

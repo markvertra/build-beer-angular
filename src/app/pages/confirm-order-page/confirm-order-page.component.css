@@ -7,3 +7,12 @@
   display: flex;
   justify-content: center;
 }
+
+.beer-design-form-wrapper {
+  width: 400px;
+}
+
+.bottle-image-wrapper {
+  padding-top: 50px;
+}
+

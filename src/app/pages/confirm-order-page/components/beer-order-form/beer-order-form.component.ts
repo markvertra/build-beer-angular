@@ -10,7 +10,6 @@ import { OrderService } from '../../../../services/order-service.service';
 })
 export class BeerOrderFormComponent implements OnInit {
   results: Object;
-
   constructor(private router: Router,
               private orderService: OrderService) { }
 
@@ -23,6 +22,7 @@ export class BeerOrderFormComponent implements OnInit {
                       deliveryDetails: { firstName: form.value.firstName,
                       lastName: form.value.lastName,
                       address: form.value.address,
+                      city: form.value.city,
                       postcode: form.value.postcode,
                       telephoneNumber: form.value.telephoneNumber,
                       email: form.value.email

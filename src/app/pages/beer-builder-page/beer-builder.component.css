@@ -1,9 +1,19 @@
-.design-page-title {
+.design-page-header {
   margin: auto;
   text-align: center;
+  max-width: 500px;
 }
 
 .beer-design-container {
+  padding: 10px;
   display: flex;
   justify-content: center;
+}
+
+.bottle-image-wrapper {
+  padding-top: 50px;
+}
+
+.beer-order-form-wrapper {
+  width: 400px;
 }

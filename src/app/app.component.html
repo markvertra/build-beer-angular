@@ -8,7 +8,9 @@
   <button *ngIf="user" (click)="logOut()">Log Out</button>
 </div>
 <hr>
-<router-outlet></router-outlet>
+<div class="router-pages">
+  <router-outlet></router-outlet>
+</div>
 <hr>
 <div class="footer">
   Build-Your-Own-Beer, a website by markvertra.

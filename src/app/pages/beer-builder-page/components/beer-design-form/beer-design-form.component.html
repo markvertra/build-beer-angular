@@ -3,6 +3,7 @@
   <div class="form-element-container name-field-container">
     <label>Name</label>
     <input type="text" name="name" [(ngModel)]="name" (change)="handleNameChange(name)">
+    <h5>What it says on the label.</h5>
   </div>
 
   <div class="form-element-container style-field-container">
@@ -16,6 +17,7 @@
       <option value="Porter">Porter</option>
       <option value="Stout">Stout</option>
     </select>
+    <h5>This will be the base of your beer.</h5>
   </div>
 
   <div class="form-element-container colourants-field-container">
@@ -25,6 +27,8 @@
       <option value="Medium">Medium</option>
       <option value="Opaque">Opaque</option>
     </select>
+    <h5>How clear do you want your beer to be (note:
+      it is harder to tell when dark beers are clear).</h5>
   </div>
 
   <div class="form-element-container flavours-field-container">
@@ -35,11 +39,13 @@
       <option value="Coffee">Coffee</option>
       <option value="Lemon">Lemon</option>
     </select>
+    <h5>Each style has unique flavours which can be added</h5>
   </div>
 
   <div class="form-element-container age-field-container">
     <label>Extra Aging Days</label>
-    <input type="number" name="age" [(ngModel)]="age">
+    <input type="number" name="age" [(ngModel)]="age" max=30 min=0>
+    <h5>We can bottle-age your beer for up to 30 additional days</h5>
   </div>
 
   <div class="form-element-container label-url-field-container">
@@ -51,6 +57,7 @@
       <option value="#C0C0C0">Silver</option>
       <option value="#000000">Black</option>
     </select>
+    <h5>What colour would you like your label to be.</h5>
   </div>
 
   <div class="form-element-container cap-color-field-container">
@@ -62,6 +69,7 @@
       <option value="#C0C0C0">Silver</option>
       <option value="#000000">Black</option>
     </select>
+    <h5>What colour would you like your bottle cap to be.</h5>
   </div>
   
   <button type="submit">Create</button>

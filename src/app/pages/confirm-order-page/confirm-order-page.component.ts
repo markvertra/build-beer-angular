@@ -33,8 +33,8 @@ export class ConfirmOrderPageComponent implements OnInit {
     } else if (this.beerCreated.beerDetails.opacity === 'Opaque') {
       this.opacity = 1;
     }
-    this.labelColor = this.beerCreated.labelColor;
-    this.capColor = this.beerCreated.capColor;
+    this.labelColor = this.beerCreated.label.color;
+    this.capColor = this.beerCreated.cap.color;
     this.name = this.beerCreated.name;
   }
 

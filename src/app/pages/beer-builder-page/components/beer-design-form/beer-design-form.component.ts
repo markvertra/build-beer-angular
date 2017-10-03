@@ -54,7 +54,7 @@ export class BeerDesignFormComponent implements OnInit {
                       capColor: form.value.capColor };
     this.beerService.postBeer(newBeer).subscribe(res => {
       this.results = res;
-      this.onBeerCreation.emit(results);
+      this.onBeerCreation.emit(this.results);
     });
   }
 }

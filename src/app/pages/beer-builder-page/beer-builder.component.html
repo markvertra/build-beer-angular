@@ -16,6 +16,7 @@
                     [labelFontColor]="labelFontColor"
                     [labelImage]="labelImage"
                     [labelFont]="labelFont"
+                    [labelSlogan]="labelSlogan"
                     [name]="name"></app-beer-image>
   </div>
   <div class="beer-order-form-wrapper">
@@ -25,6 +26,7 @@
                           (onNameChange)="handleNameChange($event)"
                           (onLabelColorChange)="handleLabelColorChange($event)"
                           (onLabelImageChange)="handleLabelImageChange($event)"
+                          (onLabelSloganChange)="handleLabelSloganChange($event)"
                           (onLabelFontColorChange)="handleLabelFontColorChange($event)"
                           (onBeerCreation)="handleBeerCreation($event)"
                           (onLabelFontChange)="handleLabelFontChange($event)"></app-beer-design-form>

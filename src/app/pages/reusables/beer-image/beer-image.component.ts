@@ -28,21 +28,23 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
   @Input() labelFont;
   @Input() labelFontColor;
   @Input() labelImage;
+  @Input() labelSlogan;
 
   constructor() { }
 
   ngAfterViewInit() {
     this.drawCanvas(this.color, this.opacity, this.capColor, this.labelColor,
-                    this.name, this.labelFont, this.labelFontColor, this.labelImage);
+                    this.name, this.labelFont, this.labelFontColor,
+                    this.labelImage, this.labelSlogan);
   }
 
   ngOnChanges() {
     this.drawCanvas(this.color, this.opacity, this.capColor, this.labelColor,
-                    this.name, this.labelFont, this.labelFontColor, this.labelImage);
-                    console.log(this.labelImage);
+                    this.name, this.labelFont, this.labelFontColor,
+                    this.labelImage, this.labelSlogan);
   }
 
-  drawCanvas(color, opacity, capColor, labelColor, name, font, fontColor, labelImage) {
+  drawCanvas(color, opacity, capColor, labelColor, name, font, fontColor, labelImage, labelSlogan) {
     const ctx: CanvasRenderingContext2D = this.myCanvas.nativeElement.getContext('2d');
     ctx.clearRect(0, 0, 1000, 1000);
 
@@ -77,11 +79,11 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
     this.drawLabel(ctx, labelColor);
     this.drawLabel(ctx, labelColor);
 
-    this.labelGraphics(ctx, name, font, fontColor, labelImage);
-    this.labelGraphics(ctx, name, font, fontColor, labelImage);
-    this.labelGraphics(ctx, name, font, fontColor, labelImage);
-    this.labelGraphics(ctx, name, font, fontColor, labelImage);
-    this.labelGraphics(ctx, name, font, fontColor, labelImage);
+    this.labelGraphics(ctx, name, font, fontColor, labelImage, labelSlogan);
+    this.labelGraphics(ctx, name, font, fontColor, labelImage, labelSlogan);
+    this.labelGraphics(ctx, name, font, fontColor, labelImage, labelSlogan);
+    this.labelGraphics(ctx, name, font, fontColor, labelImage, labelSlogan);
+    this.labelGraphics(ctx, name, font, fontColor, labelImage, labelSlogan);
 
   }
 
@@ -124,12 +126,13 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
     ctx.fill();
   }
 
-  labelGraphics(ctx, name, font, fontColor, labelImage) {
+  labelGraphics(ctx, name, font, fontColor, labelImage, labelSlogan) {
     ctx.font = '18px ' + font;
     ctx.textAlign = 'center';
     this.labelLogo(ctx, labelImage);
     ctx.fillStyle = fontColor || 'white';
     ctx.fillText(name || '', 75, 300);
+    ctx.fillText(labelSlogan || '', 75, 425);
   }
 
   labelLogo(ctx, icon) {

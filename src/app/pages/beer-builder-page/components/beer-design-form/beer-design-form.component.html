@@ -7,7 +7,7 @@
 
   <div class="form-element-container style-field-container">
     <label>Style</label>
-    <select name="style" [(ngModel)]="style">
+    <select name="style" [(ngModel)]="style" (change)="handleStyleChange(style)">
       <option value="Lager">Lager</option>
       <option value="Wheat Beer">Wheat Beer</option>
       <option value="IPA">IPA</option>
@@ -20,7 +20,7 @@
 
   <div class="form-element-container colourants-field-container">
     <label>Clarity</label>
-    <select name="colourants" [(ngModel)]="colourants">
+    <select name="colourants" [(ngModel)]="colourants" (change)="handleOpacityChange(colourants)">
       <option value="Clear">Clear</option>
       <option value="Medium">Medium</option>
       <option value="Opaque">Opaque</option>

@@ -4,9 +4,9 @@
 
 <div class="beer-design-container">
   <div class="bottle-image-wrapper">
-    <app-beer-image></app-beer-image>
+    <app-beer-image [color]="color" [opacity]="opacity"></app-beer-image>
   </div>
   <div class="beer-order-form-wrapper">
-    <app-beer-design-form></app-beer-design-form>
+    <app-beer-design-form (onStyleChange)="handleStyleChange($event)" (onOpacityChange)="handleOpacityChange($event)"></app-beer-design-form>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { BeerService } from '../../../../services/beer-service.service';
 
@@ -10,11 +10,22 @@ import { BeerService } from '../../../../services/beer-service.service';
 })
 export class BeerDesignFormComponent implements OnInit {
   results: {};
+  style: String;
+  @Output() onStyleChange = new EventEmitter<string>();
+  @Output() onOpacityChange = new EventEmitter<string>();
 
   constructor(private beerService: BeerService,
               private router: Router) { }
 
   ngOnInit() {
+  }
+
+  handleStyleChange(style) {
+    this.onStyleChange.emit(style);
+  }
+
+  handleOpacityChange(opacity) {
+    this.onOpacityChange.emit(opacity);
   }
 
   handleNewBeer(form) {

@@ -1,11 +1,16 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component,
+        AfterViewInit,
+        ViewChild,
+        ElementRef,
+        Input,
+        OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-beer-image',
   templateUrl: './beer-image.component.html',
   styleUrls: ['./beer-image.component.css']
 })
-export class BeerImageComponent implements AfterViewInit {
+export class BeerImageComponent implements AfterViewInit, OnChanges {
   @ViewChild('myCanvas') myCanvas: ElementRef;
   colors = {stout: '#32312c',
             porter: '#4f3b28',
@@ -15,13 +20,24 @@ export class BeerImageComponent implements AfterViewInit {
             paleAle: '#ffa712',
             ipa: '#e37b4c'
             };
-  color = this.colors.lager;
+  @Input() color;
+  @Input() opacity;
 
   constructor() { }
 
   ngAfterViewInit() {
+    this.drawCanvas(this.color, this.opacity);
+  }
+
+  ngOnChanges() {
+    this.drawCanvas(this.color, this.opacity);
+  }
+
+  drawCanvas(color, opacity) {
     const ctx: CanvasRenderingContext2D = this.myCanvas.nativeElement.getContext('2d');
-    ctx.fillStyle = this.color;
+    ctx.clearRect(0, 0, 1000, 1000);
+    ctx.globalAlpha = opacity;
+    ctx.fillStyle = color;
     ctx.beginPath();
     ctx.moveTo(150, 25);
     ctx.quadraticCurveTo(143, 30, 150, 35);

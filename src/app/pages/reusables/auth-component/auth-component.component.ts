@@ -27,7 +27,6 @@ export class AuthComponentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loading = false;
     this.authService.userChange$.subscribe((user) => {
       this.setUser(user);
     });

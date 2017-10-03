@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class SessionService {
+  private initialized: boolean;
+  private user;
+  private userChange: Subject<null> = new Subject();
+
+  userChange$ = this.userChange.asObservable();
 
   BASE_URL = 'http://localhost:3000';
   constructor(private http: Http) { }

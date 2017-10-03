@@ -15,11 +15,15 @@ export class ConfirmOrderPageComponent implements OnInit {
   'IPA': '#e37b4c'
 };
   @Input() beerCreated;
-    color;
-    opacity;
-    labelColor;
-    capColor;
-    name;
+  color;
+  opacity;
+  labelColor;
+  labelFontColor;
+  labelImage;
+  labelFont;
+  labelSlogan;
+  capColor;
+  name;
 
   constructor() { }
 
@@ -35,6 +39,10 @@ export class ConfirmOrderPageComponent implements OnInit {
     this.labelColor = this.beerCreated.label.color;
     this.capColor = this.beerCreated.cap.color;
     this.name = this.beerCreated.name;
+    this.labelFontColor = this.beerCreated.label.fontColor;
+    this.labelImage = this.beerCreated.label.image;
+    this.labelFont = this.beerCreated.label.font;
+    this.labelSlogan = this.beerCreated.label.slogan;
   }
 
 }

@@ -132,7 +132,7 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
     this.labelLogo(ctx, labelImage);
     ctx.fillStyle = fontColor || 'white';
     ctx.fillText(name || '', 75, 300);
-    ctx.fillText(labelSlogan || '', 75, 425);
+    ctx.fillText(labelSlogan || '', 75, 430);
   }
 
   labelLogo(ctx, icon) {

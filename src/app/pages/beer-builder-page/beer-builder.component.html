@@ -13,6 +13,7 @@
                     [opacity]="opacity" 
                     [capColor]="capColor"
                     [labelColor]="labelColor"
+                    [labelFont]="labelFont"
                     [name]="name"></app-beer-image>
   </div>
   <div class="beer-order-form-wrapper">
@@ -21,6 +22,7 @@
                           (onCapColorChange)="handleCapColorChange($event)"
                           (onNameChange)="handleNameChange($event)"
                           (onLabelColorChange)="handleLabelColorChange($event)"
-                          (onBeerCreation)="handleBeerCreation($event)"></app-beer-design-form>
+                          (onBeerCreation)="handleBeerCreation($event)"
+                          (onLabelFontChange)="handleLabelFontChange($event)"></app-beer-design-form>
   </div>
 </div>

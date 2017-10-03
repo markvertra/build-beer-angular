@@ -43,13 +43,21 @@
     <h5>Each style has unique flavours which can be added</h5>
   </div>
 
-  <div class="form-element-container age-field-container">
-    <label>Extra Aging Days</label>
-    <input type="number" name="age" [(ngModel)]="age" max=30 min=0>
-    <h5>We can bottle-age your beer for up to 30 additional days</h5>
+  <div class="form-element-container font-field-container">
+    <label>Label Font</label>
+    <select name="labelFont" [(ngModel)]="labelFont" (change)="handleLabelFontChange(labelFont)" required>
+      <option value="Lato">Lato</option>
+      <option value="Poppins">Poppins</option>
+      <option value="Arial">Arial</option>
+      <option value="Geo">Geo</option>
+      <option value="Lobster">Lobster</option>
+      <option value="Metal Mania">Metal Mania</option>
+      <option value="Open Sans">Open Sans</option>
+      <option value="Gloria Hallelujah">Gloria Hallelujah</option>
+    </select>
   </div>
 
-  <div class="form-element-container label-url-field-container">
+  <div class="form-element-container label-text-field-container">
     <label>Label Colour</label>
     <select name="labelColor" [(ngModel)]="labelColor" (change)="handleLabelColorChange(labelColor)" required>
       <option value="#0000FF">Blue</option>

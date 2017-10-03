@@ -2,7 +2,7 @@
 
   <div class="form-element-container name-field-container">
     <label>Name</label>
-    <input type="text" name="name" [(ngModel)]="name">
+    <input type="text" name="name" [(ngModel)]="name" (change)="handleNameChange(name)">
   </div>
 
   <div class="form-element-container style-field-container">
@@ -43,8 +43,25 @@
   </div>
 
   <div class="form-element-container label-url-field-container">
-    <label>Label Url</label>
-    <input type="text" name="labelURL" [(ngModel)]="labelURL">
+    <label>Label Colour</label>
+    <select name="labelColor" [(ngModel)]="labelColor" (change)="handleLabelColorChange(labelColor)">
+      <option value="#0000FF">Blue</option>
+      <option value="#FF0000">Red</option>
+      <option value="#FFD700">Gold</option>
+      <option value="#C0C0C0">Silver</option>
+      <option value="#000000">Black</option>
+    </select>
+  </div>
+
+  <div class="form-element-container cap-color-field-container">
+    <label>Cap Colour</label>
+    <select name="capColor" [(ngModel)]="capColor" (change)="handleCapColorChange(capColor)">
+      <option value="#0000FF">Blue</option>
+      <option value="#FF0000">Red</option>
+      <option value="#FFD700">Gold</option>
+      <option value="#C0C0C0">Silver</option>
+      <option value="#000000">Black</option>
+    </select>
   </div>
   
   <button type="submit">Create</button>

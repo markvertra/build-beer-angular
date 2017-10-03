@@ -16,6 +16,9 @@ export class BeerBuilderPageComponent implements OnInit {
           };
   color;
   opacity;
+  capColor;
+  name;
+  labelColor;
   constructor() { }
 
   ngOnInit() {
@@ -23,6 +26,18 @@ export class BeerBuilderPageComponent implements OnInit {
 
   handleStyleChange(style) {
     this.color = this.colors[style];
+  }
+
+  handleCapColorChange(color) {
+    this.capColor = color;
+  }
+
+  handleLabelColorChange(color) {
+    this.labelColor = color;
+  }
+
+  handleNameChange(name) {
+    this.name = name;
   }
 
   handleOpacityChange(opacity) {

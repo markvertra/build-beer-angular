@@ -13,6 +13,9 @@ export class BeerDesignFormComponent implements OnInit {
   style: String;
   @Output() onStyleChange = new EventEmitter<string>();
   @Output() onOpacityChange = new EventEmitter<string>();
+  @Output() onCapColorChange = new EventEmitter<string>();
+  @Output() onNameChange = new EventEmitter<string>();
+  @Output() onLabelColorChange = new EventEmitter<string>();
 
   constructor(private beerService: BeerService,
               private router: Router) { }
@@ -26,6 +29,18 @@ export class BeerDesignFormComponent implements OnInit {
 
   handleOpacityChange(opacity) {
     this.onOpacityChange.emit(opacity);
+  }
+
+  handleCapColorChange(color) {
+    this.onCapColorChange.emit(color);
+  }
+
+  handleLabelColorChange(color) {
+    this.onLabelColorChange.emit(color);
+  }
+
+  handleNameChange(name) {
+    this.onNameChange.emit(name);
   }
 
   handleNewBeer(form) {

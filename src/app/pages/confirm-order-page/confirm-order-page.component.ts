@@ -24,7 +24,6 @@ export class ConfirmOrderPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.beerCreated);
     this.color = this.colors[this.beerCreated.beerDetails.style];
     if (this.beerCreated.beerDetails.opacity === 'Clear') {
       this.opacity = 0.7;

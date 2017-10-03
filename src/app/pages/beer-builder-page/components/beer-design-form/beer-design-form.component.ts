@@ -47,9 +47,9 @@ export class BeerDesignFormComponent implements OnInit {
   handleNewBeer(form) {
     const newBeer = { name: form.value.name,
                       beerDetails: { style: form.value.style,
-                                     opacity: form.value.colourants,
-                                     extraFlavours: [form.value.flavours],
-                                     timeToAge: form.value.age },
+                                    opacity: form.value.colourants,
+                                    extraFlavours: [form.value.flavours],
+                                    timeToAge: form.value.age },
                       labelColor: form.value.labelColor,
                       capColor: form.value.capColor };
     this.beerService.postBeer(newBeer).subscribe(res => {

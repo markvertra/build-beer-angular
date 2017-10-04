@@ -1,6 +1,6 @@
 <form (ngSubmit)="handleNewBeer(beerForm)" #beerForm="ngForm" class="beer-build-form" novalidate>
 
-  <h3>Your beer</h3>
+  <h2>Your beer</h2>
 
   <div class="form-element-container style-field-container">
     <label>Type of Beer</label>
@@ -36,17 +36,23 @@
     <label>Be Creative</label>
     <select name="flavours" [(ngModel)]="flavours">
       <option value="None">None</option>
-      <option value="Lemon">Lemon</option>
-      <option value="Cherry">Cherry</option>
-      <option value="Cherry">Strawberry</option>
-      <option value="Chili">Chili</option>
-      <option value="Chocolate">Chocolate</option>
-      <option value="Coffee">Coffee</option>
-      <option value="Caramel">Caramel</option>
+      <option *ngIf="style==='Red Ale'" value="Smoky">Smoky</option>
+      <option *ngIf="style==='IPA' || style==='Pale Ale'" value="Citrus">Citrus</option>
+      <option *ngIf="style==='IPA' || style==='Pale Ale'" value="Grape">Grape</option>
+      <option *ngIf="style==='IPA' || style==='Pale Ale'" value="Apricot">Apricot</option>
+      <option *ngIf="style==='Wheat Beer'" value="Orange">Orange</option>
+      <option *ngIf="style==='Wheat Beer'" value="Coriander">Coriander</option>
+      <option *ngIf="style==='Pilsner'" value="Vanilla">Vanilla</option>
+      <option *ngIf="style==='Pilsner'" value="Blueberry">Blueberry</option>
+      <option *ngIf="style==='Pilsner'" value="Strawberry">Strawberry</option>
+      <option *ngIf="style==='Stout' || style==='Porter'" value="Chili">Chili</option>
+      <option *ngIf="style==='Stout' || style==='Porter'" value="Chocolate">Chocolate</option>
+      <option *ngIf="style==='Stout' || style==='Porter'" value="Coffee">Coffee</option>
+      <option *ngIf="style==='Stout' || style==='Porter' || style==='Red Ale'" value="Caramel">Caramel</option>
     </select>
   </div>
 
-  <h3>Your label and cap</h3>
+  <h2>Your label and cap</h2>
 
   <div class="form-element-container name-field-container">
     <label>Beer Name</label>

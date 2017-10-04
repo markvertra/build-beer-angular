@@ -62,3 +62,7 @@ button {
 button:hover {
   box-shadow: 1px 1px 1px 1px;
 }
+
+.beer-build-form {
+  margin: 50px;
+}

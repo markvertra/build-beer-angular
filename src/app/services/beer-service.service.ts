@@ -8,6 +8,11 @@ export class BeerService {
   BASE_URL = 'http://localhost:3000';
   constructor(private http: Http) { }
 
+  getBeer() {
+    return this.http.get(`${this.BASE_URL}/api/beer`)
+    .map((res) => res.json());
+  }
+
   postBeer(beer: Object) {
     return this.http.post(`${this.BASE_URL}/api/beer`, beer)
     .map((res) => res.json());

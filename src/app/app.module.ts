@@ -47,7 +47,9 @@ import { BeerCreationProcessComponent } from './pages/beer-creation-process/beer
     HttpModule,
     RouterModule.forRoot(beerRoutes),
   ],
-  providers: [BeerService, OrderService, SessionService],
+  providers: [BeerService,
+              OrderService,
+              SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

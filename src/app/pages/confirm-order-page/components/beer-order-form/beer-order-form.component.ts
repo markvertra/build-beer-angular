@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderService } from '../../../../services/order-service.service';
 
@@ -9,6 +9,7 @@ import { OrderService } from '../../../../services/order-service.service';
   providers: [OrderService]
 })
 export class BeerOrderFormComponent implements OnInit {
+  @Input () beerCreated;
   results: Object;
   constructor(private router: Router,
               private orderService: OrderService) { }
@@ -17,7 +18,7 @@ export class BeerOrderFormComponent implements OnInit {
   }
 
   handleNewOrder(form) {
-    const newOrder = {beersOrdered: [{name: 'This Beer',
+    const newOrder = {beersOrdered: [{beer: this.beerCreated,
                                       quantity: form.value.quantity}],
                       deliveryDetails: { firstName: form.value.firstName,
                       lastName: form.value.lastName,

@@ -13,7 +13,6 @@
       <option value="Porter">Porter</option>
       <option value="Stout">Stout</option>
     </select>
-    <h5>This will be the base of your beer.</h5>
   </div>
 
   <div class="form-element-container colourants-field-container">
@@ -23,11 +22,10 @@
       <option value="Medium">Medium</option>
       <option value="Opaque">Opaque</option>
     </select>
-    <h5>How clear do you want your beer to be</h5>
   </div>
 
   <div class="form-element-container flavours-field-container">
-    <label>Additional Flavours and Aromas</label>
+    <label>Be Creative</label>
     <select name="flavours" [(ngModel)]="flavours">
       <option value="None">None</option>
       <option value="Chili">Chili</option>
@@ -35,7 +33,6 @@
       <option value="Coffee">Coffee</option>
       <option value="Lemon">Lemon</option>
     </select>
-    <h5>Be Creative</h5>
   </div>
 
   <h3>Your label and cap</h3>
@@ -43,11 +40,10 @@
   <div class="form-element-container name-field-container">
     <label>Beer Name</label>
     <input type="text" name="name" [(ngModel)]="name" (change)="handleNameChange(name)" #beerName="ngModel" maxlength=15 required>
-    <h5>What it says on the label.</h5>
   </div>
 
   <div class="form-element-container font-field-container">
-    <label>Label Font</label>
+    <label>Font</label>
     <select name="labelFont" [(ngModel)]="labelFont" (change)="handleLabelFontChange(labelFont)" required>
       <option value="Lato">Lato</option>
       <option value="Poppins">Poppins</option>
@@ -60,6 +56,15 @@
     </select>
   </div>
 
+  <div class="form-element-container label-font-field-container">
+      <label>Font Colour</label>
+      <select name="labelFontColor" [(ngModel)]="labelFontColor" (change)="handleLabelFontColorChange(labelFontColor)" required>
+        <option *ngFor="let color of colors" value="{{ color.code }}">
+          {{ color.name }}
+        </option>
+      </select>
+  </div>
+
   <div class="form-element-container label-text-field-container">
     <label>Label Colour</label>
     <select name="labelColor" [(ngModel)]="labelColor" (change)="handleLabelColorChange(labelColor)" required>
@@ -69,29 +74,21 @@
     </select>
   </div>
 
-  <div class="form-element-container label-font-field-container">
-    <label>Label Font Colour</label>
-    <select name="labelFontColor" [(ngModel)]="labelFontColor" (change)="handleLabelFontColorChange(labelFontColor)" required>
-      <option *ngFor="let color of colors" value="{{ color.code }}">
-        {{ color.name }}
-      </option>
-    </select>
-    </div>
+  <div class="form-element-container font-field-container">
+      <label>Image</label>
+      <select name="labelImage" [(ngModel)]="labelImage" (change)="handleLabelImageChange(labelImage)" required>
+        <option value="star">Star</option>
+        <option value="badge">Badge</option>
+        <option value="irongram">Irongram</option>
+      </select>
+  </div>
 
   <div class="form-element-container label-slogan-field-container">
     <label>Your Slogan</label>
     <input name="labelSlogan" [(ngModel)]="labelSlogan" (change)="handleLabelSloganChange(labelSlogan)" maxlength=16>
-    <h5>What do you believe in?</h5>
   </div>
 
-  <div class="form-element-container font-field-container">
-    <label>Label Image</label>
-    <select name="labelImage" [(ngModel)]="labelImage" (change)="handleLabelImageChange(labelImage)" required>
-      <option value="star">Star</option>
-      <option value="badge">Badge</option>
-      <option value="irongram">Irongram</option>
-    </select>
-  </div>
+
 
   <div class="form-element-container cap-color-field-container">
     <label>Cap Colour</label>

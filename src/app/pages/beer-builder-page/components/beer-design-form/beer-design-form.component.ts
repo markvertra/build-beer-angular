@@ -27,6 +27,15 @@ export class BeerDesignFormComponent implements OnInit {
              name: 'Aquamarine'},
               ];
 
+dbColors = {'Stout': '#32312c',
+  'Porter': '#4f3b28',
+  'Red Ale': '#9c4f31',
+  'Wheat Beer': '#ff9d17',
+  'Lager': '#ffef00',
+  'Pale Ale': '#ffa712',
+  'IPA': '#e37b4c'
+  };
+
   results;
   style: String;
   @Output() onStyleChange = new EventEmitter<string>();
@@ -84,10 +93,12 @@ export class BeerDesignFormComponent implements OnInit {
 
   handleNewBeer(form) {
     const newBeer = { name: form.value.name,
+                      description: form.value.name + ' is a ' + form.value.style + '. It has a clarity of ' + form.value.colourants + '.',
                       beerDetails: { style: form.value.style,
-                                    opacity: form.value.colourants,
-                                    extraFlavours: [form.value.flavours],
-                                    timeToAge: form.value.age },
+                                     color: this.dbColors[form.value.style],
+                                      opacity: form.value.colourants,
+                                      extraFlavours: [form.value.flavours],
+                                      timeToAge: form.value.age },
                       labelColor: form.value.labelColor,
                       labelImage: form.value.labelImage,
                       labelFontColor: form.value.labelFontColor,

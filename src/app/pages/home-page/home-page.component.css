@@ -71,11 +71,16 @@
 
 .article {
   width: 250px;
-  height: 300px;
+  height: 560px;
   margin: 50px;
   padding: 10px;
-  border: 1px solid black;
   display: inline-block;
+}
+
+.article:hover {
+  border: 1px brown solid;
+  box-shadow: 1px -1px 1px 1px;
+  cursor: pointer;
 }
 
 .article-container {

@@ -1,0 +1,13 @@
+.container {
+  padding: 50px;
+  text-align: center;
+}
+
+.component-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.beer-info {
+  height: 600px;
+}

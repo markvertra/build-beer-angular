@@ -136,12 +136,16 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
   }
 
   labelLogo(ctx, icon) {
-    if (icon === 'star') {
+    if (!icon) {
+
+    } else if (icon === 'star') {
       this.drawStar(ctx);
     } else if (icon === 'badge') {
       this.drawBadge(ctx);
     } else if (icon === 'irongram') {
       this.drawIron(ctx);
+    } else {
+      this.addImage(ctx, icon);
     }
   }
 
@@ -179,6 +183,12 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
     ctx.lineTo(40, 380);
     ctx.lineTo(40, 345);
     ctx.fill();
+  }
+
+  addImage(ctx, icon) {
+    const img = document.getElementById('canvas-image');
+    img.setAttribute('src', icon);
+    ctx.drawImage(img, 37.5, 315, 75, 90);
   }
 
 }

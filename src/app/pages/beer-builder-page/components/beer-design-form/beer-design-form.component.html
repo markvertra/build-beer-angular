@@ -97,7 +97,13 @@
         <option value="star">Star</option>
         <option value="badge">Badge</option>
         <option value="irongram">Irongram</option>
+        <option value="myOwnImage">My Own Image</option>
       </select>
+  </div>
+
+  <div *ngIf="labelImage==='myOwnImage'" class="form-element-container font-field-container">
+    <label>Image Link</label>
+    <input name="labelSelfImage" [(ngModel)]="labelSelfImage" (change)="handleLabelSelfImageChange(labelSelfImage)">
   </div>
 
   <div class="form-element-container label-slogan-field-container">

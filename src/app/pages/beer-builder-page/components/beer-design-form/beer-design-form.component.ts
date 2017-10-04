@@ -40,15 +40,16 @@ dbColors = {'Stout': '#32312c',
   'IPA': '#e37b4c'
   };
 
-  name;
-  colourants;
-  labelSlogan;
-  labelImage;
-  labelColor;
-  labelFont;
-  labelFontColor;
-  capColor;
-  flavours;
+  name: String;
+  colourants: String;
+  labelSlogan: String;
+  labelImage: String;
+  labelColor: String;
+  labelFont: String;
+  labelFontColor: String;
+  capColor: String;
+  flavours: String;
+  labelSelfImage: String;
 
   results;
   style: String;
@@ -99,6 +100,10 @@ dbColors = {'Stout': '#32312c',
 
   handleLabelFontColorChange(color) {
     this.onLabelFontColorChange.emit(color);
+  }
+
+  handleLabelSelfImageChange(labelSelfImage) {
+    this.handleLabelImageChange(labelSelfImage);
   }
 
   handleNameChange(name) {

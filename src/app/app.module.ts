@@ -26,6 +26,13 @@ import { SignupFormComponent } from './pages/authentication-page/components/sign
 import { BeerCreationProcessComponent } from './pages/beer-creation-process/beer-creation-process.component';
 import { BeerDisplayFrameComponent } from './pages/reusables/beer-display-frame/beer-display-frame.component';
 
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { AuthComponentComponent } from './pages/reusables/auth-component/auth-component.component';
+import { AuthLoginComponent } from './pages/reusables/auth-login/auth-login.component';
+import { AuthSignupComponent } from './pages/reusables/auth-signup/auth-signup.component';
+import { AuthLogoutComponent } from './pages/reusables/auth-logout/auth-logout.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +48,13 @@ import { BeerDisplayFrameComponent } from './pages/reusables/beer-display-frame/
     LoginFormComponent,
     SignupFormComponent,
     BeerCreationProcessComponent,
-    BeerDisplayFrameComponent
+    BeerDisplayFrameComponent,
+    SignupPageComponent,
+    LoginPageComponent,
+    AuthComponentComponent,
+    AuthLoginComponent,
+    AuthLogoutComponent,
+    AuthSignupComponent,
   ],
   imports: [
     BrowserModule,

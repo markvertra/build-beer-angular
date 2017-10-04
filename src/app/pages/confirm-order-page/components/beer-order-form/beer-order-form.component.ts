@@ -10,6 +10,15 @@ import { OrderService } from '../../../../services/order-service.service';
 })
 export class BeerOrderFormComponent implements OnInit {
   @Input () beerCreated;
+  quantity;
+  firstName;
+  lastName;
+  address;
+  city;
+  postcode;
+  telephoneNumber;
+  email;
+ 
   results: Object;
   constructor(private router: Router,
               private orderService: OrderService) { }

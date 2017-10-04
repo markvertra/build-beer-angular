@@ -36,6 +36,16 @@ dbColors = {'Stout': '#32312c',
   'IPA': '#e37b4c'
   };
 
+  name;
+  colourants;
+  labelSlogan;
+  labelImage;
+  labelColor;
+  labelFont;
+  labelFontColor;
+  capColor;
+  flavours;
+
   results;
   style: String;
   @Output() onStyleChange = new EventEmitter<string>();

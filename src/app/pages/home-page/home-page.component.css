@@ -71,7 +71,7 @@
 
 .article {
   width: 250px;
-  height: 150px;
+  height: 300px;
   margin: 50px;
   padding: 10px;
   border: 1px solid black;
@@ -84,6 +84,7 @@
 }
 
 .article-container h2 {
+  font-size: 2em;
   margin-bottom: 50px;
 }
 

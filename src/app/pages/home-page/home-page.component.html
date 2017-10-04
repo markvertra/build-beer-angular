@@ -35,7 +35,7 @@
   <h2>Our Greatest Hits</h2>
   <ng-container *ngFor="let beer of beers; index as i">
     <div class="article" *ngIf="i < 8">
-      <a href="http://www.google.com">{{ beer.name }}</a>
+      <a [routerLink]="['beer', beer._id]">{{ beer.name }}</a>
     </div>
   </ng-container>
 </div>

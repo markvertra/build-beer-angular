@@ -1,34 +1,36 @@
-<div class="design-page-header">
-  <h2 class>Build your unique beer</h2>
-  <h5>Choose a style, customise your beer (if you dare),
-      design a label and bottle cap. Our master brewer will 
-      review your selection, and within 48 hours suggest any 
-      possible improvements.
-  </h5>
-</div>
-
-<div class="beer-design-container">
-  <div class="bottle-image-wrapper">
-    <app-beer-image [color]="color" 
-                    [opacity]="opacity" 
-                    [capColor]="capColor"
-                    [labelColor]="labelColor"
-                    [labelFontColor]="labelFontColor"
-                    [labelImage]="labelImage"
-                    [labelFont]="labelFont"
-                    [labelSlogan]="labelSlogan"
-                    [name]="name"></app-beer-image>
+<div class="beer-builder-container">
+  <div class="design-page-header">
+    <h2 class>Build your unique beer</h2>
+    <h5>Choose a style, customise your beer (if you dare),
+        design a label and bottle cap. Our master brewer will 
+        review your selection, and within 48 hours suggest any 
+        possible improvements.
+    </h5>
   </div>
-  <div class="beer-order-form-wrapper">
-    <app-beer-design-form (onStyleChange)="handleStyleChange($event)" 
-                          (onOpacityChange)="handleOpacityChange($event)" 
-                          (onCapColorChange)="handleCapColorChange($event)"
-                          (onNameChange)="handleNameChange($event)"
-                          (onLabelColorChange)="handleLabelColorChange($event)"
-                          (onLabelImageChange)="handleLabelImageChange($event)"
-                          (onLabelSloganChange)="handleLabelSloganChange($event)"
-                          (onLabelFontColorChange)="handleLabelFontColorChange($event)"
-                          (onBeerCreation)="handleBeerCreation($event)"
-                          (onLabelFontChange)="handleLabelFontChange($event)"></app-beer-design-form>
+
+  <div class="beer-design-container">
+    <div class="bottle-image-wrapper">
+      <app-beer-image [color]="color" 
+                      [opacity]="opacity" 
+                      [capColor]="capColor"
+                      [labelColor]="labelColor"
+                      [labelFontColor]="labelFontColor"
+                      [labelImage]="labelImage"
+                      [labelFont]="labelFont"
+                      [labelSlogan]="labelSlogan"
+                      [name]="name"></app-beer-image>
+    </div>
+    <div class="beer-order-form-wrapper">
+      <app-beer-design-form (onStyleChange)="handleStyleChange($event)" 
+                            (onOpacityChange)="handleOpacityChange($event)" 
+                            (onCapColorChange)="handleCapColorChange($event)"
+                            (onNameChange)="handleNameChange($event)"
+                            (onLabelColorChange)="handleLabelColorChange($event)"
+                            (onLabelImageChange)="handleLabelImageChange($event)"
+                            (onLabelSloganChange)="handleLabelSloganChange($event)"
+                            (onLabelFontColorChange)="handleLabelFontColorChange($event)"
+                            (onBeerCreation)="handleBeerCreation($event)"
+                            (onLabelFontChange)="handleLabelFontChange($event)"></app-beer-design-form>
+    </div>
   </div>
 </div>

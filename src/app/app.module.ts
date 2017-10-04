@@ -24,6 +24,7 @@ import { AuthenticationPageComponent } from './pages/authentication-page/authent
 import { LoginFormComponent } from './pages/authentication-page/components/login-form/login-form.component';
 import { SignupFormComponent } from './pages/authentication-page/components/signup-form/signup-form.component';
 import { BeerCreationProcessComponent } from './pages/beer-creation-process/beer-creation-process.component';
+import { BeerDisplayFrameComponent } from './pages/reusables/beer-display-frame/beer-display-frame.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { BeerCreationProcessComponent } from './pages/beer-creation-process/beer
     AuthenticationPageComponent,
     LoginFormComponent,
     SignupFormComponent,
-    BeerCreationProcessComponent
+    BeerCreationProcessComponent,
+    BeerDisplayFrameComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ export class HomePageComponent implements OnInit {
   constructor(private beer: BeerService) { }
 
   ngOnInit() {
-    this.beer.getBeer().subscribe((res) => this.beers = res);
+    this.beer.getBeers().subscribe((res) => this.beers = res);
   }
 
 }

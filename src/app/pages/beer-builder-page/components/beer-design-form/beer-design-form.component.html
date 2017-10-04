@@ -1,13 +1,9 @@
 <form (ngSubmit)="handleNewBeer(beerForm)" #beerForm="ngForm" class="beer-build-form" novalidate>
 
-  <div class="form-element-container name-field-container">
-    <label>Name</label>
-    <input type="text" name="name" [(ngModel)]="name" (change)="handleNameChange(name)" #beerName="ngModel" maxlength=15 required>
-    <h5>What it says on the label.</h5>
-  </div>
+  <h3>Your beer</h3>
 
   <div class="form-element-container style-field-container">
-    <label>Style</label>
+    <label>Type of Beer</label>
     <select name="style" [(ngModel)]="style" (change)="handleStyleChange(style)" required>
       <option value="Lager">Lager</option>
       <option value="Wheat Beer">Wheat Beer</option>
@@ -31,7 +27,7 @@
   </div>
 
   <div class="form-element-container flavours-field-container">
-    <label>Additional Flavours</label>
+    <label>Additional Flavours and Aromas</label>
     <select name="flavours" [(ngModel)]="flavours">
       <option value="None">None</option>
       <option value="Chili">Chili</option>
@@ -39,7 +35,15 @@
       <option value="Coffee">Coffee</option>
       <option value="Lemon">Lemon</option>
     </select>
-    <h5>Each style has unique flavours which can be added</h5>
+    <h5>Be Creative</h5>
+  </div>
+
+  <h3>Your label and cap</h3>
+
+  <div class="form-element-container name-field-container">
+    <label>Beer Name</label>
+    <input type="text" name="name" [(ngModel)]="name" (change)="handleNameChange(name)" #beerName="ngModel" maxlength=15 required>
+    <h5>What it says on the label.</h5>
   </div>
 
   <div class="form-element-container font-field-container">
@@ -63,7 +67,6 @@
           {{ color.name }}
       </option>
     </select>
-    <h5>What colour would you like your label to be.</h5>
   </div>
 
   <div class="form-element-container label-font-field-container">
@@ -73,12 +76,11 @@
         {{ color.name }}
       </option>
     </select>
-    <h5>What colour would you like your label to be.</h5>
     </div>
 
   <div class="form-element-container label-slogan-field-container">
     <label>Your Slogan</label>
-    <input name="labelSlogan" [(ngModel)]="labelSlogan" (change)="handleLabelSloganChange(labelSlogan)" maxlength=15>
+    <input name="labelSlogan" [(ngModel)]="labelSlogan" (change)="handleLabelSloganChange(labelSlogan)" maxlength=16>
     <h5>What do you believe in?</h5>
   </div>
 
@@ -98,7 +100,6 @@
         {{ color.name }}
       </option>
     </select>
-    <h5>What colour would you like your bottle cap to be.</h5>
   </div>
   
   <button class="beer-form-button" type="submit" [disabled]="!beerForm.valid">Create</button>

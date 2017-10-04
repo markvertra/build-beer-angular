@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class OrderService {
 
-  BASE_URL = 'http://localhost:3000';
+  BASE_URL = 'https://beer-builder-api.herokuapp.com';
   constructor(private http: Http) { }
 
   postOrder(order: Object) {

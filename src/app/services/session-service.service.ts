@@ -13,7 +13,7 @@ export class SessionService {
 
   userChange$ = this.userChange.asObservable();
 
-  BASE_URL = 'http://localhost:3000';
+  BASE_URL = 'https://beer-builder-api.herokuapp.com';
   constructor(private http: Http) { }
 
   handleError(e) {

@@ -10,7 +10,7 @@ export class BeerBuilderPageComponent implements OnInit {
             'Porter': '#4f3b28',
             'Red Ale': '#9c4f31',
             'Wheat Beer': '#ff9d17',
-            'Lager': '#ffef00',
+            'Pilsner': '#ffef00',
             'Pale Ale': '#ffa712',
             'IPA': '#e37b4c'
           };

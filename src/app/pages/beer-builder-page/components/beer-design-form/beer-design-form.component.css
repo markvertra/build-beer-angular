@@ -55,3 +55,8 @@ button {
 button:hover {
   box-shadow: 1px 1px 1px 1px;
 }
+
+.form-element-container p {
+  font-size: 0.7em;
+  color: brown;
+}

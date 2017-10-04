@@ -5,7 +5,7 @@
   <div class="form-element-container style-field-container">
     <label>Type of Beer</label>
     <select name="style" [(ngModel)]="style" (change)="handleStyleChange(style)" required>
-      <option value="Lager">Lager</option>
+      <option value="Pilsner">Pilsner</option>
       <option value="Wheat Beer">Wheat Beer</option>
       <option value="IPA">IPA</option>
       <option value="Pale Ale">Pale Ale</option>
@@ -13,6 +13,13 @@
       <option value="Porter">Porter</option>
       <option value="Stout">Stout</option>
     </select>
+    <p *ngIf="style==='Pilsner'">{{ style }} is a crisp, golden, foamy, lightly-flavoured beer</p>
+    <p *ngIf="style==='Wheat Beer'">{{ style }} is a cloudly-coloured, sweet and highly-carbonated beer</p>
+    <p *ngIf="style==='IPA'">{{ style }} is a hoppy, moderately strong beer with a high finish</p>
+    <p *ngIf="style==='Pale Ale'">{{ style }} is a moderately-hopped, medium strength beer</p>
+    <p *ngIf="style==='Red Ale'">{{ style }} is a medium-light beer with a light, roasted aroma</p>
+    <p *ngIf="style==='Porter'">{{ style }} is dark beer with a medium body and hints of caramel</p>
+    <p *ngIf="style==='Stout'">{{ style }} is a dark, creamy beer with a dry, roasted flavour</p>
   </div>
 
   <div class="form-element-container colourants-field-container">
@@ -22,16 +29,20 @@
       <option value="Medium">Medium</option>
       <option value="Opaque">Opaque</option>
     </select>
+    <p *ngIf="style==='Stout' || style==='Porter'">NB. {{ style }} will almost always by medium or opaque in clarity</p>
   </div>
 
   <div class="form-element-container flavours-field-container">
     <label>Be Creative</label>
     <select name="flavours" [(ngModel)]="flavours">
       <option value="None">None</option>
+      <option value="Lemon">Lemon</option>
+      <option value="Cherry">Cherry</option>
+      <option value="Cherry">Strawberry</option>
       <option value="Chili">Chili</option>
       <option value="Chocolate">Chocolate</option>
       <option value="Coffee">Coffee</option>
-      <option value="Lemon">Lemon</option>
+      <option value="Caramel">Caramel</option>
     </select>
   </div>
 

@@ -16,7 +16,7 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
             porter: '#4f3b28',
             redAle: '#9c4f31',
             wheatBeer: '#ff9d17',
-            lager: '#ffef00',
+            Pilsner: '#ffef00',
             paleAle: '#ffa712',
             ipa: '#e37b4c'
             };

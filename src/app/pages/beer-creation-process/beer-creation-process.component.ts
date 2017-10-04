@@ -15,7 +15,7 @@ export class BeerCreationProcessComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleBeerCreated(beer) {
+  handleBeerCreated(beer: Object) {
     this.creatingBeer = true;
     this.beerCreated = beer;
   }

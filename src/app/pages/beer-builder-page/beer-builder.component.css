@@ -11,6 +11,7 @@
 }
 
 .bottle-image-wrapper {
+  display: none;
   padding-top: 100px;
 }
 
@@ -20,4 +21,11 @@
 
 .beer-builder-container {
   padding: 50px;
+}
+
+@media (min-width: 800px) {
+  .bottle-image-wrapper {
+  display: block;
+  padding-top: 100px;
+  }
 }

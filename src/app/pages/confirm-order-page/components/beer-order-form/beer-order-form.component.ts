@@ -10,15 +10,15 @@ import { OrderService } from '../../../../services/order-service.service';
 })
 export class BeerOrderFormComponent implements OnInit {
   @Input () beerCreated;
-  quantity;
-  firstName;
-  lastName;
-  address;
-  city;
-  postcode;
-  telephoneNumber;
-  email;
- 
+  quantity: Number;
+  firstName: String;
+  lastName: String;
+  address: String;
+  city: String;
+  postcode: String;
+  telephoneNumber: String;
+  email: String;
+
   results: Object;
   constructor(private router: Router,
               private orderService: OrderService) { }
@@ -26,7 +26,7 @@ export class BeerOrderFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleNewOrder(form) {
+  handleNewOrder(form: any) {
     const newOrder = {beersOrdered: [{beer: this.beerCreated,
                                       quantity: form.value.quantity}],
                       deliveryDetails: { firstName: form.value.firstName,

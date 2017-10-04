@@ -25,6 +25,10 @@ export class BeerDesignFormComponent implements OnInit {
              name: 'Forest Green'},
              {code: '#7fffd4',
              name: 'Aquamarine'},
+             {code: '#673AB7',
+             name: 'Winter Violet'},
+             {code: '#EC407A',
+             name: 'Cuddly Pink'}
               ];
 
 dbColors = {'Stout': '#32312c',

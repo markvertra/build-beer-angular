@@ -29,10 +29,16 @@ export class SessionService {
     return Observable.throw(e.json().message);
   }
 
-  signup(user) {
-    return this.http.post(`${this.BASE_URL}/auth/signup`, user)
-      .map(res => res.json())
-      .catch(this.handleError);
+  signup(user: User) {
+    const options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.post(`${this.BASE_URL}/auth/signup`, user, options)
+      .map(res => {
+        // tslint:disable-next-line:no-shadowed-variable
+        const user = new User(res.json());
+        this.setUser(user);
+        return user;
+      });
   }
 
   login(user) {

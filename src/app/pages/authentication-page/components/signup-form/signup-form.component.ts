@@ -19,11 +19,11 @@ export class SignupFormComponent implements OnInit {
   handleUserSignup(form) {
     const userLogging = { username: form.value.username,
       password: form.value.password };
-    this.session.login(userLogging)
-      .subscribe(
-      (user) => this.successCb(user),
-      (err) => this.errorCb(err)
-    );
+      this.error = null;
+      this.session.signup(this.user).subscribe(
+        (user) => this.user = user,
+        (err) => this.error = err
+      );
   }
 
   errorCb(err) {

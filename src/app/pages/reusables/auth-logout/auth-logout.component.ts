@@ -9,10 +9,10 @@ import { SessionService } from '../../../services/session-service.service';
 })
 export class AuthLogoutComponent {
 
-  constructor(private auth: SessionService) { }
+  constructor(private session: SessionService) { }
 
   logout() {
-    this.auth.logout().subscribe();
+    this.session.logout().subscribe();
   }
 
 }

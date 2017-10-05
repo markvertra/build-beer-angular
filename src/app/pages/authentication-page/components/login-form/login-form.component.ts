@@ -17,23 +17,12 @@ export class LoginFormComponent implements OnInit {
   }
 
   handleUserLogin(form) {
-    const userLogging = { username: form.value.username,
+    this.user = { username: form.value.username,
                    password: form.value.password };
-    this.session.login(userLogging)
-      .subscribe(
-        (user) => this.successCb(user),
-        (err) => this.errorCb(err)
+    this.error = null;
+    this.session.login(this.user).subscribe(
+      (user) => this.user = user,
+      (err) => this.error = err
       );
   }
-
-  errorCb(err) {
-    this.error = err;
-    this.user = null;
-  }
-
-  successCb(user) {
-    this.user = user;
-    this.error = null;
-  }
-
 }

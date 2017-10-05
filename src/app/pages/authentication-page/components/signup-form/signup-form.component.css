@@ -7,3 +7,45 @@
   padding: 20px;
   background-image: url("https://image.freepik.com/free-photo/wooden-texture_1208-334.jpg")
 }
+
+input {
+  float: right;
+  height: 25px;
+  width: 150px;
+  color: white;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  border-bottom: 1px solid white;
+}
+
+button {
+  font-size: 1.2em;
+  width: 260px;
+  margin: 20px 0px;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  border: 1px solid white;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.regular-button {
+  font-size: 1.2em;
+  width: 260px;
+  margin: 20px 0px;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  border: 1px solid white;
+}
+
+.swap-login-form-button {
+  font-size: 1.1em;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  border: none;
+  box-shadow: 0;
+  display: inline;
+  text-decoration: underline;
+}

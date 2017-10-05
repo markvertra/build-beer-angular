@@ -1,12 +1,12 @@
 <div class="log-form-container">
   <form *ngIf="!user" (ngSubmit)="handleUserSignup(signupForm)" #signupForm="ngForm" class="log-form" >
-    <h2> Signup </h2>
     <label> Username </label>
     <input type="text" [(ngModel)]="username" name="username"/>
     <br>
     <label> Password </label>
     <input type="password" [(ngModel)]="password" name="password"/>
-    <button> Signup </button>
+    <br>
+    <button class="regular-button"> Signup </button>
   </form>
-  <p> Already Registered? </p><button (click)="handlePopLogIn()"> LogIn </button>
+  <p> Already Registered? </p><button (click)="handlePopLogIn()" class="swap-login-form-button"> Log In </button>
 </div>

@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     }
 
     popLogIn() {
-      this.loginPop = true;
+      this.loginPop = !this.loginPop;
     }
 
     logOut() {

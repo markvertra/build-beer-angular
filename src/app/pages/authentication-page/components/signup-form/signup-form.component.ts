@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SessionService } from '../../../../services/session-service.service';
 
 @Component({
@@ -10,10 +10,17 @@ import { SessionService } from '../../../../services/session-service.service';
 export class SignupFormComponent implements OnInit {
   user: any;
   error: String;
+  popLogIn: boolean;
+  @Output() onPopLogIn = new EventEmitter<boolean>();
 
   constructor(private session: SessionService) { }
 
   ngOnInit() {
+  }
+
+  handlePopLogIn() {
+    this.popLogIn = !this.popLogIn;
+    this.onPopLogIn.emit(this.popLogIn);
   }
 
   handleUserSignup(form) {

@@ -10,6 +10,7 @@ import { SessionService } from '../../../../services/session-service.service';
 export class LoginFormComponent implements OnInit {
   user: any;
   error: String;
+  signupPop: boolean;
 
   constructor(private session: SessionService) { }
 
@@ -24,5 +25,13 @@ export class LoginFormComponent implements OnInit {
       (user) => this.user = user,
       (err) => this.error = err
       );
+  }
+
+  handlePopSignUp() {
+    this.signupPop = !this.signupPop;
+  }
+
+  handlePopLogIn() {
+    this.signupPop = !this.signupPop;
   }
 }

@@ -1,10 +1,18 @@
-<form *ngIf="!user" (ngSubmit)="handleUserLogin(loginForm)" #loginForm="ngForm" class="log-form" >
-    <h2> Login</h2>
-    <label> Username </label>
-    <input type="text" [(ngModel)]="username" name="username"/>
-    <br>
-    <label> Password </label>
-    <input type="password" [(ngModel)]="password" name="password"/>
-  
-    <button> Log in </button>
-  </form>
+<ng-container *ngIf="!signupPop">
+  <div class="log-form-container">
+    <form *ngIf="!user" (ngSubmit)="handleUserLogin(loginForm)" #loginForm="ngForm" class="log-form" >
+      <h2> Login</h2>
+      <label> Username </label>
+      <input type="text" [(ngModel)]="username" name="username"/>
+      <br>
+      <label> Password </label>
+      <input type="password" [(ngModel)]="password" name="password"/>
+    
+      <button> Log in </button>
+    </form>
+    <p> Not Registered? </p><button (click)="handlePopSignUp()"> Sign Up </button>
+  </div>
+</ng-container>
+<ng-container *ngIf="signupPop">
+  <app-signup-form (onPopLogIn)="handlePopLogIn($event)"></app-signup-form>
+</ng-container>

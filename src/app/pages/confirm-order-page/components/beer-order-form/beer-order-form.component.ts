@@ -1,12 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderService } from '../../../../services/order-service.service';
+import { SessionService } from '../../../../services/session-service.service';
 
 @Component({
   selector: 'app-beer-order-form',
   templateUrl: './beer-order-form.component.html',
   styleUrls: ['./beer-order-form.component.css'],
-  providers: [OrderService]
+  providers: [OrderService, SessionService]
 })
 export class BeerOrderFormComponent implements OnInit {
   @Input () beerCreated;
@@ -18,12 +19,22 @@ export class BeerOrderFormComponent implements OnInit {
   postcode: String;
   telephoneNumber: String;
   email: String;
+  user: any;
 
   results: Object;
   constructor(private router: Router,
-              private orderService: OrderService) { }
+              private orderService: OrderService,
+              private session: SessionService) { }
+
+  setUser(user: any | null) {
+    this.user = user;
+  }
 
   ngOnInit() {
+    this.session.isLoggedIn()
+    .subscribe(
+      (user) => { this.setUser(user); }
+    );
   }
 
   handleNewOrder(form: any) {
@@ -36,7 +47,8 @@ export class BeerOrderFormComponent implements OnInit {
                       postcode: form.value.postcode,
                       telephoneNumber: form.value.telephoneNumber,
                       email: form.value.email
-                      }};
+                      },
+                      userOrdering: this.user.id};
     this.orderService.postOrder(newOrder).subscribe(res => {
       this.results = res;
     });

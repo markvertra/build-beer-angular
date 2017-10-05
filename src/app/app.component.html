@@ -4,10 +4,13 @@
     <a [routerLink]="['/']">Home</a>
   </div>
   <div class="auth-links">
-    <a *ngIf="!user" [routerLink]="['/login']">Log In</a>
+    <button *ngIf="!user" (click)="popLogIn()">Log In</button>
     <button *ngIf="user" (click)="logOut()">Log Out</button>
   </div>
 </div>
+<ng-container *ngIf="!user && loginPop">
+  <app-login-form></app-login-form>
+</ng-container> 
 <router-outlet></router-outlet>
 <div class="footer">
   <p>Beer Builder, an application made by markvertra</p>

@@ -10,6 +10,7 @@ import { SessionService } from './services/session-service.service';
 export class AppComponent implements OnInit {
   user: any;
   error: string;
+  loginPop: boolean;
 
   constructor(private session: SessionService) { }
 
@@ -18,6 +19,10 @@ export class AppComponent implements OnInit {
       .subscribe(
         (user) => this.successCb(user)
       );
+    }
+
+    popLogIn() {
+      this.loginPop = true;
     }
 
     logOut() {

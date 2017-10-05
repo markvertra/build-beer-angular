@@ -11,6 +11,10 @@
   text-decoration: none;
 }
 
+.navbar-link {
+  margin: 0px 20px;
+}
+
 button {
   font-size: 1em;
   border: none;

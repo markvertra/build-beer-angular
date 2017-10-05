@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { BeerService } from '../../../../services/beer-service.service';
+import { SessionService } from '../../../../services/session-service.service';
 
 @Component({
   selector: 'app-beer-design-form',
@@ -9,6 +10,8 @@ import { BeerService } from '../../../../services/beer-service.service';
   providers: [ BeerService ]
 })
 export class BeerDesignFormComponent implements OnInit {
+  user: any;
+
   colors = [{code: '#ffffff',
              name: 'Bridal White'},
              {code: '#4169e1',
@@ -65,9 +68,18 @@ dbColors = {'Stout': '#32312c',
   @Output() onBeerCreation = new EventEmitter<object>();
 
   constructor(private beerService: BeerService,
-              private router: Router) { }
+              private router: Router,
+              private session: SessionService) { }
+
+  setUser(user: any | null) {
+    this.user = user;
+  }
 
   ngOnInit() {
+    this.session.isLoggedIn()
+    .subscribe(
+      (user) => { this.setUser(user); }
+    );
   }
 
   handleStyleChange(style) {
@@ -122,7 +134,8 @@ dbColors = {'Stout': '#32312c',
                       labelImage: form.value.labelImage,
                       labelFontColor: form.value.labelFontColor,
                       labelSlogan: form.value.labelSlogan,
-                      capColor: form.value.capColor };
+                      capColor: form.value.capColor,
+                      creatorId: this.user.id };
     this.beerService.postBeer(newBeer).subscribe(res => {
       this.results = res;
       this.onBeerCreation.emit(this.results);

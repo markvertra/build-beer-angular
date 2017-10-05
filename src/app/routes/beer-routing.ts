@@ -5,11 +5,13 @@ import { BeerCreationProcessComponent } from '../pages/beer-creation-process/bee
 import { OrderSuccessPageComponent } from '../pages/order-success-page/order-success-page.component';
 import { AuthenticationPageComponent } from '../pages/authentication-page/authentication-page.component';
 import { BeerDisplayFrameComponent } from '../pages/reusables/beer-display-frame/beer-display-frame.component';
+import { ProfilePageComponent } from '../pages/profile-page/profile-page.component';
 
 export const beerRoutes: Routes  = [
   { path: '', component: HomePageComponent },
   { path: 'login', component: AuthenticationPageComponent },
   { path: 'create', component: BeerCreationProcessComponent },
   { path: 'success', component: OrderSuccessPageComponent },
+  { path: 'profile/:id', component: ProfilePageComponent },
   { path: 'beer/:id', component: BeerDisplayFrameComponent }
 ];

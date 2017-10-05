@@ -14,10 +14,14 @@ export class AppComponent implements OnInit {
 
   constructor(private session: SessionService) { }
 
+    setUser(user: any | null) {
+      this.user = user;
+    }
+
     ngOnInit() {
       this.session.isLoggedIn()
       .subscribe(
-        (user) => this.successCb(user)
+        (user) => { this.setUser(user); }
       );
     }
 

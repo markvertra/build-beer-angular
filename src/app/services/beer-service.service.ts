@@ -18,6 +18,11 @@ export class BeerService {
       .map((res) => res.json());
   }
 
+  getUserBeers(id: string) {
+      return this.http.get(`${this.BASE_URL}/api/beer/byuser/${id}`)
+        .map((res) => res.json());
+  }
+
   postBeer(beer: Object) {
     return this.http.post(`${this.BASE_URL}/api/beer`, beer)
     .map((res) => res.json());

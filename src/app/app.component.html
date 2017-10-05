@@ -3,9 +3,10 @@
   <div class="go-home">
     <a [routerLink]="['/']">Home</a>
   </div>
-  <div class="auth-links">
-    <button *ngIf="!user" (click)="popLogIn()">Log In</button>
-    <button *ngIf="user" (click)="logOut()">Log Out</button>
+  <div class="navbar-right-links">
+    <a *ngIf="user" [routerLink]="['profile', user.id]" class="navbar-link">My Profile</a>
+    <button *ngIf="!user" (click)="popLogIn()" class="navbar-link">Log In</button>
+    <button *ngIf="user" (click)="logOut()" class="navbar-link">Log Out</button>
   </div>
 </div>
 <ng-container *ngIf="!user && loginPop">

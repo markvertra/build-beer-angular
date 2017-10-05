@@ -10,6 +10,7 @@ import { Component,
   templateUrl: './beer-image.component.html',
   styleUrls: ['./beer-image.component.css']
 })
+
 export class BeerImageComponent implements AfterViewInit, OnChanges {
   @ViewChild('myCanvas') myCanvas: ElementRef;
   colors = {stout: '#32312c',

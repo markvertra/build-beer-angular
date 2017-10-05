@@ -32,6 +32,7 @@ import { AuthComponentComponent } from './pages/reusables/auth-component/auth-co
 import { AuthLoginComponent } from './pages/reusables/auth-login/auth-login.component';
 import { AuthSignupComponent } from './pages/reusables/auth-signup/auth-signup.component';
 import { AuthLogoutComponent } from './pages/reusables/auth-logout/auth-logout.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { AuthLogoutComponent } from './pages/reusables/auth-logout/auth-logout.c
     AuthLoginComponent,
     AuthLogoutComponent,
     AuthSignupComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,

@@ -68,6 +68,12 @@ export class SessionService {
       });
   }
 
+  getUser(id: string) {
+    return this.http.get(`${this.BASE_URL}/auth/userInfo/${id}`)
+      .map((res) => res.json());
+  }
+
+
   initialize() {
     if (!this.initialized) {
       this.initialized = true;

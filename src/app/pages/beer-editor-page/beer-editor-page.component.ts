@@ -44,6 +44,7 @@ export class BeerEditorPageComponent implements OnInit {
   getBeer (id) {
     this.beerService.getBeer(id).subscribe((res) => ( this.name = res.name,
                                                       this.style = res.beerDetails.style,
+                                                      this.color = this.colors[res.beerDetails.style],
                                                       this.flavours = res.beerDetails.extraFlavours,
                                                       this.labelColor = res.label.color,
                                                       this.labelFont = res.label.font,

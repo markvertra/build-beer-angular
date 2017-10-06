@@ -47,4 +47,9 @@ export class BeerService {
     return this.http.post(`${this.BASE_URL}/api/beer`, beer)
     .map((res) => res.json());
   }
+
+  putBeer(id: String, beer: Object) {
+    return this.http.post(`${this.BASE_URL}/api/beer/${id}`, beer)
+    .map((res) => res.json());
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BeerService } from '../../../../services/beer-service.service';
 import { SessionService } from '../../../../services/session-service.service';
 
@@ -56,6 +56,7 @@ export class BeerEditorFormComponent implements OnInit {
     @Input() labelSelfImage: String;
     @Input() public: Boolean;
 
+    id: String;
     results;
 
     @Output() onStyleChange = new EventEmitter<string>();
@@ -71,6 +72,7 @@ export class BeerEditorFormComponent implements OnInit {
 
     constructor(private beerService: BeerService,
                 private router: Router,
+                private activatedRoute: ActivatedRoute,
                 private session: SessionService) { }
 
     setUser(user: any | null) {
@@ -78,10 +80,11 @@ export class BeerEditorFormComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.session.isLoggedIn()
-      .subscribe(
+      this.session.isLoggedIn().subscribe(
         (user) => { this.setUser(user); }
       );
+      this.activatedRoute.params.subscribe(params =>
+        this.id = params['id']) ;
     }
 
     handleStyleChange(style) {
@@ -124,14 +127,15 @@ export class BeerEditorFormComponent implements OnInit {
       this.onNameChange.emit(name);
     }
 
-    handleNewBeer(form) {
-      const newBeer = { name: form.value.name,
+    handleUpdatedBeer(form) {
+      const updatedBeer = { name: form.value.name,
                         description: form.value.name + ' is a ' + form.value.style + '. It has a clarity of ' + form.value.colourants + '.',
-                        beerDetails: { style: form.value.style,
-                                       color: this.dbColors[form.value.style],
-                                        opacity: form.value.colourants,
-                                        extraFlavours: [form.value.flavours],
-                                        timeToAge: form.value.age },
+                        style: form.value.style,
+                        color: this.dbColors[form.value.style],
+                        opacity: form.value.colourants,
+                        flavors: form.value.flavours,
+                        timeToAge: form.value.age,
+                        labelFont: form.value.labelFont,
                         labelColor: form.value.labelColor,
                         labelImage: form.value.labelImage,
                         labelFontColor: form.value.labelFontColor,
@@ -139,8 +143,7 @@ export class BeerEditorFormComponent implements OnInit {
                         capColor: form.value.capColor,
                         creatorId: this.user.id,
                         isPublic: this.public };
-      console.log(newBeer);
-      this.beerService.postBeer(newBeer).subscribe(res => {
+      this.beerService.putBeer(this.id, updatedBeer).subscribe(res => {
         this.results = res;
         this.onBeerCreation.emit(this.results);
       });

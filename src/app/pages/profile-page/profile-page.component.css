@@ -7,3 +7,17 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.beer-article {
+  width: 250px;
+  height: 560px;
+  margin: 50px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.beer-article:hover {
+  border: 1px brown solid;
+  box-shadow: 1px -1px 1px 1px;
+  cursor: pointer;
+}

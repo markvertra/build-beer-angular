@@ -146,6 +146,7 @@ export class BeerEditorFormComponent implements OnInit {
       this.beerService.putBeer(this.id, updatedBeer).subscribe(res => {
         this.results = res;
         this.onBeerCreation.emit(this.results);
+        this.router.navigateByUrl('profile/' + this.user.id);
       });
     }
   }

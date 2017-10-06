@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SessionService } from '../../services/session-service.service';
 import { BeerService } from '../../services/beer-service.service';
 
@@ -16,8 +16,9 @@ export class ProfilePageComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
-    private sessionService: SessionService,
-    private beerService: BeerService) { }
+              private router: Router,
+              private sessionService: SessionService,
+              private beerService: BeerService) { }
 
 ngOnInit() {
   this.route.params.subscribe(params => {
@@ -33,11 +34,13 @@ getUser(id) {
 
 getPublicBeerByUser(id) {
   this.beerService.getPublicUserBeers(id).subscribe((res) => this.publicBeers = res);
-}
+  }
 
 getPrivateBeerByUser(id) {
   this.beerService.getPrivateUserBeers(id).subscribe((res) => this.privateBeers = res);
-}
+  }
 
-
+handleBeerClick(id: String) {
+  this.router.navigateByUrl('/beer/' + id + '/edit');
+  }
 }

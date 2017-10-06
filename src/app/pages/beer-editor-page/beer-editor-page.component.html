@@ -17,7 +17,18 @@
                         [name]="name"></app-beer-image>
       </div>
       <div class="beer-order-form-wrapper">
-        <app-beer-editor-form (onStyleChange)="handleStyleChange($event)" 
+        <app-beer-editor-form [style]="style" 
+                              [colourants]="opacity" 
+                              [flavours]="flavours"
+                              [capColor]="capColor"
+                              [labelColor]="labelColor"
+                              [labelFontColor]="labelFontColor"
+                              [labelImage]="labelImage"
+                              [labelFont]="labelFont"
+                              [labelSlogan]="labelSlogan"
+                              [name]="name"
+                              [public]="public"
+                              (onStyleChange)="handleStyleChange($event)" 
                               (onOpacityChange)="handleOpacityChange($event)" 
                               (onCapColorChange)="handleCapColorChange($event)"
                               (onNameChange)="handleNameChange($event)"

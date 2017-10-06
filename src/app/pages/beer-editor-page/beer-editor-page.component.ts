@@ -18,14 +18,17 @@ export class BeerEditorPageComponent implements OnInit {
             'IPA': '#e37b4c'
           };
   color: String;
+  style: String;
   opacity: any;
   capColor: String;
   name: String;
+  flavours: any;
   labelColor: String;
   labelFont: String;
   labelFontColor: String;
   labelImage: String;
   labelSlogan: String;
+  public: String;
 
   @Output() onBeerCreation = new EventEmitter<object>();
 
@@ -40,6 +43,8 @@ export class BeerEditorPageComponent implements OnInit {
 
   getBeer (id) {
     this.beerService.getBeer(id).subscribe((res) => ( this.name = res.name,
+                                                      this.style = res.beerDetails.style,
+                                                      this.flavours = res.beerDetails.extraFlavours,
                                                       this.labelColor = res.label.color,
                                                       this.labelFont = res.label.font,
                                                       this.labelFontColor = res.label.fontColor,
@@ -47,7 +52,8 @@ export class BeerEditorPageComponent implements OnInit {
                                                       this.labelSlogan = res.label.slogan,
                                                       this.capColor = res.cap.color,
                                                       this.color = this.colors[res.beerDetails.style],
-                                                      this.opacity = res.beerDetails.opacity ));
+                                                      this.opacity = res.beerDetails.opacity,
+                                                      this.public = res.isPublic));
   }
 
   handleBeerCreation(beer) {

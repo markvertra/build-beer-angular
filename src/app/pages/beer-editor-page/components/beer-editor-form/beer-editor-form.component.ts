@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BeerService } from '../../../../services/beer-service.service';
 import { SessionService } from '../../../../services/session-service.service';
@@ -43,20 +43,21 @@ export class BeerEditorFormComponent implements OnInit {
     'IPA': '#e37b4c'
     };
 
-    name: String;
-    colourants: String;
-    labelSlogan: String;
-    labelImage: String;
-    labelColor: String;
-    labelFont: String;
-    labelFontColor: String;
-    capColor: String;
-    flavours: String;
-    labelSelfImage: String;
-    public: Boolean;
+    @Input() name: String;
+    @Input() style: String;
+    @Input() colourants: String;
+    @Input() labelSlogan: String;
+    @Input() labelImage: String;
+    @Input() labelColor: String;
+    @Input() labelFont: String;
+    @Input() labelFontColor: String;
+    @Input() capColor: String;
+    @Input() flavours: any;
+    @Input() labelSelfImage: String;
+    @Input() public: Boolean;
 
     results;
-    style: String;
+
     @Output() onStyleChange = new EventEmitter<string>();
     @Output() onOpacityChange = new EventEmitter<string>();
     @Output() onCapColorChange = new EventEmitter<string>();

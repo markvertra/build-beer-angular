@@ -67,35 +67,6 @@
   padding: 50px;
 }
 
-.article-section {
-  display: flex;
-  justify-content: space-around;
-}
-
-.article {
-  width: 250px;
-  height: 590px;
-  margin: 50px;
-  padding: 10px;
-  display: inline-block;
-}
-
-.article:hover {
-  border: 1px brown solid;
-  box-shadow: 1px -1px 1px 1px;
-  cursor: pointer;
-}
-
-.article-container {
-  padding: 50px 0px;
-  text-align: center;
-}
-
-.article-container h2 {
-  font-size: 2em;
-  margin-bottom: 50px;
-}
-
 #bottling-section {
   background-image: url("https://img.vimbly.com/images/full_photos/brewery-generic-6.jpg");
   background-size: cover;
@@ -104,10 +75,6 @@
 #drinking-section {
   background-image: url("https://fatgirlfoodsquad.files.wordpress.com/2014/01/sbdl-group1.jpg");
   background-size: cover;
-}
-
-.search-section {
-  height: 500px;
 }
 
 ul {

@@ -38,6 +38,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { FBShareComponent } from 'ngx-facebook';
 import { BeerEditorPageComponent } from './pages/beer-editor-page/beer-editor-page.component';
 import { BeerEditorFormComponent } from './pages/beer-editor-page/components/beer-editor-form/beer-editor-form.component';
+import { BeerDisplayComponent } from './pages/home-page/components/beer-display/beer-display.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { BeerEditorFormComponent } from './pages/beer-editor-page/components/bee
     ProfilePageComponent,
     FBShareComponent,
     BeerEditorPageComponent,
-    BeerEditorFormComponent
+    BeerEditorFormComponent,
+    BeerDisplayComponent
   ],
   imports: [
     BrowserModule,

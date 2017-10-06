@@ -1,6 +1,6 @@
 <div class="container">
   <h2 *ngIf="beer">{{ beer.name }}</h2>
-  <div *ngIf="beer">class="component-wrapper">
+  <div *ngIf="beer" class="component-wrapper">
     <app-beer-image [color]="beer.beerDetails.color" 
     [opacity]="beer.beerDetails.opacity" 
     [capColor]="beer.cap.color"

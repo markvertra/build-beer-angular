@@ -7,7 +7,7 @@
 <ng-container *ngIf="publicBeers">
   <h3>Published Beers</h3>
   <div class="beer-image-container">
-      <div *ngFor="let beer of publicBeers" class="beer-article" (click)="handleBeerClick(beer._id)">
+      <div *ngFor="let beer of publicBeers" class="beer-article" (click)="handleBeerClick(beer._id, beer.creatorId)">
       <app-beer-image [color]="beer.beerDetails.color" 
                       [opacity]="beer.beerDetails.opacity" 
                       [capColor]="beer.cap.color"

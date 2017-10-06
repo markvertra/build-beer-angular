@@ -41,7 +41,8 @@ getPrivateBeerByUser(id) {
   }
 
 handleBeerClick(id: String, creatorId) {
-    if (creatorId === this.user.id) {
+    console.log(creatorId + ' ' + this.user._id);
+    if (creatorId === this.user._id) {
     this.router.navigateByUrl('/beer/' + id + '/edit');
     }
   }

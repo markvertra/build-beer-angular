@@ -40,7 +40,9 @@ getPrivateBeerByUser(id) {
   this.beerService.getPrivateUserBeers(id).subscribe((res) => this.privateBeers = res);
   }
 
-handleBeerClick(id: String) {
-  this.router.navigateByUrl('/beer/' + id + '/edit');
+handleBeerClick(id: String, creatorId) {
+    if (creatorId === this.user.id) {
+    this.router.navigateByUrl('/beer/' + id + '/edit');
+    }
   }
 }

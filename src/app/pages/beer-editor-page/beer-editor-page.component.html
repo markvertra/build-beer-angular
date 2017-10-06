@@ -1,0 +1,32 @@
+<div class="beer-builder-container">
+    <div class="design-page-header">
+      <h2 class>Edit your beer</h2>
+   
+    </div>
+  
+    <div class="beer-design-container">
+      <div class="bottle-image-wrapper">
+        <app-beer-image [color]="color" 
+                        [opacity]="opacity" 
+                        [capColor]="capColor"
+                        [labelColor]="labelColor"
+                        [labelFontColor]="labelFontColor"
+                        [labelImage]="labelImage"
+                        [labelFont]="labelFont"
+                        [labelSlogan]="labelSlogan"
+                        [name]="name"></app-beer-image>
+      </div>
+      <div class="beer-order-form-wrapper">
+        <app-beer-editor-form (onStyleChange)="handleStyleChange($event)" 
+                              (onOpacityChange)="handleOpacityChange($event)" 
+                              (onCapColorChange)="handleCapColorChange($event)"
+                              (onNameChange)="handleNameChange($event)"
+                              (onLabelColorChange)="handleLabelColorChange($event)"
+                              (onLabelImageChange)="handleLabelImageChange($event)"
+                              (onLabelSloganChange)="handleLabelSloganChange($event)"
+                              (onLabelFontColorChange)="handleLabelFontColorChange($event)"
+                              (onBeerCreation)="handleBeerCreation($event)"
+                              (onLabelFontChange)="handleLabelFontChange($event)"></app-beer-editor-form>
+      </div>
+    </div>
+  </div>

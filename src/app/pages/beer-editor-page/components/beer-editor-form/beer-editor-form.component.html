@@ -1,0 +1,129 @@
+<form (ngSubmit)="handleNewBeer(beerForm)" #beerForm="ngForm" class="beer-build-form" novalidate>
+    
+  <h2>Your beer</h2>
+
+  <div class="form-element-container style-field-container">
+    <label>Type of Beer</label>
+    <select name="style" [(ngModel)]="style" (change)="handleStyleChange(style)" required>
+      <option value="Pilsner">Pilsner</option>
+      <option value="Wheat Beer">Wheat Beer</option>
+      <option value="IPA">IPA</option>
+      <option value="Pale Ale">Pale Ale</option>
+      <option value="Red Ale">Red Ale</option>
+      <option value="Porter">Porter</option>
+      <option value="Stout">Stout</option>
+    </select>
+    <p *ngIf="style==='Pilsner'">{{ style }} is a crisp, golden, foamy, lightly-flavoured beer</p>
+    <p *ngIf="style==='Wheat Beer'">{{ style }} is a cloudly-coloured, sweet and highly-carbonated beer</p>
+    <p *ngIf="style==='IPA'">{{ style }} is a hoppy, moderately strong beer with a high finish</p>
+    <p *ngIf="style==='Pale Ale'">{{ style }} is a moderately-hopped, medium strength beer</p>
+    <p *ngIf="style==='Red Ale'">{{ style }} is a medium-light beer with a light, roasted aroma</p>
+    <p *ngIf="style==='Porter'">{{ style }} is dark beer with a medium body and hints of caramel</p>
+    <p *ngIf="style==='Stout'">{{ style }} is a dark, creamy beer with a dry, roasted flavour</p>
+  </div>
+
+  <div class="form-element-container colourants-field-container">
+    <label>Clarity</label>
+    <select name="colourants" [(ngModel)]="colourants" (change)="handleOpacityChange(colourants)" required>
+      <option value="Clear">Clear</option>
+      <option value="Medium">Medium</option>
+      <option value="Opaque">Opaque</option>
+    </select>
+    <p *ngIf="style==='Stout' || style==='Porter'">NB. {{ style }} will almost always by medium or opaque in clarity</p>
+  </div>
+
+  <div class="form-element-container flavours-field-container">
+    <label>Be Creative</label>
+    <select name="flavours" [(ngModel)]="flavours">
+      <option value="None">None</option>
+      <option *ngIf="style==='Red Ale'" value="Smoky">Smoky</option>
+      <option *ngIf="style==='IPA' || style==='Pale Ale'" value="Citrus">Citrus</option>
+      <option *ngIf="style==='IPA' || style==='Pale Ale'" value="Grape">Grape</option>
+      <option *ngIf="style==='IPA' || style==='Pale Ale'" value="Apricot">Apricot</option>
+      <option *ngIf="style==='Wheat Beer'" value="Orange">Orange</option>
+      <option *ngIf="style==='Wheat Beer'" value="Coriander">Coriander</option>
+      <option *ngIf="style==='Pilsner'" value="Vanilla">Vanilla</option>
+      <option *ngIf="style==='Pilsner'" value="Blueberry">Blueberry</option>
+      <option *ngIf="style==='Pilsner'" value="Strawberry">Strawberry</option>
+      <option *ngIf="style==='Stout' || style==='Porter'" value="Chili">Chili</option>
+      <option *ngIf="style==='Stout' || style==='Porter'" value="Chocolate">Chocolate</option>
+      <option *ngIf="style==='Stout' || style==='Porter'" value="Coffee">Coffee</option>
+      <option *ngIf="style==='Stout' || style==='Porter' || style==='Red Ale'" value="Caramel">Caramel</option>
+    </select>
+  </div>
+
+  <h2>Your label and cap</h2>
+
+  <div class="form-element-container name-field-container">
+    <label>Beer Name</label>
+    <input type="text" name="name" [(ngModel)]="name" (change)="handleNameChange(name)" #beerName="ngModel" maxlength=15 required>
+  </div>
+
+  <div class="form-element-container font-field-container">
+    <label>Font</label>
+    <select name="labelFont" [(ngModel)]="labelFont" (change)="handleLabelFontChange(labelFont)" required>
+      <option value="Lato">Lato</option>
+      <option value="Poppins">Poppins</option>
+      <option value="Arial">Arial</option>
+      <option value="Geo">Geo</option>
+      <option value="Lobster">Lobster</option>
+      <option value="Metal Mania">Metal Mania</option>
+      <option value="Open Sans">Open Sans</option>
+      <option value="Gloria Hallelujah">Gloria Hallelujah</option>
+    </select>
+  </div>
+
+  <div class="form-element-container label-font-field-container">
+      <label>Font Colour</label>
+      <select name="labelFontColor" [(ngModel)]="labelFontColor" (change)="handleLabelFontColorChange(labelFontColor)" required>
+        <option *ngFor="let color of colors" value="{{ color.code }}">
+          {{ color.name }}
+        </option>
+      </select>
+  </div>
+
+  <div class="form-element-container label-text-field-container">
+    <label>Label Colour</label>
+    <select name="labelColor" [(ngModel)]="labelColor" (change)="handleLabelColorChange(labelColor)" required>
+      <option *ngFor="let color of colors" value="{{ color.code }}">
+          {{ color.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-element-container font-field-container">
+      <label>Image</label>
+      <select name="labelImage" [(ngModel)]="labelImage" (change)="handleLabelImageChange(labelImage)" required>
+        <option value="star">Star</option>
+        <option value="badge">Badge</option>
+        <option value="irongram">Irongram</option>
+        <option value="myOwnImage">My Own Image</option>
+      </select>
+  </div>
+
+  <div *ngIf="labelImage==='myOwnImage'" class="form-element-container font-field-container">
+    <label>Image Link</label>
+    <input name="labelSelfImage" [(ngModel)]="labelSelfImage" (change)="handleLabelSelfImageChange(labelSelfImage)">
+  </div>
+
+  <div class="form-element-container label-slogan-field-container">
+    <label>Your Slogan</label>
+    <input name="labelSlogan" [(ngModel)]="labelSlogan" (change)="handleLabelSloganChange(labelSlogan)" maxlength=16>
+  </div>
+
+  <div class="form-element-container cap-color-field-container">
+    <label>Cap Colour</label>
+    <select name="capColor" [(ngModel)]="capColor" (change)="handleCapColorChange(capColor)" required>
+      <option *ngFor="let color of colors" value="{{ color.code }}">
+        {{ color.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="make-public-field-container">
+    <label>Make Public</label>
+    <input type="checkbox" name="public" id="public-box" [(ngModel)]="public">
+  </div>
+  
+  <button class="beer-form-button" type="submit" [disabled]="!beerForm.valid">Save</button>
+</form>

@@ -1,0 +1,73 @@
+.beer-build-form {
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+input {
+  margin-left: 50px;
+  border: none;
+  border-bottom: 1px solid brown;
+  float:right;
+  padding: 5px 5px 2px 5px;
+  height: 30px;
+  width: 100px;
+  transition: box-shadow 1s, width 1s;
+}
+
+input:hover {
+  border: 1px solid brown;
+}
+
+input:focus {
+  border: 1px solid brown;
+  box-shadow: 1px 1px 1px 1px;
+  width: 150px;
+}
+
+select {
+  margin-left: 50px;
+  float: right;
+  width: 100px;
+  background-color: white;
+  border-radius: 0px;
+  border: 1px solid brown;
+  transition: width 1s;
+}
+
+select:hover {
+  width: 150px;
+}
+
+option {
+  background: blue;
+}
+
+button {
+  padding: 10px;
+  width: 400px;
+  border: none;
+  background-color: rgba(83, 49, 4, 0.2);
+  transition: box-shadow 1s;
+}
+
+button:hover {
+  box-shadow: 1px 1px 1px 1px;
+}
+
+.form-element-container p {
+  font-size: 0.7em;
+  color: brown;
+}
+
+#public-box {
+  transition: none;
+  width: 20px;
+}
+
+#public-box:focus {
+  border: none;
+  box-shadow: none;
+  width: 20px;
+}

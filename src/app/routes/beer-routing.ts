@@ -6,6 +6,7 @@ import { OrderSuccessPageComponent } from '../pages/order-success-page/order-suc
 import { AuthenticationPageComponent } from '../pages/authentication-page/authentication-page.component';
 import { BeerDisplayFrameComponent } from '../pages/reusables/beer-display-frame/beer-display-frame.component';
 import { ProfilePageComponent } from '../pages/profile-page/profile-page.component';
+import { BeerEditorPageComponent } from '../pages/beer-editor-page/beer-editor-page.component';
 
 export const beerRoutes: Routes  = [
   { path: '', component: HomePageComponent },
@@ -13,5 +14,6 @@ export const beerRoutes: Routes  = [
   { path: 'create', component: BeerCreationProcessComponent },
   { path: 'success', component: OrderSuccessPageComponent },
   { path: 'profile/:id', component: ProfilePageComponent },
-  { path: 'beer/:id', component: BeerDisplayFrameComponent }
+  { path: 'beer/:id', component: BeerDisplayFrameComponent },
+  { path: 'beer/:id/edit', component: BeerEditorPageComponent }
 ];

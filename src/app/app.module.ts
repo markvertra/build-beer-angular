@@ -36,6 +36,8 @@ import { AuthLogoutComponent } from './pages/reusables/auth-logout/auth-logout.c
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 import { FBShareComponent } from 'ngx-facebook';
+import { BeerEditorPageComponent } from './pages/beer-editor-page/beer-editor-page.component';
+import { BeerEditorFormComponent } from './pages/beer-editor-page/components/beer-editor-form/beer-editor-form.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { FBShareComponent } from 'ngx-facebook';
     AuthLogoutComponent,
     AuthSignupComponent,
     ProfilePageComponent,
-    FBShareComponent
+    FBShareComponent,
+    BeerEditorPageComponent,
+    BeerEditorFormComponent
   ],
   imports: [
     BrowserModule,

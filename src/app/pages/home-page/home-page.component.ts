@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
   constructor(private beer: BeerService, private router: Router) { }
 
   ngOnInit() {
-    this.beer.getBeers().subscribe((res) => this.beers = res);
+    this.beer.getPublicBeers().subscribe((res) => this.beers = res);
   }
 
   handleBeerClick(id: String) {

@@ -19,8 +19,13 @@ export class BeerService {
   }
 
   getUserBeers(id: string) {
-      return this.http.get(`${this.BASE_URL}/api/beer/byuser/${id}`)
-        .map((res) => res.json());
+    return this.http.get(`${this.BASE_URL}/api/beer/byuser/${id}`)
+      .map((res) => res.json());
+  }
+
+  getPublicBeers() {
+    return this.http.get(`${this.BASE_URL}/api/beer/public`)
+    .map((res) => res.json());
   }
 
   postBeer(beer: Object) {

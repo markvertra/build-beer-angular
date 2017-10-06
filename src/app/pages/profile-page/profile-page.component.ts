@@ -11,7 +11,8 @@ import { BeerService } from '../../services/beer-service.service';
 
 export class ProfilePageComponent implements OnInit {
   user: any;
-  beers: Array<Object>;
+  publicBeers: Array<Object>;
+  privateBeers: Array<Object>;
 
 
   constructor(private route: ActivatedRoute,
@@ -21,7 +22,8 @@ export class ProfilePageComponent implements OnInit {
 ngOnInit() {
   this.route.params.subscribe(params => {
   this.getUser(params['id']),
-  this.getBeerByUser(params['id']);
+  this.getPublicBeerByUser(params['id']);
+  this.getPrivateBeerByUser(params['id']);
   });
 }
 
@@ -29,8 +31,12 @@ getUser(id) {
   this.sessionService.getUser(id).subscribe((res) => this.user = res);
   }
 
-getBeerByUser(id) {
-  this.beerService.getUserBeers(id).subscribe((res) => this.beers = res);
+getPublicBeerByUser(id) {
+  this.beerService.getPublicUserBeers(id).subscribe((res) => this.publicBeers = res);
+}
+
+getPrivateBeerByUser(id) {
+  this.beerService.getPrivateUserBeers(id).subscribe((res) => this.privateBeers = res);
 }
 
 

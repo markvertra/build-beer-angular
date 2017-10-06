@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>{{ beer.name }}</h2>
+  <h2 *ngIf="beer">{{ beer.name }}</h2>
   <div class="component-wrapper">
     <app-beer-image [color]="beer.beerDetails.color" 
     [opacity]="beer.beerDetails.opacity" 
@@ -10,8 +10,10 @@
     [labelFont]="beer.label.font"
     [labelSlogan]="beer.label.slogan"
     [name]="beer.name"></app-beer-image>
-    <div class="beer-info">
+    <div *ngIf="beer" class="beer-info">
+        <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>
       {{ beer.description }}
     </div>
+    
   </div>
 </div>

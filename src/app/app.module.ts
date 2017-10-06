@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { StarRatingModule } from 'angular-star-rating';
 
 import { beerRoutes } from './routes/beer-routing';
 
@@ -34,6 +35,8 @@ import { AuthSignupComponent } from './pages/reusables/auth-signup/auth-signup.
 import { AuthLogoutComponent } from './pages/reusables/auth-logout/auth-logout.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
+import { FBShareComponent } from 'ngx-facebook';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,12 +60,14 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
     AuthLogoutComponent,
     AuthSignupComponent,
     ProfilePageComponent,
+    FBShareComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(beerRoutes),
+    StarRatingModule.forRoot()
   ],
   providers: [BeerService,
               OrderService,

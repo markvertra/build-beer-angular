@@ -1,5 +1,20 @@
 <div class="profile-container">
 
-Welcome, {{ user.username }}
+<ng-container *ngIf="user">
+  <h3>Beers made by {{ user.username }} </h3>
+</ng-container>
+<ng-container *ngIf="beers">
+  <div *ngFor="let beer of beers">
+    <app-beer-image [color]="beer.beerDetails.color" 
+    [opacity]="beer.beerDetails.opacity" 
+    [capColor]="beer.cap.color"
+    [labelColor]="beer.label.color"
+    [labelFontColor]="beer.label.fontColor"
+    [labelImage]="beer.label.image"
+    [labelFont]="beer.label.font"
+    [labelSlogan]="beer.label.slogan"
+    [name]="beer.name"></app-beer-image>
+  </div>
+</ng-container>
 
 </div>

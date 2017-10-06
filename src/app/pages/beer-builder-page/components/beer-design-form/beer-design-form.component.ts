@@ -53,6 +53,7 @@ dbColors = {'Stout': '#32312c',
   capColor: String;
   flavours: String;
   labelSelfImage: String;
+  public: Boolean;
 
   results;
   style: String;
@@ -135,7 +136,8 @@ dbColors = {'Stout': '#32312c',
                       labelFontColor: form.value.labelFontColor,
                       labelSlogan: form.value.labelSlogan,
                       capColor: form.value.capColor,
-                      creatorId: this.user.id };
+                      creatorId: this.user.id,
+                      isPublic: this.public };
     this.beerService.postBeer(newBeer).subscribe(res => {
       this.results = res;
       this.onBeerCreation.emit(this.results);

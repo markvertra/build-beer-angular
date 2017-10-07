@@ -12,7 +12,7 @@ export class BeerDisplayComponent implements OnInit {
   beers: any;
   user: any;
   searchTerm: string;
-  searchType: 'name';
+  searchType;
   filteredBeers: any;
 
   constructor(private beer: BeerService,
@@ -20,21 +20,26 @@ export class BeerDisplayComponent implements OnInit {
     private session: SessionService) { }
 
   ngOnInit() {
-    this.beer.getPublicBeers().subscribe((res) => (this.filteredBeers = res, this.beers = res));
+    this.beer.getPublicBeers().subscribe((res) => (this.filteredBeers = res, this.beers = res))
   }
 
   handleSearchChange() {
     this.filteredBeers = this.runSearch(this.searchTerm, this.searchType);
+    this.sortBeers(this.filteredBeers);
   }
 
   handleSearchTypeChange() {
     this.filteredBeers = this.runSearch(this.searchTerm, this.searchType);
+    this.sortBeers(this.filteredBeers);
   }
 
   runSearch(searchTerm, searchType) {
     if (!searchTerm) { searchTerm = ''; }
     if (!searchType) {
-      searchType = 'searchable';
+      this.searchType = 'searchable';
+      return this.beers.filter((beer) => {
+        return beer[this.searchType].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+      });
     } else if (searchType === 'name') {
       return this.beers.filter((beer) => {
         return beer[searchType].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
@@ -56,6 +61,19 @@ export class BeerDisplayComponent implements OnInit {
 
   handleBeerClick(id: String) {
     this.router.navigateByUrl('/beer/' + id);
+  }
+
+  calculateReviewScore(beer) {
+    const scores = Object.values(beer.reviews);
+    return scores.reduce((prev, curr) => (prev + Number(curr)), 0) / scores.length;
+  }
+
+  sortBeers(beers) {
+    this.beers.sort((a, b) => {
+      const reviewsA = this.calculateReviewScore(a) || 0;
+      const reviewsB = this.calculateReviewScore(b) || 0;
+      return reviewsB - reviewsA;
+    });
   }
 
 }

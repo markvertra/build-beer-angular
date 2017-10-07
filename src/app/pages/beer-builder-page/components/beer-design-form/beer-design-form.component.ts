@@ -139,7 +139,6 @@ dbColors = {'Stout': '#32312c',
                       capColor: form.value.capColor,
                       creatorId: this.user.id,
                       isPublic: this.public };
-    console.log(newBeer);
     this.beerService.postBeer(newBeer).subscribe(res => {
       this.results = res;
       this.onBeerCreation.emit(this.results);

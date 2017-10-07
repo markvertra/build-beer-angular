@@ -12,7 +12,7 @@ export class BeerDisplayComponent implements OnInit {
   beers: any;
   user: any;
   searchTerm: string;
-  searchType: string;
+  searchType: 'name';
   filteredBeers: any;
 
   constructor(private beer: BeerService,

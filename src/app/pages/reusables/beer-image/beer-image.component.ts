@@ -30,6 +30,7 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
   @Input() labelFontColor;
   @Input() labelImage;
   @Input() labelSlogan;
+  @Input() reviews;
 
   constructor() { }
 

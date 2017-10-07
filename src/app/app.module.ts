@@ -40,6 +40,9 @@ import { BeerEditorPageComponent } from './pages/beer-editor-page/beer-editor-pa
 import { BeerEditorFormComponent } from './pages/beer-editor-page/components/beer-editor-form/beer-editor-form.component';
 import { BeerDisplayComponent } from './pages/home-page/components/beer-display/beer-display.component';
 
+import { LeaveReviewComponent } from './pages/reusables/leave-review/leave-review.component';
+import { DisplayReviewComponent } from './pages/reusables/display-review/display-review.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +69,9 @@ import { BeerDisplayComponent } from './pages/home-page/components/beer-display/
     FBShareComponent,
     BeerEditorPageComponent,
     BeerEditorFormComponent,
-    BeerDisplayComponent
+    BeerDisplayComponent,
+    LeaveReviewComponent,
+    DisplayReviewComponent
   ],
   imports: [
     BrowserModule,

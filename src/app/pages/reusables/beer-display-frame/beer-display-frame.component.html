@@ -9,10 +9,13 @@
     [labelImage]="beer.label.image"
     [labelFont]="beer.label.font"
     [labelSlogan]="beer.label.slogan"
-    [name]="beer.name"></app-beer-image>
+    [name]="beer.name"
+    [reviews]="beer.reviews"></app-beer-image>
     <div *ngIf="beer" class="beer-info">
       {{ beer.description }}
     </div>
-    
   </div>
 </div>
+<ng-container *ngIf="beer">
+  <app-leave-review [beerId]="beer._id"></app-leave-review>
+</ng-container>

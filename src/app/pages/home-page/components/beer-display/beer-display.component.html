@@ -12,13 +12,14 @@
       [labelImage]="beer.label.image"
       [labelFont]="beer.label.font"
       [labelSlogan]="beer.label.slogan"
-      [name]="beer.name"></app-beer-image>
+      [name]="beer.name"
+      [reviews]="beer.reviews"></app-beer-image>
     </div>
   </ng-container>
 </div>
 <div class="search-container">
-<input type="text" class="search-bar" placeholder="Search our beers" [(ngModel)]="searchTerm" (change)="handleSearchChange()">
-<select class="search-bar-type-setter" placeholder="name" [(ngModel)]="searchType" (change)="handleSearchTypeChange()">
+<input type="text" class="search-bar" placeholder="Search our beers by..." [(ngModel)]="searchTerm" (change)="handleSearchChange()">
+<select class="search-bar-type-setter" [(ngModel)]="searchType" (change)="handleSearchTypeChange()">
   <option value="name" selected>Name</option>
   <option value="style">Style</option>
   <option value="extraFlavours">Flavours</option>

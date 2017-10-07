@@ -52,4 +52,9 @@ export class BeerService {
     return this.http.post(`${this.BASE_URL}/api/beer/${id}`, beer)
     .map((res) => res.json());
   }
+
+  addReview(id: String, score: Object) {
+    return this.http.post(`${this.BASE_URL}/api/beer/review/${id}`, score)
+    .map((res) => res.json());
+  }
 }

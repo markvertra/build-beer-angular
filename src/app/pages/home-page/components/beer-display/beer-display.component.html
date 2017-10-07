@@ -16,6 +16,7 @@
     </div>
   </ng-container>
 </div>
+<div class="search-container">
 <input type="text" class="search-bar" placeholder="Search our beers" [(ngModel)]="searchTerm" (change)="handleSearchChange()">
 <select class="search-bar-type-setter" placeholder="name" [(ngModel)]="searchType" (change)="handleSearchTypeChange()">
   <option value="name" selected>Name</option>
@@ -23,3 +24,4 @@
   <option value="extraFlavours">Flavours</option>
   <option value="slogan">Slogan</option>
 </select>
+</div>

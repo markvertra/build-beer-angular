@@ -28,9 +28,23 @@
   margin-bottom: 50px;
 }
 
+.search-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 .search-bar {
   width: 300px;
   padding: 5px;
   box-shadow: 1px 1px 1px 1px brown;
   border: 1px solid brown;
+}
+
+select {
+  height: 29px;
+  padding: 5px;
+  border-radius: 0;
+  width: 100px;
+  border: 1px solid brown;
+  box-shadow: 1px 1px 1px 1px brown;
 }

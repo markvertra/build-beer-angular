@@ -1,0 +1,8 @@
+.basket-container {
+  padding: 50px;
+}
+
+.basketDiv {
+  display: flex;
+  justify-content: space-between;
+}

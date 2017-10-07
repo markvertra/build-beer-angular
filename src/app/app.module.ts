@@ -44,6 +44,7 @@ import { LeaveReviewComponent } from './pages/reusables/leave-review/leave-revie
 import { DisplayReviewComponent } from './pages/reusables/display-review/display-review.component';
 import { OrderHistoryPageComponent } from './pages/order-history-page/order-history-page.component';
 import { BasketPageComponent } from './pages/basket-page/basket-page.component';
+import { QuantitySetterComponent } from './pages/reusables/quantity-setter/quantity-setter.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { BasketPageComponent } from './pages/basket-page/basket-page.component';
     LeaveReviewComponent,
     DisplayReviewComponent,
     OrderHistoryPageComponent,
-    BasketPageComponent
+    BasketPageComponent,
+    QuantitySetterComponent
   ],
   imports: [
     BrowserModule,

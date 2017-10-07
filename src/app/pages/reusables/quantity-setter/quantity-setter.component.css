@@ -1,0 +1,34 @@
+p {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.quantityInput {
+  padding: 5px;
+  width: 40px;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  font-size: 16px;
+}
+
+.quantityButton {
+  display: inline-block;
+  border: 1px solid brown;
+  box-shadow: 1px 1px 1px 1px brown;
+  background-color: lightgray;
+  width: 20px;
+  height: 20px;
+  margin: 0px 5px;
+  text-align: center;
+}
+
+.bottleSizeLabel {
+  float: right;
+}
+
+.bottleSize {
+  margin-left: 20px;
+  float: right;
+}
+
+

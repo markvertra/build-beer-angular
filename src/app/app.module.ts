@@ -42,6 +42,7 @@ import { BeerDisplayComponent } from './pages/home-page/components/beer-display/
 
 import { LeaveReviewComponent } from './pages/reusables/leave-review/leave-review.component';
 import { DisplayReviewComponent } from './pages/reusables/display-review/display-review.component';
+import { OrderHistoryPageComponent } from './pages/order-history-page/order-history-page.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { DisplayReviewComponent } from './pages/reusables/display-review/display
     BeerEditorFormComponent,
     BeerDisplayComponent,
     LeaveReviewComponent,
-    DisplayReviewComponent
+    DisplayReviewComponent,
+    OrderHistoryPageComponent
   ],
   imports: [
     BrowserModule,

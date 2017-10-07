@@ -1,12 +1,17 @@
-User Reviews give this beer: {{reviewScore}} <br>
-<span class="star">&#9733;</span>
-<span class="star" *ngIf="reviewScore>=2">&#9733;</span>
-<span class="star" *ngIf="reviewScore<2">☆</span>
-<span class="star" *ngIf="reviewScore>=3">&#9733;</span>
-<span class="star" *ngIf="reviewScore<3">☆</span>
-<span class="star" *ngIf="reviewScore>=4">&#9733;</span>
-<span class="star" *ngIf="reviewScore<4">☆</span>
-<span class="star" *ngIf="reviewScore>=5">&#9733;</span>
-<span class="star" *ngIf="reviewScore<5">☆</span>
+<ng-container *ngIf="reviewScore">
+  <p>User give this beer: {{reviewScore}} / 5 </p><br>
+  <span class="star">&#9733;</span>
+  <span class="star" *ngIf="reviewScore>=2">&#9733;</span>
+  <span class="star" *ngIf="reviewScore<2">☆</span>
+  <span class="star" *ngIf="reviewScore>=3">&#9733;</span>
+  <span class="star" *ngIf="reviewScore<3">☆</span>
+  <span class="star" *ngIf="reviewScore>=4">&#9733;</span>
+  <span class="star" *ngIf="reviewScore<4">☆</span>
+  <span class="star" *ngIf="reviewScore>=5">&#9733;</span>
+  <span class="star" *ngIf="reviewScore<5">☆</span>
+</ng-container>
 
-{{ scoreNumber }}
+<ng-container *ngIf="!reviewScore">
+  <p>This beer has 0 reviews</p>
+  <p>Why not try it by adding it to your basket?</p>
+</ng-container>

@@ -32,12 +32,26 @@ export class BeerDisplayComponent implements OnInit {
   }
 
   runSearch(searchTerm, searchType) {
-    if (!searchType) { searchType = 'searchable'; }
     if (!searchTerm) { searchTerm = ''; }
-    console.log(this.filteredBeers[3]['searchable']);
-    return this.beers.filter((beer) => {
-      return beer[searchType].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
-    });
+    if (!searchType) {
+      searchType = 'searchable';
+    } else if (searchType === 'name') {
+      return this.beers.filter((beer) => {
+        return beer[searchType].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+      });
+    } else if (searchType === 'style') {
+      return this.beers.filter((beer) => {
+        return beer.beerDetails[searchType].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+      });
+    } else if (searchType === 'extraFlavours') {
+      return this.beers.filter((beer) => {
+        return beer.beerDetails[searchType][0].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+      });
+    } else if (searchType === 'slogan') {
+      return this.beers.filter((beer) => {
+        return beer.label[searchType].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+      });
+    }
   }
 
   handleBeerClick(id: String) {

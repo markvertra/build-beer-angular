@@ -16,6 +16,7 @@
     </div>
   </div>
 </div>
+<button (click)="handleAddToBasket()">Order</button>
 <ng-container *ngIf="user">
   <ng-container *ngIf="beer">
     <app-leave-review [beerId]="beer._id"></app-leave-review>

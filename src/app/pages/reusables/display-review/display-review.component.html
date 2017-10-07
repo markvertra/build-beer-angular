@@ -13,5 +13,5 @@
 
 <ng-container *ngIf="!reviewScore">
   <p>This beer has 0 reviews</p>
-  <p>Why not try it by adding it to your basket?</p>
+  <p>Why not try it by adding it to your <span class="order" (click)="handleAddToBasket()">basket?</span></p>
 </ng-container>

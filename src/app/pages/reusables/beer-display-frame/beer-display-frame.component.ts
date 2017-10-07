@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BeerService } from '../../../services/beer-service.service';
 import { SessionService } from '../../../services/session-service.service';
+import { OrderService } from '../../../services/order-service.service';
 
 @Component({
   selector: 'app-beer-display-frame',
@@ -15,7 +16,8 @@ export class BeerDisplayFrameComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private beerService: BeerService,
-              private sessionService: SessionService) { }
+              private sessionService: SessionService,
+              private orderService: OrderService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -33,6 +35,11 @@ export class BeerDisplayFrameComponent implements OnInit {
 
   getBeer (id) {
     this.beerService.getBeer(id).subscribe((res) => this.beer = res);
+  }
+
+  handleAddToBasket() {
+    this.orderService.addItemToBasket(this.beer);
+    console.log(this.orderService.basket);
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { OrderService } from '../../../services/order-service.service';
 
 @Component({
   selector: 'app-display-review',
@@ -8,8 +9,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DisplayReviewComponent implements OnInit {
 @Input() reviews;
 reviewScore: Number;
+@Input() beer;
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
     this.reviewScore = this.calculateReviewScore();
@@ -17,8 +19,6 @@ reviewScore: Number;
 
   calculateReviewScore() {
     const scores = Object.values(this.reviews);
-    console.log(scores.length);
-    console.log(scores);
     return scores.reduce((prev, curr) => (prev + Number(curr)), 0) / scores.length;
   }
 }

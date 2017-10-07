@@ -3,7 +3,7 @@
   <form *ngIf="basket" (ngSubmit)="handleBeerOrder(beerForm)" #beerForm="ngForm" class="beer-build-form">
     <div *ngFor="let item of basket" class="basketDiv">
       <h4>{{ item.name }} - {{ item.beerDetails.style }}</h4>
-      <app-quantity-setter></app-quantity-setter>
+      <app-quantity-setter [beerID]="item._id" (onBeerOrder)="handleBeerOrder($event)"></app-quantity-setter>
     </div>
     <button>Go to Checkout</button>
   </form>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { OrderService } from '../../services/order-service.service';
 
 @Component({
@@ -8,11 +8,18 @@ import { OrderService } from '../../services/order-service.service';
 })
 export class BasketPageComponent implements OnInit {
   basket: any;
+  checkoutBasket: any;
+  beerForm: any;
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
     this.basket = this.orderService.basket;
+    this.checkoutBasket = this.orderService.checkoutBasket;
   }
 
+  handleBeerOrder(beerForm) {
+    this.beerForm = beerForm;
+    this.checkoutBasket.push(this.beerForm);
+  }
 }

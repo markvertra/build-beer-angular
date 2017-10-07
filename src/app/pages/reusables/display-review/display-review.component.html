@@ -1,6 +1,12 @@
 User Reviews give this beer: {{reviewScore}} <br>
-<span>☆</span>
-<span *ngIf="reviewScore>1">☆</span>
-<span *ngIf="reviewScore>2">☆</span>
-<span *ngIf="reviewScore>3">☆</span>
-<span *ngIf="reviewScore>4">☆</span>
+<span class="star">&#9733;</span>
+<span class="star" *ngIf="reviewScore>=2">&#9733;</span>
+<span class="star" *ngIf="reviewScore<2">☆</span>
+<span class="star" *ngIf="reviewScore>=3">&#9733;</span>
+<span class="star" *ngIf="reviewScore<3">☆</span>
+<span class="star" *ngIf="reviewScore>=4">&#9733;</span>
+<span class="star" *ngIf="reviewScore<4">☆</span>
+<span class="star" *ngIf="reviewScore>=5">&#9733;</span>
+<span class="star" *ngIf="reviewScore<5">☆</span>
+
+{{ scoreNumber }}

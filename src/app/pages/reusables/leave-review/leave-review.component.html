@@ -1,7 +1,8 @@
 Leave your review
-
-<span class="star" (click)="handleSetReviewValue(1)">☆</span>
-<span class="star" (click)="handleSetReviewValue(2)">☆</span>
-<span class="star" (click)="handleSetReviewValue(3)">☆</span>
-<span class="star" (click)="handleSetReviewValue(4)">☆</span>
-<span class="star" (click)="handleSetReviewValue(5)">☆</span>
+<div class="star" ng-hide="hideStars">
+  <span (click)="handleSetReviewValue(1)">☆</span>
+  <span (click)="handleSetReviewValue(2)">☆</span>
+  <span (click)="handleSetReviewValue(3)">☆</span>
+  <span (click)="handleSetReviewValue(4)">☆</span>
+  <span (click)="handleSetReviewValue(5)">☆</span>
+</div>

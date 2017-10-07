@@ -39,6 +39,11 @@ export class LeaveReviewComponent implements OnInit {
     this.beerService.addReview(this.beerId, this.beerReviews).subscribe(res => { this.results = res; });
   }
 
+  handleSetReviewValue(int: number) {
+    this.reviewScore = int;
+    this.handleReviewLeft();
+  }
+
   getUser(id) {
     this.sessionService.getUser(id).subscribe((res) => this.user = res);
     }

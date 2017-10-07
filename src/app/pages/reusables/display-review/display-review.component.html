@@ -1,1 +1,6 @@
-{{ reviews | json }}
+User Reviews give this beer: {{reviewScore}} <br>
+<span>☆</span>
+<span *ngIf="reviewScore>1">☆</span>
+<span *ngIf="reviewScore>2">☆</span>
+<span *ngIf="reviewScore>3">☆</span>
+<span *ngIf="reviewScore>4">☆</span>

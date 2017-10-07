@@ -8,10 +8,10 @@ import { SessionService } from '../../../services/session-service.service';
   styleUrls: ['./leave-review.component.css']
 })
 export class LeaveReviewComponent implements OnInit {
-  review: object;
   reviewScore: number;
   user: any;
   results;
+  beerReviews;
   @Input () beerId;
 
   constructor(private beerService: BeerService,
@@ -22,16 +22,21 @@ export class LeaveReviewComponent implements OnInit {
     .subscribe(
       (user) => { this.setUser(user); }
     );
+    this.getBeerReviews();
   }
 
   setUser(user: any | null) {
     this.user = user;
   }
 
+  getBeerReviews() {
+    this.beerService.getBeer(this.beerId).subscribe(res => this.beerReviews = res.reviews);
+  }
+
   handleReviewLeft() {
     const userId = this.user.id;
-    this.review = {user: userId, score: this.reviewScore};
-    this.beerService.addReview(this.beerId, this.review).subscribe(res => { this.results = res; });
+    this.beerReviews[userId] = this.reviewScore;
+    this.beerService.addReview(this.beerId, this.beerReviews).subscribe(res => { this.results = res; });
   }
 
   getUser(id) {

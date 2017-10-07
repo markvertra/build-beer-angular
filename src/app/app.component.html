@@ -4,7 +4,8 @@
     <a [routerLink]="['/']">Home</a>
   </div>
   <div class="navbar-right-links">
-      <a *ngIf="user" [routerLink]="['orders']" class="navbar-link">My Orders</a>
+      <a *ngIf="user" [routerLink]="['basket']" class="navbar-link">My Basket</a>
+    <a *ngIf="user" [routerLink]="['orders']" class="navbar-link">My Orders</a>
     <a *ngIf="user" [routerLink]="['profile', user.id]" class="navbar-link">My Beers</a>
     <button *ngIf="!user" (click)="popLogIn()" class="navbar-link">Log In</button>
     <button *ngIf="user" (click)="logOut()" class="navbar-link">Log Out</button>

@@ -20,7 +20,7 @@ export class BeerDisplayComponent implements OnInit {
     private session: SessionService) { }
 
   ngOnInit() {
-    this.beer.getPublicBeers().subscribe((res) => (this.filteredBeers = res, this.beers = res))
+    this.beer.getPublicBeers().subscribe((res) => (this.filteredBeers = res, this.beers = res));
   }
 
   handleSearchChange() {

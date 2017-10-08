@@ -18,7 +18,6 @@ export const beerRoutes: Routes  = [
   { path: 'beer/:id', component: BeerDisplayFrameComponent },
   { path: 'beer/:id/edit', component: BeerEditorPageComponent },
   { path: 'orders', component: OrderHistoryPageComponent },
-  { path: 'basket', component: BasketPageComponent },
   { path: 'checkout', component: PaymentManagementPageComponent }
 
 ];

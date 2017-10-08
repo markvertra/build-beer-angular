@@ -3,18 +3,11 @@
 </div>
 
 <div class="beer-design-container">
-  <div class="bottle-image-wrapper">
-    <app-beer-image [color]="color" 
-                    [opacity]="opacity" 
-                    [capColor]="capColor"
-                    [labelColor]="labelColor"
-                    [labelFontColor]="labelFontColor"
-                    [labelImage]="labelImage"
-                    [labelFont]="labelFont"
-                    [labelSlogan]="labelSlogan"
-                    [name]="name"></app-beer-image>
+  <div>
+    <app-order-display></app-order-display>
   </div>
+
   <div class="beer-design-form-wrapper">
-    <app-beer-order-form [beerCreated] = "beerCreated"></app-beer-order-form>
+    <app-beer-order-form [checkoutBasket]="checkoutBasket" (onStatusChange)="handleStatusChange()" (onOrderConfirm)="handleOrderConfirm($event)"></app-beer-order-form>
   </div>
 </div>

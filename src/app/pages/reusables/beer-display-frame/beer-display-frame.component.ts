@@ -38,7 +38,13 @@ export class BeerDisplayFrameComponent implements OnInit {
   }
 
   handleAddToBasket() {
-      this.orderService.addItemToBasket(this.beer);
+    let beerPush = true;
+    this.orderService.basket.forEach((item) => {
+      if (item._id === this.beer._id) {
+        beerPush = false;
+      }
+    });
+    if (beerPush) { this.orderService.addItemToBasket(this.beer); }
     }
 }
 

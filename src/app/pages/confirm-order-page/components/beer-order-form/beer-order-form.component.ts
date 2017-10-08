@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderService } from '../../../../services/order-service.service';
 import { SessionService } from '../../../../services/session-service.service';
@@ -10,7 +10,7 @@ import { SessionService } from '../../../../services/session-service.service';
   providers: [OrderService, SessionService]
 })
 export class BeerOrderFormComponent implements OnInit {
-  @Input () beerCreated;
+  @Input() checkoutBasket;
   quantity: Number;
   firstName: String;
   lastName: String;
@@ -20,6 +20,8 @@ export class BeerOrderFormComponent implements OnInit {
   telephoneNumber: String;
   email: String;
   user: any;
+  @Output() onStatusChange = new EventEmitter<String>();
+  @Output() onOrderConfirm = new EventEmitter<Object>();
 
   results: Object;
   constructor(private router: Router,
@@ -38,8 +40,7 @@ export class BeerOrderFormComponent implements OnInit {
   }
 
   handleNewOrder(form: any) {
-    const newOrder = {beersOrdered: [{beer: this.beerCreated,
-                                      quantity: form.value.quantity}],
+    const newOrder = { beersOrdered: this.orderService.checkoutBasket,
                       deliveryDetails: { firstName: form.value.firstName,
                       lastName: form.value.lastName,
                       address: form.value.address,
@@ -52,6 +53,7 @@ export class BeerOrderFormComponent implements OnInit {
     this.orderService.postOrder(newOrder).subscribe(res => {
       this.results = res;
     });
-    this.router.navigate(['/success']);
+    this.onOrderConfirm.emit(newOrder);
+    this.onStatusChange.emit();
   }
 }

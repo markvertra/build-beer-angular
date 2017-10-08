@@ -4,8 +4,8 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class OrderService {
-  basket: Array<Object> = [];
-  checkoutBasket: Array<Object> = [];
+  basket = [];
+  checkoutBasket= [];
 
   BASE_URL = 'http://localhost:3000';
   constructor(private http: Http) { }
@@ -16,6 +16,10 @@ export class OrderService {
   }
 
   addItemToBasket(item: Object) {
+    this.basket.push(item);
+  }
+
+  addItemToCheckoutBasket(item: Object) {
     this.basket.push(item);
   }
 }

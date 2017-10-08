@@ -1,3 +1,15 @@
-<p>
-  payment-management-page works!
-</p>
+<ng-container *ngIf="status==='basket'">
+  <app-basket-page (onStatusChange)="handleStatusChange($event)" (onCheckoutSubmit)="handleCheckoutSubmit($event)"></app-basket-page>
+</ng-container>
+
+<ng-container *ngIf="status==='confirm'">
+  <app-confirm-order-page (onStatusChange)="handleStatusChange($event)" (onOrderConfirm)="handleOrderConfirm($event)"></app-confirm-order-page>
+</ng-container>
+
+<ng-container *ngIf="status==='payment'">
+  <app-payment-options-page [order]="order" (onStatusChange)="handleStatusChange($event)"></app-payment-options-page>
+</ng-container>
+
+<ng-container *ngIf="status==='results'">
+  <app-order-results-page></app-order-results-page>
+</ng-container>

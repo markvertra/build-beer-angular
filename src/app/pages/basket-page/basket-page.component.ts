@@ -8,21 +8,28 @@ import { OrderService } from '../../services/order-service.service';
 })
 export class BasketPageComponent implements OnInit {
   basket: any;
-  checkoutBasket: any;
   beerForm: any;
+  @Output() onStatusChange = new EventEmitter<String>();
+  @Output() onCheckoutSubmit = new EventEmitter<Array<Object>>();
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
     this.basket = this.orderService.basket;
-    this.checkoutBasket = this.orderService.checkoutBasket;
   }
 
   handleBeerOrder(beerForm) {
     this.beerForm = beerForm;
-    this.checkoutBasket.push(this.beerForm);
+    let beerPush = true;
+    this.orderService.checkoutBasket.forEach((item) => {
+      if (item.id === beerForm.id) {
+        beerPush = false;
+      }
+    });
+    if (beerPush) { this.orderService.checkoutBasket.push(beerForm); }
   }
 
   handleCheckoutMove() {
+    this.onStatusChange.emit('confirm');
   }
 }

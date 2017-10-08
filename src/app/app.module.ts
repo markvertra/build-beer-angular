@@ -39,6 +39,9 @@ import { DisplayReviewComponent } from './pages/reusables/display-review/display
 import { OrderHistoryPageComponent } from './pages/order-history-page/order-history-page.component';
 import { BasketPageComponent } from './pages/basket-page/basket-page.component';
 import { QuantitySetterComponent } from './pages/reusables/quantity-setter/quantity-setter.component';
+import { PaymentOptionsPageComponent } from './pages/payment-options-page/payment-options-page.component';
+import { OrderResultsPageComponent } from './pages/order-results-page/order-results-page.component';
+import { OrderDisplayComponent } from './pages/reusables/order-display/order-display.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +68,10 @@ import { QuantitySetterComponent } from './pages/reusables/quantity-setter/quant
     DisplayReviewComponent,
     OrderHistoryPageComponent,
     BasketPageComponent,
-    QuantitySetterComponent
+    QuantitySetterComponent,
+    PaymentOptionsPageComponent,
+    OrderResultsPageComponent,
+    OrderDisplayComponent
   ],
   imports: [
     BrowserModule,

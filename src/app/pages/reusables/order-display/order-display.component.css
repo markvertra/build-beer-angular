@@ -1,0 +1,13 @@
+.order-container {
+  display: flex;
+  direction: column;
+  justify-content: flex-start;
+  border: 1px solid brown;
+}
+
+.order-item {
+  display: flex;
+  direction: column;
+  justify-content: space-around;
+  padding: 5px;
+}

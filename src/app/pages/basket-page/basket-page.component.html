@@ -1,13 +1,14 @@
 <div class="basket-container">
   <h2>Your basket</h2>
-  <form *ngIf="basket" (ngSubmit)="handleBeerOrder(beerForm)" #beerForm="ngForm" class="beer-build-form">
+  <form *ngIf="basket.length >= 1" (ngSubmit)="handleBeerOrder(beerForm)" #beerForm="ngForm" class="beer-build-form">
     <div *ngFor="let item of basket" class="basketDiv">
       <h4>{{ item.name }}</h4>
       <app-quantity-setter [beerID]="item._id" (onBeerOrder)="handleBeerOrder($event)"></app-quantity-setter>
     </div>
+    <p>Total to pay € {{ total }}</p>
     <button (click)="handleCheckoutMove()">Go to Checkout</button>
   </form>
-  <ng-container *ngIf="!basket">
+  <ng-container *ngIf="basket.length < 1">
       <h3>Your basket is currently empty. Build some beers, go shopping!</h3>
     </ng-container>
 </div>  

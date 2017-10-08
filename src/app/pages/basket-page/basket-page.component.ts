@@ -9,6 +9,7 @@ import { OrderService } from '../../services/order-service.service';
 export class BasketPageComponent implements OnInit {
   basket: any;
   beerForm: any;
+  total = 0;
   @Output() onStatusChange = new EventEmitter<String>();
   @Output() onCheckoutSubmit = new EventEmitter<Array<Object>>();
 
@@ -16,6 +17,7 @@ export class BasketPageComponent implements OnInit {
 
   ngOnInit() {
     this.basket = this.orderService.basket;
+    this.calculateTotal();
   }
 
   handleBeerOrder(beerForm) {
@@ -27,9 +29,16 @@ export class BasketPageComponent implements OnInit {
       }
     });
     if (beerPush) { this.orderService.checkoutBasket.push(beerForm); }
+    this.calculateTotal();
   }
 
   handleCheckoutMove() {
     this.onStatusChange.emit('confirm');
+  }
+
+  calculateTotal() {
+    this.total = this.orderService.checkoutBasket.reduce((prev, curr) => {
+      return prev + curr.price;
+    }, 0);
   }
 }

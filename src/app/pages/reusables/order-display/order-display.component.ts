@@ -8,11 +8,18 @@ import { OrderService } from '../../../services/order-service.service';
 })
 export class OrderDisplayComponent implements OnInit {
   checkoutBasket: any;
+  total: Number;
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
     this.checkoutBasket = this.orderService.checkoutBasket;
+    this.calculateTotal();
   }
 
+  calculateTotal() {
+    this.total = this.orderService.checkoutBasket.reduce((prev, curr) => {
+      return prev + curr.price;
+    }, 0);
+  }
 
 }

@@ -15,6 +15,16 @@ export class OrderService {
     .map((res) => res.json());
   }
 
+  getOrders() {
+    return this.http.get(`${this.BASE_URL}/api/order`)
+    .map((res) => res.json());
+  }
+
+  getOrder(id: string) {
+    return this.http.get(`${this.BASE_URL}/api/order/${id}`)
+      .map((res) => res.json());
+  }
+
   addItemToBasket(item: Object) {
     this.basket.push(item);
   }

@@ -1,3 +1,20 @@
-<h2>Your Order History</h2>
-
+<div class="order-history-container">
+  <h2>Your Order History</h2>
+  <table>
+    <tr>
+      <th>OrderID</th>
+      <th>Order Date</th>
+      <th>Beers Ordered</th>
+      <th>Total Paid</th>
+      <th>Order Shipped</th>
+    </tr>
+  <tr *ngFor="let order of orders; index as i">
+    <th>{{ order._id }} </th>
+    <th>DATE</th>
+    <th><p *ngFor="let beer of order.beersOrdered">{{ beer.id }}</p> </th>
+    <th><p *ngFor="let beer of order.beersOrdered">€{{ beer.price }}</p></th>
+    <th>{{ order.isShipped }}</th>
+  </tr>
+</table>
+</div>
 

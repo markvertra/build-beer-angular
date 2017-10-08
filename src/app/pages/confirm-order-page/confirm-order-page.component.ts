@@ -14,7 +14,6 @@ export class ConfirmOrderPageComponent implements OnInit {
   'Pale Ale': '#ffa712',
   'IPA': '#e37b4c'
 };
-  @Input() checkoutBasket;
   @Output() onStatusChange = new EventEmitter<String>();
   @Output() onOrderConfirm = new EventEmitter<Object>();
 

@@ -7,10 +7,9 @@ import { SessionService } from '../../../../services/session-service.service';
   selector: 'app-beer-order-form',
   templateUrl: './beer-order-form.component.html',
   styleUrls: ['./beer-order-form.component.css'],
-  providers: [OrderService, SessionService]
 })
 export class BeerOrderFormComponent implements OnInit {
-  @Input() checkoutBasket;
+  checkoutBasket: any;
   quantity: Number;
   firstName: String;
   lastName: String;
@@ -33,6 +32,7 @@ export class BeerOrderFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.checkoutBasket = this.orderService.checkoutBasket;
     this.session.isLoggedIn()
     .subscribe(
       (user) => { this.setUser(user); }
@@ -40,6 +40,7 @@ export class BeerOrderFormComponent implements OnInit {
   }
 
   handleNewOrder(form: any) {
+    console.log(this.checkoutBasket);
     const newOrder = { beersOrdered: this.orderService.checkoutBasket,
                       deliveryDetails: { firstName: form.value.firstName,
                       lastName: form.value.lastName,

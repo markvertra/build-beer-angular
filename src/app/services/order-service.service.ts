@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 export class OrderService {
   basket = [];
   checkoutBasket= [];
+  deliveryDetails = {};
 
   BASE_URL = 'http://localhost:3000';
   constructor(private http: Http) { }

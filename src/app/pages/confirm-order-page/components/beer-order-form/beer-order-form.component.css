@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: space-around;
   height: 600px;
+  width: 400px;
 }
 
 .delivery-details-container {

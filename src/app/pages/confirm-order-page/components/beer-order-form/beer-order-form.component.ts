@@ -41,16 +41,17 @@ export class BeerOrderFormComponent implements OnInit {
 
   handleNewOrder(form: any) {
     console.log(this.checkoutBasket);
+    const deliveryDetails = { firstName: form.value.firstName,
+      lastName: form.value.lastName,
+      address: form.value.address,
+      city: form.value.city,
+      postcode: form.value.postcode,
+      telephoneNumber: form.value.telephoneNumber,
+      email: form.value.email };
     const newOrder = { beersOrdered: this.orderService.checkoutBasket,
-                      deliveryDetails: { firstName: form.value.firstName,
-                      lastName: form.value.lastName,
-                      address: form.value.address,
-                      city: form.value.city,
-                      postcode: form.value.postcode,
-                      telephoneNumber: form.value.telephoneNumber,
-                      email: form.value.email
-                      },
+                      deliveryDetails: deliveryDetails,
                       userOrdering: this.user.id};
+    this.orderService.deliveryDetails = deliveryDetails;
     this.orderService.postOrder(newOrder).subscribe(res => {
       this.results = res;
     });

@@ -42,6 +42,7 @@ import { QuantitySetterComponent } from './pages/reusables/quantity-setter/quant
 import { PaymentOptionsPageComponent } from './pages/payment-options-page/payment-options-page.component';
 import { OrderResultsPageComponent } from './pages/order-results-page/order-results-page.component';
 import { OrderDisplayComponent } from './pages/reusables/order-display/order-display.component';
+import { ChooseMethodComponent } from './pages/payment-options-page/components/choose-method/choose-method.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { OrderDisplayComponent } from './pages/reusables/order-display/order-dis
     QuantitySetterComponent,
     PaymentOptionsPageComponent,
     OrderResultsPageComponent,
-    OrderDisplayComponent
+    OrderDisplayComponent,
+    ChooseMethodComponent
   ],
   imports: [
     BrowserModule,

@@ -7,3 +7,15 @@
   justify-content: space-between;
   margin: 10px 0px;
 }
+
+button {
+  padding: 10px;
+  width: 400px;
+  border: none;
+  background-color: rgba(83, 49, 4, 0.2);
+  transition: box-shadow 1s;
+}
+
+button:hover {
+  box-shadow: 1px 1px 1px 1px;
+}

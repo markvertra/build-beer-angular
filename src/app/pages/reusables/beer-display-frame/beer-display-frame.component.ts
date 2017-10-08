@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BeerService } from '../../../services/beer-service.service';
 import { SessionService } from '../../../services/session-service.service';
 import { OrderService } from '../../../services/order-service.service';
@@ -15,6 +15,7 @@ export class BeerDisplayFrameComponent implements OnInit {
   user;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private beerService: BeerService,
               private sessionService: SessionService,
               private orderService: OrderService) { }
@@ -45,6 +46,7 @@ export class BeerDisplayFrameComponent implements OnInit {
       }
     });
     if (beerPush) { this.orderService.addItemToBasket(this.beer); }
+    this.router.navigateByUrl('/');
     }
 }
 

@@ -54,6 +54,9 @@ export class BeerOrderFormComponent implements OnInit {
     this.orderService.postOrder(newOrder).subscribe(res => {
       this.results = res;
     });
+    this.orderService.zapOrder(newOrder).subscribe(res => {
+      this.results = res;
+    });
     this.onOrderConfirm.emit(newOrder);
     this.onStatusChange.emit();
   }

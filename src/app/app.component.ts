@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   user: any;
   error: string;
   loginPop: boolean;
+  responsiveDisplay: boolean;
 
   constructor(private session: SessionService) { }
 
@@ -27,6 +28,10 @@ export class AppComponent implements OnInit {
 
     popLogIn() {
       this.loginPop = !this.loginPop;
+    }
+
+    displayResponsiveMenu() {
+      this.responsiveDisplay = !this.responsiveDisplay;
     }
 
     logOut() {

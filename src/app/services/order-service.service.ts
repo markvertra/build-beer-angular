@@ -15,6 +15,11 @@ export class OrderService {
     .map((res) => res.json());
   }
 
+  zapOrder(order: Object) {
+    return this.http.post(`https://hooks.zapier.com/hooks/catch/2601108/i6jk61/`, order)
+    .map((res) => res.json());
+  }
+
   getOrders() {
     return this.http.get(`${this.BASE_URL}/api/order`)
     .map((res) => res.json());

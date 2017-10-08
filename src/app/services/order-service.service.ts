@@ -20,6 +20,10 @@ export class OrderService {
     .map((res) => res.json());
   }
 
+  getOrdersByUser(id: string) {
+    return this.http.get(`${this.BASE_URL}/api/order/user/${id}`)
+      .map((res) => res.json());
+  }
   getOrder(id: string) {
     return this.http.get(`${this.BASE_URL}/api/order/${id}`)
       .map((res) => res.json());

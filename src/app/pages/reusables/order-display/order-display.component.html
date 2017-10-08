@@ -1,6 +1,6 @@
 <div class="order-container">
   <div *ngFor="let item of checkoutBasket" class="order-item">
-    <p>{{ item.id }} - {{ item.quantity }} litres in bottles of {{ item.bottleSize }}ml - €{{ item.price }}</p>
+    <p>{{ item.name }} - {{ item.quantity }} litres in bottles of {{ item.bottleSize }}ml - €{{ item.price }}</p>
   </div>
   <div class="order-total">Order Total: € {{ total }} </div>
 </div>

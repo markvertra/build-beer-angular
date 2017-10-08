@@ -10,13 +10,15 @@ export class QuantitySetterComponent implements OnInit {
   bottleSize = '330';
   price = 50;
   @Input() beerID;
+  @Input() beerName;
   @Output() onBeerOrder = new EventEmitter<Object>();
-  beerOrder = {id: '', quantity: 0, bottleSize: '0', price: 0};
+  beerOrder = {id: '', name: '', quantity: 0, bottleSize: '0', price: 0};
 
   constructor() { }
 
   ngOnInit() {
     this.beerOrder.id = this.beerID;
+    this.beerOrder.name = this.beerName;
     this.beerOrder.quantity = this.quantity;
     this.beerOrder.bottleSize = this.bottleSize;
     this.handleQuantityChange();

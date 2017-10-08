@@ -1,19 +1,19 @@
 <div class="order-history-container">
   <h2>Your Order History</h2>
-  <table>
+  <table *ngIf="orders">
     <tr>
-      <th>OrderID</th>
+      <th>Order ID</th>
       <th>Order Date</th>
       <th>Beers Ordered</th>
-      <th>Total Paid</th>
+      <th>Total</th>
       <th>Order Shipped</th>
     </tr>
   <tr *ngFor="let order of orders; index as i">
-    <th>{{ order._id }} </th>
-    <th>DATE</th>
-    <th><p *ngFor="let beer of order.beersOrdered">{{ beer.id }}</p> </th>
+    <th class="orderID">#{{ order._id }} </th>
+    <th>{{ order.createdAt | date:'shortDate'}}</th>
+    <th><p *ngFor="let beer of order.beersOrdered">{{ beer.name }}</p> </th>
     <th><p *ngFor="let beer of order.beersOrdered">€{{ beer.price }}</p></th>
-    <th>{{ order.isShipped }}</th>
+    <th><p *ngIf="order.isShipped">Shipped</p><p *ngIf="!order.isShipped">In production</p></th>
   </tr>
 </table>
 </div>

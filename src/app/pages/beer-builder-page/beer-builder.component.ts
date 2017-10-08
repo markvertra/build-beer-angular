@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { SessionService } from '../../services/session-service.service';
 
 @Component({
   selector: 'app-beer-builder-page',
@@ -6,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./beer-builder.component.css']
 })
 export class BeerBuilderPageComponent implements OnInit {
+  user: any;
   colors = {'Stout': '#32312c',
             'Porter': '#4f3b28',
             'Red Ale': '#9c4f31',
@@ -24,13 +27,22 @@ export class BeerBuilderPageComponent implements OnInit {
   labelImage;
   labelSlogan;
   @Output() onBeerCreation = new EventEmitter<object>();
-  constructor() { }
+  constructor(private router: Router,
+              private session: SessionService) { }
+
+  setUser(user: any | null) {
+    this.user = user;
+  }
 
   ngOnInit() {
+    this.session.isLoggedIn()
+    .subscribe(
+      (user) => { this.setUser(user); }
+    );
   }
 
   handleBeerCreation(beer) {
-    this.onBeerCreation.emit(beer);
+    this.router.navigate(['/profile', this.user.id]);
   }
 
   handleStyleChange(style) {

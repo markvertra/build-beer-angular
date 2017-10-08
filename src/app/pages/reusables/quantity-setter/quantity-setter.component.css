@@ -1,25 +1,25 @@
 p {
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .quantityInput {
   padding: 5px;
-  width: 40px;
+  width: 35px;
   background-color: rgba(0,0,0,0);
   border: none;
-  font-size: 16px;
+  font-size: 14px;
+  margin-right:0px;
 }
 
 .quantityButton {
   display: inline-block;
   border: 1px solid brown;
-  box-shadow: 1px 1px 1px 1px brown;
-  background-color: lightgray;
   width: 20px;
   height: 20px;
   margin: 0px 5px;
   text-align: center;
+  padding: 2px;
 }
 
 .bottleSizeLabel {
@@ -27,7 +27,6 @@ p {
 }
 
 .bottleSize {
-  margin-left: 20px;
   float: right;
 }
 

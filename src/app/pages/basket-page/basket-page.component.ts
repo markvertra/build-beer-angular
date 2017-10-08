@@ -22,4 +22,7 @@ export class BasketPageComponent implements OnInit {
     this.beerForm = beerForm;
     this.checkoutBasket.push(this.beerForm);
   }
+
+  handleCheckoutMove() {
+  }
 }

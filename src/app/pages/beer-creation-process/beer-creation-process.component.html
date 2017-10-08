@@ -1,6 +1,0 @@
-<ng-container *ngIf="!creatingBeer">
-  <app-beer-builder-page (onBeerCreation)="handleBeerCreated($event)"></app-beer-builder-page>
-</ng-container>
-<ng-container *ngIf="creatingBeer">
-  <app-confirm-order-page [beerCreated]="beerCreated" (onBeerOrdered)="handleBeerOrdered()"></app-confirm-order-page>
-</ng-container>

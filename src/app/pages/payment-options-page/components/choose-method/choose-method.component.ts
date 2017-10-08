@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-choose-method',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./choose-method.component.css']
 })
 export class ChooseMethodComponent implements OnInit {
+  @Output() onPayment = new EventEmitter<String>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handlePayment() {
+    this.onPayment.emit("results");
   }
 
 }

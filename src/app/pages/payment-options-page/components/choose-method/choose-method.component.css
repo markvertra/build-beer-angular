@@ -1,0 +1,19 @@
+.method {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+
+button {
+  margin: 10px 0px;
+  padding: 10px;
+  width: 300px;
+  border: none;
+  background-color: rgba(83, 49, 4, 0.2);
+  transition: box-shadow 1s;
+}
+
+button:hover {
+  box-shadow: 1px 1px 1px 1px;
+}

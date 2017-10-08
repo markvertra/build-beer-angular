@@ -2,10 +2,19 @@
   <div class="payment-options-wrapper">
     <div>
       <h3>Choose Your Payment Method</h3>
-      <app-choose-method></app-choose-method>
+      <app-choose-method (onPayment)="handleStatusChange()"></app-choose-method>
     </div>
-    <div>
+    <div class="order-info-box">
       <app-order-display></app-order-display>
+      <div class="details">
+        <h3>Delivery Details</h3>
+        <p>Name: {{ deliveryDetails.firstName }} {{ deliveryDetails.lastName }}</p>
+        <p>Address: {{ deliveryDetails.address }}</p>
+        <p>City: {{ deliveryDetails.city }}</p>
+        <p>PostCode: {{ deliveryDetails.postcode }}</p>
+        <p>telephoneNumber: {{ deliveryDetails.telephoneNumber }}</p>
+        <p>email: {{ deliveryDetails.email }}</p>
+      </div>
     </div>
   </div>
 

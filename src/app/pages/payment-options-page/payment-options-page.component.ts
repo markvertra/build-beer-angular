@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { OrderService } from '../../services/order-service.service';
 
 @Component({
   selector: 'app-payment-options-page',
@@ -8,10 +9,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class PaymentOptionsPageComponent implements OnInit {
   @Input() order;
   @Output() onStatusChange = new EventEmitter<String>();
+  deliveryDetails: any;
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
+    this.deliveryDetails = this.orderService.deliveryDetails;
   }
 
   handleStatusChange() {

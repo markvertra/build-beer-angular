@@ -12,13 +12,9 @@
     [name]="beer.name"
     [reviews]="beer.reviews"></app-beer-image>
     <div *ngIf="beer" class="beer-info">
-      {{ beer.description }}
+      {{ beer.description }} 
+      <p *ngIf="beer.beerDetails.extraFlavours">{{ beer.name }} has extra flavours of {{ beer.beerDetails.extraFlavours[0] }}</p>
+    <button (click)="handleAddToBasket()">Add this beer to basket</button>
     </div>
   </div>
 </div>
-<button (click)="handleAddToBasket()">Order</button>
-<ng-container *ngIf="user">
-  <ng-container *ngIf="beer">
-    <app-leave-review [beerId]="beer._id"></app-leave-review>
-  </ng-container>
-</ng-container>

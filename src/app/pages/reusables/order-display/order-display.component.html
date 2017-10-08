@@ -1,6 +1,21 @@
+
 <div class="order-container">
-  <div *ngFor="let item of checkoutBasket" class="order-item">
-    <p>{{ item.name }} - {{ item.quantity }} litres in bottles of {{ item.bottleSize }}ml - €{{ item.price }}</p>
-  </div>
+  <div class="table-container">
+  <h2>Your Order</h2>  
+  <table *ngIf="checkoutBasket">
+    <tr>
+      <th>Beer Name</th>
+      <th>Beer Style</th>
+      <th>Bottle Size</th>
+      <th>Item Price</th>
+    </tr>
+    <tr *ngFor="let item of checkoutBasket">
+      <th>{{ item.name }}</th>
+      <th>{{ item.quantity }} litres</th>
+      <th>{{ item.bottleSize }}ml</th>
+      <th>€{{ item.price }}</th>
+    </tr>
+  </table>
   <div class="order-total">Order Total: € {{ total }} </div>
+  </div>
 </div>

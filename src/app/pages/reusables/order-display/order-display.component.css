@@ -1,8 +1,19 @@
+th {
+  padding: 5px;
+  font-size: 12px;
+}
+
 .order-container {
   display: flex;
-  direction: column;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  width: 350px;
+  height: 600px;
+}
+
+.table-container {
   border: 1px solid brown;
+  padding: 10px;
 }
 
 .order-item {
@@ -12,6 +23,8 @@
   padding: 5px;
 }
 
-.orderID {
-  text-align: left;
+.order-total {
+  text-align: right;
+  margin-right: 25px;
 }
+

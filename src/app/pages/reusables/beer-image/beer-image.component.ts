@@ -4,6 +4,7 @@ import { Component,
         ElementRef,
         Input,
         OnChanges } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-beer-image',
@@ -193,5 +194,4 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
     img.setAttribute('src', icon);
     ctx.drawImage(img, 37.5, 315, 75, 90);
   }
-
 }

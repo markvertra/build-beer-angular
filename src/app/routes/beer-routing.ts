@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { RequireAuthService } from '../guards/auth-service.service';
+
 import { HomePageComponent } from '../pages/home-page/home-page.component';
 import { AuthenticationPageComponent } from '../pages/authentication-page/authentication-page.component';
 import { BeerDisplayFrameComponent } from '../pages/reusables/beer-display-frame/beer-display-frame.component';

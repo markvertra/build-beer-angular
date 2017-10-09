@@ -10,6 +10,7 @@ import { beerRoutes } from './routes/beer-routing';
 import { BeerService } from './services/beer-service.service';
 import { OrderService } from './services/order-service.service';
 import { SessionService } from './services/session-service.service';
+import { RequireAuthService } from './guards/auth-service.service';
 
 import { AppComponent } from './app.component';
 import { BeerBuilderPageComponent } from './pages/beer-builder-page/beer-builder.component';
@@ -84,7 +85,8 @@ import { ChooseMethodComponent } from './pages/payment-options-page/components/c
   ],
   providers: [BeerService,
               OrderService,
-              SessionService],
+              SessionService,
+              RequireAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

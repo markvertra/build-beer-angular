@@ -17,11 +17,12 @@
                       [labelFont]="beer.label.font"
                       [labelSlogan]="beer.label.slogan"
                       [name]="beer.name"></app-beer-image>
+      <button (click)="handleAddToBasket(beer)">Add to basket</button>  
     </div>
   </div>
 </ng-container>
 
-<ng-container *ngIf="privateBeers">
+<ng-container *ngIf="privateBeers.length >= 1">
     <h3>Private Beers</h3>
     <div class="beer-image-container">
       <div *ngFor="let beer of privateBeers" class="beer-article" (click)="handleBeerClick(beer._id, beer.creatorId)">
@@ -34,6 +35,7 @@
                         [labelFont]="beer.label.font"
                         [labelSlogan]="beer.label.slogan"
                         [name]="beer.name"></app-beer-image>
+      <button (click)="handleAddToBasket(beer)">Add to basket</button>  
       </div>
     </div>
   </ng-container>

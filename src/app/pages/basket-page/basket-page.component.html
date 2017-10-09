@@ -5,7 +5,7 @@
       <p>{{ item.name }}</p>
       <app-quantity-setter [beerID]="item._id" [beerName]="item.name" (onBeerOrder)="handleBeerOrder($event)"></app-quantity-setter>
     </div>
-    <p>Total to pay € {{ total }}</p>
+    <h3>Total to pay € {{ total }}.00</h3>
     <button (click)="handleCheckoutMove()">Go to Checkout</button>
   </form>
   <ng-container *ngIf="basket.length < 1">

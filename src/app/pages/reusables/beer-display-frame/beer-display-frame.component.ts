@@ -13,6 +13,7 @@ export class BeerDisplayFrameComponent implements OnInit {
   beer;
   color;
   user;
+  loginWarning = true;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -48,5 +49,17 @@ export class BeerDisplayFrameComponent implements OnInit {
     if (beerPush) { this.orderService.addItemToBasket(this.beer); }
     this.router.navigateByUrl('/');
     }
+
+  basketIfLoggedIn() {
+    if (this.user) {
+      this.handleAddToBasket();
+    } else {
+      this.toggleOverlay();
+    }
+  }
+
+  toggleOverlay() {
+    this.loginWarning = !this.loginWarning;
+  }
 }
 

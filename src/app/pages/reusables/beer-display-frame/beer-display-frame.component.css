@@ -13,6 +13,24 @@
   padding: 100px 20px;
 }
 
+.login-overlay {
+  position: fixed;
+  overflow-y: scroll;
+  top: 0%;
+  left: 0%;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.log-me {
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  z-index: 2;
+}
+
 button {
   margin-top: 20px;
   width: 200px;

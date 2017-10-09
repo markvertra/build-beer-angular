@@ -1,6 +1,13 @@
+p {
+  font-size: 13px;
+}
+
 .basket-container {
   padding: 50px;
 }
+
+
+
 
 .basketDiv {
   display: flex;
@@ -10,7 +17,7 @@
 
 button {
   padding: 10px;
-  width: 400px;
+  width: 350px;
   border: none;
   background-color: rgba(83, 49, 4, 0.2);
   transition: box-shadow 1s;
@@ -19,4 +26,10 @@ button {
 button:hover {
   cursor: pointer;
   box-shadow: 1px 1px 1px 1px;
+}
+
+@media (max-width: 600px ) {
+  .basket-container {
+    padding: 10px;
+  }
 }

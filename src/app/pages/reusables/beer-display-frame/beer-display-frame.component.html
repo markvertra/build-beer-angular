@@ -1,16 +1,18 @@
 <div class="container">
   <h2 *ngIf="beer">{{ beer.name }}</h2>
   <div *ngIf="beer" class="component-wrapper">
-    <app-beer-image [color]="beer.beerDetails.color" 
-    [opacity]="beer.beerDetails.opacity" 
-    [capColor]="beer.cap.color"
-    [labelColor]="beer.label.color"
-    [labelFontColor]="beer.label.fontColor"
-    [labelImage]="beer.label.image"
-    [labelFont]="beer.label.font"
-    [labelSlogan]="beer.label.slogan"
-    [name]="beer.name"
-    [reviews]="beer.reviews"></app-beer-image>
+    <div class="beer-responsive">
+      <app-beer-image [color]="beer.beerDetails.color" 
+      [opacity]="beer.beerDetails.opacity" 
+      [capColor]="beer.cap.color"
+      [labelColor]="beer.label.color"
+      [labelFontColor]="beer.label.fontColor"
+      [labelImage]="beer.label.image"
+      [labelFont]="beer.label.font"
+      [labelSlogan]="beer.label.slogan"
+      [name]="beer.name"
+      [reviews]="beer.reviews"></app-beer-image>
+    </div>
     <div *ngIf="beer" class="beer-info">
       {{ beer.description }} 
       <p *ngIf="beer.beerDetails.extraFlavours">{{ beer.name }} has extra flavours of {{ beer.beerDetails.extraFlavours[0] }}</p>

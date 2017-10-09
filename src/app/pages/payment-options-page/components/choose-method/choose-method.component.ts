@@ -14,7 +14,7 @@ export class ChooseMethodComponent implements OnInit {
   }
 
   handlePayment() {
-    this.onPayment.emit("results");
+    this.onPayment.emit('results');
   }
 
 }

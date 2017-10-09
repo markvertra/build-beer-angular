@@ -1,11 +1,11 @@
 <input readonly [(ngModel)]='quantity' name="quantity" min=20 max=100 class="quantityInput" (change)="handleQuantityChange()"><p>Litres</p>
 <p class="quantityButton" (click)="handleIncreaseQuantity()">+</p>
 <p class="quantityButton" (click)="handleDecreaseQuantity()">-</p>
-<p class="bottleSizeLabel">Bottle Size</p>
+<p class="bottleSizeLabel">Bottles</p>
 <select [(ngModel)]='bottleSize' name='bottleSize' class="bottleSize" (change)="handleBottleSizeChange()">
   <option value="250" selected>250ml</option>
   <option value="330">330ml</option>
   <option value="500">500ml</option>
 </select>
-€ <input readonly [(ngModel)]='price' name='price' class="quantityInput">
+<p>€</p><input readonly [(ngModel)]='price' name='price' class="quantityInput">
 

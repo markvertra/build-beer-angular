@@ -27,5 +27,10 @@ button:hover {
   width: 300px;
   background-color: lightgray;
   box-shadow: 1px 1px 1px 1px brown;
+}
 
+@media (max-width: 600px) {
+  .beer-responsive {
+    display: none;
+  }
 }

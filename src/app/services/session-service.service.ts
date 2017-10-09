@@ -42,15 +42,24 @@ export class SessionService {
   }
 
   login(user) {
-    return this.http.post(`${this.BASE_URL}/auth/login`, user)
-      .map(res => res.json())
-      .catch(this.handleError);
+    const options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.post(`${this.BASE_URL}/auth/login`, user, options)
+      .map(res => {
+        const user = new User(res.json());
+        this.setUser(user);
+        return user;
+      });
   }
 
   logout() {
-    return this.http.post(`${this.BASE_URL}/auth/logout`, {})
-      .map(res => res.json())
-      .catch(this.handleError);
+    const options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.post(`${this.BASE_URL}/auth/logout`, {}, options)
+    .map(res => {
+      this.setUser();
+      return null;
+    });
   }
 
   isLoggedIn() {

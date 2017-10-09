@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from './services/session-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ export class AppComponent implements OnInit {
   loginPop: boolean;
   responsiveDisplay: boolean;
 
-  constructor(private session: SessionService) { }
+  constructor(private session: SessionService,
+              private router: Router) { }
 
     setUser(user: any | null) {
       this.user = user;
@@ -40,6 +42,8 @@ export class AppComponent implements OnInit {
         () => this.successCb(null),
         (err) => this.errorCb(err)
       );
+      this.router.navigateByUrl('');
+      window.location.reload();
     }
 
     errorCb(err) {

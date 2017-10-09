@@ -24,7 +24,7 @@
   font-size: 2em;
 }
 
-.banner a {
+.banner p {
   color: white;
   border: 3px solid white;
   padding: 5px 10px;
@@ -34,6 +34,27 @@
   margin-top: 100px;
   margin-right: 150px;
   text-decoration: none;
+  cursor: pointer;
+}
+
+
+.login-overlay {
+  position: fixed;
+  overflow-y: scroll;
+  top: 0%;
+  left: 0%;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.log-me {
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  background-image: url("https://image.freepik.com/free-photo/wooden-texture_1208-334.jpg");
+  z-index: 2;
 }
 
 .section-container {

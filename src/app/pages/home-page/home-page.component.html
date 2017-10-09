@@ -4,9 +4,12 @@
           <h1 class> BEER BUILDER</h1>
           <h3 class>Design, buy, drink and <br> sell your own unique beers</h3>
         </div>
-        <a [routerLink]="['/create']">Build!</a>
+        <p class="build-link" (click)="buildIfLoggedIn()">Build!</p>
     </div>    
 </div>
+
+<div *ngIf="!loginWarning" (click)="toggleOverlay()" class="login-overlay"></div>
+<div *ngIf="!loginWarning" class="log-me"><app-login-form></app-login-form></div>
 <div class="section-container">
   <div class="section" id="bottling-section"></div>
   <div class="section info-section">

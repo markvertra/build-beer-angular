@@ -10,6 +10,7 @@ import { SessionService } from '../../services/session-service.service';
 export class OrderHistoryPageComponent implements OnInit {
   orders: any;
   user: any;
+  beersOrdered: any;
 
   constructor(private orderService: OrderService,
               private session: SessionService) { }
@@ -20,7 +21,7 @@ export class OrderHistoryPageComponent implements OnInit {
 
   ngOnInit() {
     this.session.isLoggedIn().subscribe(
-      (user) => { this.getOrders(user); }
+      (user) => { this.getOrders(user), this.fullUser(user.id) }
     );
   }
 
@@ -28,5 +29,9 @@ export class OrderHistoryPageComponent implements OnInit {
     this.orderService.getOrdersByUser(user.id).subscribe(res => {
       this.orders = res;
     });
+  }
+
+  fullUser(id) {
+    this.session.getUser(id).subscribe((user => { this.user = user, this.beersOrdered = user.beersOrdered; }));
   }
 }

@@ -11,8 +11,8 @@ export class OrderService {
   BASE_URL = 'http://localhost:3000';
   constructor(private http: Http) { }
 
-  postOrder(order: Object) {
-    return this.http.post(`${this.BASE_URL}/api/order`, order)
+  postOrder(id: string, order: Object) {
+    return this.http.post(`${this.BASE_URL}/api/order/userorder/${id}`, order)
     .map((res) => res.json());
   }
 

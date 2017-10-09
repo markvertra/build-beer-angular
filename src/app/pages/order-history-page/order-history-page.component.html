@@ -16,5 +16,10 @@
     <th><p *ngIf="order.isShipped">Shipped</p><p *ngIf="!order.isShipped">In production</p></th>
   </tr>
 </table>
+  <div *ngFor="let beerOrder of beersOrdered">
+    <div *ngFor="let beer of beerOrder">
+        {{ beer | json }}
+    </div>
+  </div>
 </div>
 

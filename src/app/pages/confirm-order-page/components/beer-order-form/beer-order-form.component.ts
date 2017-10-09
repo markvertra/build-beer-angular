@@ -52,7 +52,7 @@ export class BeerOrderFormComponent implements OnInit {
                       deliveryDetails: deliveryDetails,
                       userOrdering: this.user.id};
     this.orderService.deliveryDetails = deliveryDetails;
-    this.orderService.postOrder(newOrder).subscribe(res => {
+    this.orderService.postOrder(this.user.id, newOrder).subscribe(res => {
       this.results = res;
     });
     this.orderService.zapOrder(newOrder).subscribe(res => {

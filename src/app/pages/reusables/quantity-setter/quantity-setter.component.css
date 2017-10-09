@@ -19,7 +19,13 @@ p {
   height: 20px;
   margin: 0px 5px;
   text-align: center;
-  padding: 2px;
+  padding: 0px 5px 2px;
+  background-color: lightgray;
+}
+
+.quantityButton:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px brown;
 }
 
 .bottleSizeLabel {

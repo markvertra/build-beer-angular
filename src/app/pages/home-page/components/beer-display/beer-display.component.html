@@ -3,7 +3,6 @@
   <ng-container *ngFor="let beer of filteredBeers; index as i">
     <div class="article" *ngIf="i < 8" (click)="handleBeerClick(beer._id)">
       <h3>{{ beer.name }}</h3>
-      <h5>By <a [routerLink]="['profile/', beer.creatorId]">{{ beer.creatorId }}</a></h5>
       <app-beer-image [color]="beer.beerDetails.color" 
       [opacity]="beer.beerDetails.opacity" 
       [capColor]="beer.cap.color"

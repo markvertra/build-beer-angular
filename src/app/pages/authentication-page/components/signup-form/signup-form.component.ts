@@ -31,5 +31,6 @@ export class SignupFormComponent implements OnInit {
         (user) => this.user = user,
         (err) => this.error = err
       );
+      window.location.reload();
   }
 }

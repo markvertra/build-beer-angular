@@ -25,6 +25,7 @@ export class LoginFormComponent implements OnInit {
       (user) => this.user = user,
       (err) => this.error = err
       );
+    window.location.reload();
   }
 
   handlePopSignUp() {

@@ -2,3 +2,13 @@
   display: flex;
   justify-content: space-around;
 }
+
+.beer-item {
+  padding: 5px;
+}
+
+.beer-item:hover {
+  border: 1px brown solid;
+  box-shadow: 1px -1px 1px 1px;
+  cursor: pointer;
+}

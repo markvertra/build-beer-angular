@@ -2,8 +2,8 @@
   <h3>Beers Recommended For You</h3>
   <div class="recommendation-list">
     <ng-container *ngFor="let beer of recommendedBeers; index as i">
-      <div *ngIf="i < 3">
-        <app-beer-image [beer]="beer"></app-beer-image>
+      <div *ngIf="i < 3" (click)="handleBeerClick(beer._id)" class="beer-item">
+        <app-beer-image [beer]="beer" [reviews]="beer.reviews"></app-beer-image>
       </div>
     </ng-container>
   </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../../../services/order-service.service';
 import { SessionService } from '../../../services/session-service.service';
 import { BeerService } from '../../../services/beer-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recommender',
@@ -38,7 +39,8 @@ export class RecommenderComponent implements OnInit {
 
   constructor(private orderService: OrderService,
               private sessionService: SessionService,
-              private beerService: BeerService) { }
+              private beerService: BeerService,
+              private router: Router) { }
 
   ngOnInit() {
       this.sessionService.isLoggedIn().subscribe(
@@ -108,5 +110,9 @@ export class RecommenderComponent implements OnInit {
       }
     });
     return maxItem;
+  }
+
+  handleBeerClick(id: string) {
+    this.router.navigateByUrl('/beer/' + id);
   }
 }

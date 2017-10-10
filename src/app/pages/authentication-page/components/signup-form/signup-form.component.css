@@ -5,7 +5,8 @@
   right: 0%;
   color: white;
   padding: 20px;
-  background-image: url("https://image.freepik.com/free-photo/wooden-texture_1208-334.jpg")
+  background-image: url("https://image.freepik.com/free-photo/wooden-texture_1208-334.jpg");
+  z-index: 3;
 }
 
 input {

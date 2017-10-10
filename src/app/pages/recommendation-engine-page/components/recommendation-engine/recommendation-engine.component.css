@@ -1,0 +1,49 @@
+.beer-build-form {
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+input {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+label {
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px 20px;
+  margin: 0px;
+}
+
+input:checked + label{
+  color: white;
+  background: black;
+}
+
+.radio-group {
+  border: solid 3px rgba(0, 0, 0, 0.19);
+  display: inline-block;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.error {
+  color: red;
+}
+
+button {
+  padding: 10px;
+  width: 400px;
+  border: none;
+  background-color: rgba(83, 49, 4, 0.2);
+  transition: box-shadow 1s;
+}
+
+button:hover {
+  box-shadow: 1px 1px 1px 1px;
+}

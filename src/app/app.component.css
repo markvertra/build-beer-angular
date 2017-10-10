@@ -14,7 +14,7 @@
 }
 
 .navbar-link {
-  margin: 0px 20px;
+  margin: 0px 15px;
 }
 
 .navbar-right-menu {
@@ -36,7 +36,7 @@
   padding: 15px 15px;
 }
 
-@media (max-width: 600px){
+@media (max-width: 750px){
   .navbar-right-menu {
     display: block;
     color: white;

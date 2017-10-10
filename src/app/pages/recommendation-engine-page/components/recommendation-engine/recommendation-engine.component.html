@@ -1,0 +1,29 @@
+<form (ngSubmit)="handleNewRecommendation(recForm)" #recForm="ngForm" class="beer-build-form" novalidate>
+  
+  <h3>Which is your favourite season?</h3>
+  <div class="radio-group">
+    <input type="radio" name="season" [(ngModel)]="season" value="Summer" id="summer"><label for="summer">Summer</label>
+    <input type="radio" name="season" [(ngModel)]="season" value="Spring" id="spring"><label for="spring">Spring</label>
+    <input type="radio" name="season" [(ngModel)]="season" value="Autumn" id="autumn"><label for="autumn">Autumn</label>
+    <input type="radio" name="season" [(ngModel)]="season" value="Winter" id="winter"><label for="winter">Winter</label>
+  </div>
+
+  <h3>Which is your favourite meal?</h3>
+  <div class="radio-group">
+    <input type="radio" name="meal" [(ngModel)]="meal" value="Barbeque" id="barbeque"><label for="barbeque">Barbeque</label>
+    <input type="radio" name="meal" [(ngModel)]="meal" value="Fruit" id="fruit"><label for="fruit">Fresh Fruit</label>
+    <input type="radio" name="meal" [(ngModel)]="meal" value="Chocolate" id="chocolate"><label for="chocolate">Chocolate Cake</label>
+    <input type="radio" name="meal" [(ngModel)]="meal" value="Lasagna" id="lasagna"><label for="lasagna">Lasagna</label>
+  </div>
+
+  <h3>What would be your perfect holiday?</h3>
+  <div class="radio-group">
+    <input type="radio" name="holiday" [(ngModel)]="holiday" value="Beach" id="beach"><label for="beach">Beach</label>
+    <input type="radio" name="holiday" [(ngModel)]="holiday" value="Mountain" id="mountain"><label for="mountain">Mountain Walking</label>
+    <input type="radio" name="holiday" [(ngModel)]="holiday" value="City" id="city"><label for="city">City Break</label>
+    <input type="radio" name="holiday" [(ngModel)]="holiday" value="Skiing" id="ski"><label for="ski">Ski Holiday</label>
+  </div>
+
+  <button>Go!</button>
+  <div *ngIf="error" class="error">{{ error }}</div>
+</form>

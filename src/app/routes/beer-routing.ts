@@ -11,6 +11,7 @@ import { BeerEditorPageComponent } from '../pages/beer-editor-page/beer-editor-p
 import { OrderHistoryPageComponent } from '../pages/order-history-page/order-history-page.component';
 import { BasketPageComponent } from '../pages/basket-page/basket-page.component';
 import { PaymentManagementPageComponent } from '../pages/payment-management-page/payment-management-page.component';
+import { RecommendationEnginePageComponent } from '../pages/recommendation-engine-page/recommendation-engine-page.component';
 
 export const beerRoutes: Routes  = [
   { path: '', component: HomePageComponent },
@@ -20,6 +21,7 @@ export const beerRoutes: Routes  = [
   { path: 'beer/:id', component: BeerDisplayFrameComponent },
   { path: 'beer/:id/edit', component: BeerEditorPageComponent },
   { path: 'orders', component: OrderHistoryPageComponent },
-  { path: 'checkout', component: PaymentManagementPageComponent }
+  { path: 'checkout', component: PaymentManagementPageComponent },
+  { path: 'recommendation', component: RecommendationEnginePageComponent }
 
 ];

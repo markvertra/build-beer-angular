@@ -45,6 +45,8 @@ import { OrderResultsPageComponent } from './pages/order-results-page/order-resu
 import { OrderDisplayComponent } from './pages/reusables/order-display/order-display.component';
 import { ChooseMethodComponent } from './pages/payment-options-page/components/choose-method/choose-method.component';
 import { RecommenderComponent } from './pages/reusables/recommender/recommender.component';
+import { RecommendationEnginePageComponent } from './pages/recommendation-engine-page/recommendation-engine-page.component';
+import { RecommendationEngineComponent } from './pages/recommendation-engine-page/components/recommendation-engine/recommendation-engine.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { RecommenderComponent } from './pages/reusables/recommender/recommender.
     OrderResultsPageComponent,
     OrderDisplayComponent,
     ChooseMethodComponent,
-    RecommenderComponent
+    RecommenderComponent,
+    RecommendationEnginePageComponent,
+    RecommendationEngineComponent
   ],
   imports: [
     BrowserModule,

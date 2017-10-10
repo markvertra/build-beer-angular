@@ -10,6 +10,7 @@ export class RecommendationEngineComponent implements OnInit {
   meal;
   season;
   error;
+  recommended;
 
   stylePoints = {'Red Ale': 0,
                 'IPA': 0,
@@ -107,8 +108,8 @@ export class RecommendationEngineComponent implements OnInit {
           this.addStylePoints('Red Ale', 1);
           break;
       }
-      console.log(this.stylePoints);
     }
+    this.findRecommendation();
   }
 
   addStylePoints(style, points) {
@@ -117,5 +118,17 @@ export class RecommendationEngineComponent implements OnInit {
 
   addFlavourPoints(flavour, points) {
     this.flavourPoints[flavour] += points;
+  }
+
+  findRecommendation() {
+    let maxItem = '';
+    let maxCount = 0;
+    Object.keys(this.stylePoints).forEach((item) => {
+      if (this.stylePoints[item] > maxCount) {
+        maxItem = item;
+        maxCount = this.stylePoints[item];
+      }
+    });
+    this.recommended = maxItem;
   }
 }

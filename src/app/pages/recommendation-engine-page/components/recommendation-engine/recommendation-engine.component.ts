@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BeerService } from '../../../../services/beer-service.service';
 
 @Component({
   selector: 'app-recommendation-engine',
@@ -11,6 +12,7 @@ export class RecommendationEngineComponent implements OnInit {
   season;
   error;
   recommended;
+  inspired;
 
   stylePoints = {'Red Ale': 0,
                 'IPA': 0,
@@ -33,7 +35,7 @@ export class RecommendationEngineComponent implements OnInit {
                 'Coffee': 0,
                 'Caramel': 0 };
 
-  constructor() { }
+  constructor(private beerService: BeerService) { }
 
   ngOnInit() {
   }
@@ -110,6 +112,7 @@ export class RecommendationEngineComponent implements OnInit {
       }
     }
     this.findRecommendation();
+    this.inspired = !this.inspired;
   }
 
   addStylePoints(style, points) {
@@ -130,5 +133,9 @@ export class RecommendationEngineComponent implements OnInit {
       }
     });
     this.recommended = maxItem;
+  }
+
+  handleRecommendation() {
+    this.beerService.recommended = this.recommended;
   }
 }

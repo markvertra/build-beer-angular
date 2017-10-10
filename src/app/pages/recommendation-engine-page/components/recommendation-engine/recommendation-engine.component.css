@@ -30,6 +30,7 @@ input:checked + label{
   display: flex;
   flex-direction: column;
   margin: auto;
+  align-items: center;
 }
 
 .radio-group {

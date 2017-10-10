@@ -1,4 +1,4 @@
-<form (ngSubmit)="handleNewRecommendation(recForm)" #recForm="ngForm" class="beer-build-form" novalidate>
+<form *ngIf="!inspired" (ngSubmit)="handleNewRecommendation(recForm)" #recForm="ngForm" class="beer-build-form" novalidate>
   
   <div class="radio-button-wrapper">
   <h3>Which is your favourite season?</h3>
@@ -35,5 +35,6 @@
     <div *ngIf="error" class="error">{{ error }}</div>
   </div>
 </form>
-
-<p *ngIf="recommended">We recommend you try a {{ recommended }}</p>
+<div class="radio-button-wrapper">
+  <button *ngIf="recommended" (click)="handleRecommendation()">We recommend you try a {{ recommended }}</button>
+</div>

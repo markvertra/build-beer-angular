@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionService } from '../../services/session-service.service';
+import { BeerService } from '../../services/beer-service.service';
 
 @Component({
   selector: 'app-beer-builder-page',
@@ -28,7 +29,8 @@ export class BeerBuilderPageComponent implements OnInit {
   labelSlogan;
   @Output() onBeerCreation = new EventEmitter<object>();
   constructor(private router: Router,
-              private session: SessionService) { }
+              private session: SessionService,
+              private beerService: BeerService) { }
 
   setUser(user: any | null) {
     this.user = user;
@@ -40,6 +42,9 @@ export class BeerBuilderPageComponent implements OnInit {
       (user) =>  this.setUser(user),
       (err) => this.router.navigateByUrl('/')
     );
+    if (this.beerService.recommended) {
+      this.color = this.colors[this.beerService.recommended];
+    }
   }
 
   handleBeerCreation(beer) {

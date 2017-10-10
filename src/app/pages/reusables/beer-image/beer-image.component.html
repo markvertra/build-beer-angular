@@ -4,10 +4,12 @@
   <img id="canvas-image" src="" height=100 width=80>
 </div>
 
-<ng-container *ngIf="reviews">
-  <app-display-review [reviews]="beer.reviews" [beer]="beer"></app-display-review>
-</ng-container> 
+<ng-container *ngIf="!creation">
+  <ng-container *ngIf="reviews">
+    <app-display-review [reviews]="beer.reviews" [beer]="beer"></app-display-review>
+  </ng-container> 
 
-<ng-container *ngIf="!reviews">
-    <app-display-review [reviews]="{review: 0}" [beer]="beer"></app-display-review>
+  <ng-container *ngIf="!reviews">
+      <app-display-review [reviews]="{review: 0}" [beer]="beer"></app-display-review>
+  </ng-container>
 </ng-container>

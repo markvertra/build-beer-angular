@@ -16,9 +16,12 @@
     <th><p *ngIf="order.isShipped">Shipped</p><p *ngIf="!order.isShipped">In production</p></th>
   </tr>
 </table>
-  <div *ngFor="let beerOrder of beersOrdered">
-    <div *ngFor="let beer of beerOrder">
-        {{ beer | json }}
+  <div class="beer-history">
+    <h3>Beers you have ordered</h3>
+    <div *ngFor="let beerOrder of beersOrdered">
+      <div *ngFor="let beer of beerOrder">
+        <h4>{{ beer.name }}</h4><app-leave-review></app-leave-review>
+      </div>
     </div>
   </div>
 </div>

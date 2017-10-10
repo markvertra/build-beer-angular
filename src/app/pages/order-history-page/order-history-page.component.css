@@ -10,3 +10,11 @@ th {
 .orderID {
   text-align: left;
 }
+
+.beer-history {
+  padding: 20px 0px;
+}
+
+.beer-history h4 {
+  margin: 5px 0px;
+}

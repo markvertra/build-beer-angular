@@ -13,9 +13,19 @@ export class BeerService {
     .map((res) => res.json());
   }
 
+  getBeersArray(array) {
+    return this.http.get(`${this.BASE_URL}/api/beer/array`, array)
+    .map((res) => res.json());
+  }
+
   getBeer(id: string) {
     return this.http.get(`${this.BASE_URL}/api/beer/${id}`)
       .map((res) => res.json());
+  }
+
+  getBeerByStyle(style: string) {
+    return this.http.get(`${this.BASE_URL}/api/beer/style/${style}`)
+      .map((res => res.json()));
   }
 
   getBeerCreatorName(id: string ) {

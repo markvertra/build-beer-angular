@@ -40,7 +40,7 @@ export class BeerImageComponent implements OnInit, AfterViewInit, OnChanges {
   ngOnInit () {
     if (this.beer) {
       this.name  = this.beer.name;
-      this.color = this.beer.beerDetails.opacity;
+      this.color = this.beer.beerDetails.color;
       this.opacity = this.beer.beerDetails.opacity;
       this.capColor = this.beer.cap.color;
       this.labelColor = this.beer.label.color;

@@ -1,5 +1,10 @@
-<ng-container *ngFor="let beer of recommendedBeers">
-  {{ beer.name }}
-</ng-container>
-
-
+<div class="recommender-section">
+  <h3>Beers Recommended For You</h3>
+  <div class="recommendation-list">
+    <ng-container *ngFor="let beer of recommendedBeers; index as i">
+      <div *ngIf="i < 3">
+        <app-beer-image [beer]="beer"></app-beer-image>
+      </div>
+    </ng-container>
+  </div>
+</div>

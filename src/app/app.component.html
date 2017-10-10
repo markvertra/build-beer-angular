@@ -22,7 +22,7 @@
   </div>
 </div>
 <ng-container *ngIf="!user && loginPop">
-  <app-login-form></app-login-form>
+  <app-login-form (onLoginBoxPop)="handleLoginBoxPop()"></app-login-form>
 </ng-container> 
 <router-outlet></router-outlet>
 <div class="footer">

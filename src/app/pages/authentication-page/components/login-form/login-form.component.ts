@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SessionService } from '../../../../services/session-service.service';
 
 @Component({
@@ -11,6 +11,9 @@ export class LoginFormComponent implements OnInit {
   user: any;
   error: String;
   signupPop: boolean;
+  username = '';
+  password = '';
+  @Output() onLoginBoxPop = new EventEmitter<string>();
 
   constructor(private session: SessionService) { }
 
@@ -18,14 +21,32 @@ export class LoginFormComponent implements OnInit {
   }
 
   handleUserLogin(form) {
+    if (this.username === '' || this.password === '') {
+      this.error = 'Please fill in all form fields';
+    } else {
     this.user = { username: form.value.username,
                    password: form.value.password };
     this.error = null;
     this.session.login(this.user).subscribe(
-      (user) => this.user = user,
-      (err) => this.error = err
+      (user) => this.userBuilder(user),
+      (err) => this.errorHandler(err)
       );
-    window.location.reload();
+    }
+  }
+
+  userBuilder(user) {
+    this.user = user;
+    if (user) {
+      window.location.reload();
+    }
+  }
+
+  errorHandler(err) {
+    const parseErr = JSON.stringify(err);
+    if (parseErr.indexOf('404') !== -1) {
+       this.error = 'Login credentials incorrect';
+     }
+    this.onLoginBoxPop.emit();
   }
 
   handlePopSignUp() {

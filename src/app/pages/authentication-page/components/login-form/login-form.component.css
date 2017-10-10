@@ -49,3 +49,8 @@ button:hover {
   display: inline;
   text-decoration: underline;
 }
+
+.error {
+  font-size: 0.8em;
+  color: lightcoral;
+}

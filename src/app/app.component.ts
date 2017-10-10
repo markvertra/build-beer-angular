@@ -36,6 +36,10 @@ export class AppComponent implements OnInit {
       this.responsiveDisplay = !this.responsiveDisplay;
     }
 
+    handleLoginBoxPop() {
+      this.loginPop = true;
+    }
+
     logOut() {
       this.session.logout()
       .subscribe(

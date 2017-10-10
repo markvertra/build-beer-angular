@@ -1,6 +1,6 @@
-<ng-container *ngIf="!signupPop && !user">
+<ng-container *ngIf="!signupPop">
   <div class="log-form-container">
-    <form *ngIf="!user" (ngSubmit)="handleUserLogin(loginForm)" #loginForm="ngForm" class="log-form" >
+    <form (ngSubmit)="handleUserLogin(loginForm)" #loginForm="ngForm" class="log-form" >
       <label> Username </label>
       <input type="text" [(ngModel)]="username" name="username"/>
       <br>
@@ -8,6 +8,7 @@
       <input type="password" [(ngModel)]="password" name="password"/>
       <br>
       <button class="regular-button"> Log in </button>
+      <p *ngIf="error" class="error">{{error}}</p>
     </form>
     <p> Not Registered? </p><button (click)="handlePopSignUp()" class="swap-login-form-button"> Sign Up </button>
   </div>

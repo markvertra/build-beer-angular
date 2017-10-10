@@ -28,9 +28,15 @@ export class SignupFormComponent implements OnInit {
       password: form.value.password };
       this.error = null;
       this.session.signup(this.user).subscribe(
-        (user) => this.user = user,
+        (user) => this.userBuilder(user),
         (err) => this.error = err
       );
+  }
+
+  userBuilder(user) {
+    this.user = user;
+    if (user) {
       window.location.reload();
+    }
   }
 }

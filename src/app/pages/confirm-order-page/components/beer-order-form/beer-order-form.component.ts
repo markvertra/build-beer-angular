@@ -11,15 +11,16 @@ import { SessionService } from '../../../../services/session-service.service';
 export class BeerOrderFormComponent implements OnInit {
   checkoutBasket: any;
   quantity: Number;
-  firstName: String;
-  lastName: String;
-  address: String;
-  city: String;
-  postcode: String;
-  telephoneNumber: String;
-  email: String;
+  firstName: string;
+  lastName: string;
+  address: string;
+  city: string;
+  postcode: string;
+  telephoneNumber: string;
+  email: string;
   user: any;
-  @Output() onStatusChange = new EventEmitter<String>();
+  error;
+  @Output() onStatusChange = new EventEmitter<string>();
   @Output() onOrderConfirm = new EventEmitter<Object>();
 
   results: Object;
@@ -40,25 +41,41 @@ export class BeerOrderFormComponent implements OnInit {
   }
 
   handleNewOrder(form: any) {
-    console.log(this.checkoutBasket);
-    const deliveryDetails = { firstName: form.value.firstName,
-      lastName: form.value.lastName,
-      address: form.value.address,
-      city: form.value.city,
-      postcode: form.value.postcode,
-      telephoneNumber: form.value.telephoneNumber,
-      email: form.value.email };
-    const newOrder = { beersOrdered: this.orderService.checkoutBasket,
-                      deliveryDetails: deliveryDetails,
-                      userOrdering: this.user.id};
-    this.orderService.deliveryDetails = deliveryDetails;
-    this.orderService.postOrder(this.user.id, newOrder).subscribe(res => {
-      this.results = res;
-    });
-    this.orderService.zapOrder(newOrder).subscribe(res => {
-      this.results = res;
-    });
-    this.onOrderConfirm.emit(newOrder);
-    this.onStatusChange.emit();
+    if (!this.checkEmail()) {
+      this.error = 'Please enter a valid email address';
+    } else if (!this.checkNumber) {
+      this.error = 'Please enter a valid telephone number';
+    } else {
+      const deliveryDetails = { firstName: form.value.firstName,
+        lastName: form.value.lastName,
+        address: form.value.address,
+        city: form.value.city,
+        postcode: form.value.postcode,
+        telephoneNumber: form.value.telephoneNumber,
+        email: form.value.email };
+      const newOrder = { beersOrdered: this.orderService.checkoutBasket,
+                        deliveryDetails: deliveryDetails,
+                        userOrdering: this.user.id};
+      this.orderService.deliveryDetails = deliveryDetails;
+      this.orderService.postOrder(this.user.id, newOrder).subscribe(res => {
+        this.results = res;
+      });
+      this.orderService.zapOrder(newOrder).subscribe(res => {
+        this.results = res;
+      });
+      this.onOrderConfirm.emit(newOrder);
+      this.onStatusChange.emit();
+    }
+  }
+
+  checkEmail() {
+    // tslint:disable-next-line:max-line-length
+    const emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return emailRegEx.test(this.email);
+    }
+
+  checkNumber() {
+    const phoneRegEx = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    return phoneRegEx.test(this.telephoneNumber);
   }
 }

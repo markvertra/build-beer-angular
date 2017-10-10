@@ -1,4 +1,4 @@
-<form (ngSubmit)="handleNewOrder(orderForm)" #orderForm="ngForm" class="beer-build-form" >
+<form (ngSubmit)="handleNewOrder(orderForm)" #orderForm="ngForm" class="beer-build-form">
     
   <div class="form-element-container delivery-details-container">
     <h3>Thank you for ordering with Beer-Builder. Please enter your delivery details
@@ -26,13 +26,14 @@
     </div>
     <div class="delivery-element">
       <label>Telephone Number</label>
-      <input type="text" name="telephoneNumber" [(ngModel)]="telephoneNumber" required>
+      <input type="tel" name="telephoneNumber" [(ngModel)]="telephoneNumber" required>
     </div>
     <div class="delivery-element">
       <label>Email</label>
-      <input type="text" name="email" [(ngModel)]="email" required>
+      <input type="email" name="email" [(ngModel)]="email" required>
     </div> 
   </div>
 
   <button [disabled]="!orderForm.valid">Confirm Order</button>
+  <div class="error">{{ error }}</div>
 </form>

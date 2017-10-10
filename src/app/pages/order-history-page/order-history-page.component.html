@@ -1,6 +1,7 @@
 <div class="order-history-container">
+  <ng-container *ngIf="orders.length > 0">
   <h2>Your Order History</h2>
-  <table *ngIf="orders">
+  <table>
     <tr>
       <th>Order ID</th>
       <th>Order Date</th>
@@ -25,6 +26,15 @@
     </div>
   </div>
   <app-recommender></app-recommender>
+  </ng-container>
+  <div *ngIf="orders.length === 0" class="no-order-container">
+    <h2>You haven't ordered anything yet!</h2>
+    <img src="http://sc01.alicdn.com/kf/HTB1LZEvLpXXXXadXFXXq6xXFXXXs/Exquisite-Elegant-Clear-Big-Beer-Mug-Glass.jpg">
+  </div>
+  <div class="button-container">
+    <button (click)="handleBeerBuild()">Build A Beer</button><br>
+    <button (click)="handleBeerRecommend()">Inspire Me</button>
+  </div>
 </div>
 
 

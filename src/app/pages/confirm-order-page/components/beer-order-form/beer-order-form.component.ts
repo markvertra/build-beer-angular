@@ -43,7 +43,7 @@ export class BeerOrderFormComponent implements OnInit {
   handleNewOrder(form: any) {
     if (!this.checkEmail()) {
       this.error = 'Please enter a valid email address';
-    } else if (!this.checkNumber) {
+    } else if (!this.checkNumber()) {
       this.error = 'Please enter a valid telephone number';
     } else {
       const deliveryDetails = { firstName: form.value.firstName,

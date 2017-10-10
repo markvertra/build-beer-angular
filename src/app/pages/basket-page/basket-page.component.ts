@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { OrderService } from '../../services/order-service.service';
+import { SessionService } from '../../services/session-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-basket-page',
@@ -10,12 +12,24 @@ export class BasketPageComponent implements OnInit {
   basket: any;
   beerForm: any;
   total = 0;
+  user: any;
   @Output() onStatusChange = new EventEmitter<String>();
   @Output() onCheckoutSubmit = new EventEmitter<Array<Object>>();
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService,
+              private session: SessionService,
+              private router: Router) { }
+
+  setUser(user: any | null) {
+    this.user = user;
+  }
 
   ngOnInit() {
+    this.session.isLoggedIn()
+    .subscribe(
+      (user) => this.setUser(user),
+      (err) => this.router.navigateByUrl('/')
+    );
     this.basket = this.orderService.basket;
     this.calculateTotal();
   }

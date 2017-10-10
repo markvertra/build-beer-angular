@@ -37,7 +37,8 @@ export class BeerBuilderPageComponent implements OnInit {
   ngOnInit() {
     this.session.isLoggedIn()
     .subscribe(
-      (user) => { this.setUser(user); }
+      (user) =>  this.setUser(user),
+      (err) => this.router.navigateByUrl('/')
     );
   }
 

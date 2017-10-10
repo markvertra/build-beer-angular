@@ -1,4 +1,5 @@
 import { Component,
+        OnInit,
         AfterViewInit,
         ViewChild,
         ElementRef,
@@ -12,7 +13,7 @@ import { Observable } from 'rxjs/Rx';
   styleUrls: ['./beer-image.component.css']
 })
 
-export class BeerImageComponent implements AfterViewInit, OnChanges {
+export class BeerImageComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('myCanvas') myCanvas: ElementRef;
   colors = {stout: '#32312c',
             porter: '#4f3b28',
@@ -35,6 +36,20 @@ export class BeerImageComponent implements AfterViewInit, OnChanges {
   @Input() beer;
 
   constructor() { }
+
+  ngOnInit () {
+    if (this.beer) {
+      this.name  = this.beer.name;
+      this.color = this.beer.beerDetails.opacity;
+      this.opacity = this.beer.beerDetails.opacity;
+      this.capColor = this.beer.cap.color;
+      this.labelColor = this.beer.label.color;
+      this.labelFont = this.beer.label.font;
+      this.labelFontColor = this.beer.label.fontColor;
+      this.labelImage = this.beer.label.image;
+      this.labelSlogan = this.beer.label.slogan;
+    }
+  }
 
   ngAfterViewInit() {
     this.drawCanvas(this.color, this.opacity, this.capColor, this.labelColor,

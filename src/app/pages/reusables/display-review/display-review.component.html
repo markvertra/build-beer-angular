@@ -1,5 +1,5 @@
 <ng-container *ngIf="reviewScore">
-  <p>User give this beer: {{reviewScore}} / 5 </p><br>
+  <p>User give this beer: {{reviewScore | number: '1.2-2' }} / 5 </p><br>
   <span class="star">&#9733;</span>
   <span class="star" *ngIf="reviewScore>=2">&#9733;</span>
   <span class="star" *ngIf="reviewScore<2">☆</span>

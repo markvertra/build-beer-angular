@@ -1,0 +1,5 @@
+<ng-container *ngFor="let beer of recommendedBeers">
+  <app-beer-image [beer]="beer"></app-beer-image>
+</ng-container>
+
+{{ orderedBeers | json }}

@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   error: string;
   loginPop: boolean;
   responsiveDisplay: boolean;
+  loginWarning = true;
 
   constructor(private session: SessionService,
               private router: Router) { }
@@ -30,6 +31,7 @@ export class AppComponent implements OnInit {
 
     popLogIn() {
       this.loginPop = !this.loginPop;
+      this.toggleOverlay();
     }
 
     displayResponsiveMenu() {
@@ -58,5 +60,9 @@ export class AppComponent implements OnInit {
     successCb(user) {
       this.user = user;
       this.error = null;
+    }
+
+    toggleOverlay() {
+      this.loginWarning = !this.loginWarning;
     }
 }

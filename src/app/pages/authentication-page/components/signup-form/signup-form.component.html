@@ -1,4 +1,4 @@
-<div *ngIf="!user" class="log-form-container">
+<div class="log-form-container">
   <form (ngSubmit)="handleUserSignup(signupForm)" #signupForm="ngForm" class="log-form" >
     <label> Username </label>
     <input type="text" [(ngModel)]="username" name="username"/>

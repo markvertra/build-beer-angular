@@ -21,6 +21,7 @@
     <button *ngIf="user" (click)="logOut()" class="navbar-hidden-link">Log Out</button>
   </div>
 </div>
+<div *ngIf="!loginWarning" (click)="popLogIn()" class="login-overlay"></div>
 <ng-container *ngIf="!user && loginPop">
   <app-login-form (onLoginBoxPop)="handleLoginBoxPop()"></app-login-form>
 </ng-container> 
@@ -28,6 +29,7 @@
 <div class="footer">
   <p>Beer Builder, an application made by markvertra</p>
 </div>
+
 
 
 

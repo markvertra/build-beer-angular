@@ -11,6 +11,8 @@ export class SignupFormComponent implements OnInit {
   user: any;
   error: String;
   popLogIn: boolean;
+  username = '';
+  password = '';
   @Output() onPopLogIn = new EventEmitter<boolean>();
 
   constructor(private session: SessionService) { }
@@ -24,13 +26,17 @@ export class SignupFormComponent implements OnInit {
   }
 
   handleUserSignup(form) {
+    if (this.username === '' || this.password === '') {
+      this.error = 'Please fill in all form fields';
+    } else {
       this.user = { username: form.value.username,
-      password: form.value.password };
+                    password: form.value.password };
       this.error = null;
       this.session.signup(this.user).subscribe(
         (user) => this.userBuilder(user),
-        (err) => this.error = err
+        (err) => this.errorHandler(err)
       );
+    }
   }
 
   userBuilder(user) {
@@ -38,5 +44,12 @@ export class SignupFormComponent implements OnInit {
     if (user) {
       window.location.reload();
     }
+  }
+
+  errorHandler(err) {
+    const parseErr = JSON.stringify(err);
+    if (parseErr.indexOf('Unprocessable') !== -1) {
+       this.error = 'This username already exists';
+     }
   }
 }

@@ -4,6 +4,8 @@
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 3;
 }
 
 .navbar a{
@@ -45,7 +47,16 @@
   }
 }
 
-
+.login-overlay {
+  position: fixed;
+  overflow-y: scroll;
+  top: 0%;
+  left: 0%;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
 
 button {
   font-size: 1em;

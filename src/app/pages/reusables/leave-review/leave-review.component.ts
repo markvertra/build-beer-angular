@@ -12,7 +12,7 @@ export class LeaveReviewComponent implements OnInit {
   results;
   beerReviews: Object;
   hideStars = false;
-  reviewed: boolean;
+  reviewed = false;
   @Input () beerId;
   @Input () user;
 
@@ -20,6 +20,7 @@ export class LeaveReviewComponent implements OnInit {
               private sessionService: SessionService) { }
 
   ngOnInit() {
+    this.getUser();
     this.getBeerReviews();
   }
 
@@ -27,9 +28,13 @@ export class LeaveReviewComponent implements OnInit {
     this.user = user;
   }
 
+  getUser(): any {
+    this.sessionService.isLoggedIn().subscribe(
+      (user) => this.user = user);
+}
+
   getBeerReviews() {
-    this.beerService.getBeer(this.beerId).subscribe(res => { this.beerReviews = res.reviews,
-                                                             this.reviewed = this.checkBeerReviews(res.reviews); });
+    this.beerService.getBeer(this.beerId).subscribe(res => { this.beerReviews = res.reviews; });
   }
 
   handleReviewLeft() {
@@ -41,17 +46,13 @@ export class LeaveReviewComponent implements OnInit {
     this.hideStars = true;
     this.beerService.addReview(this.beerId, this.beerReviews).subscribe(res => { this.results = res; });
     this.getBeerReviews();
-    this.reviewed = this.checkBeerReviews(this.beerReviews);
+    this.reviewed = !this.reviewed;
   }
 
   handleSetReviewValue(int: Number) {
     this.reviewScore = int;
     this.handleReviewLeft();
   }
-
-  getUser(id) {
-    this.sessionService.getUser(id).subscribe((res) => this.user = res);
-    }
 
   checkBeerReviews(reviews): boolean {
     Object.keys(reviews).forEach((item) => {

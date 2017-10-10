@@ -21,7 +21,7 @@ export class OrderHistoryPageComponent implements OnInit {
 
   ngOnInit() {
     this.session.isLoggedIn().subscribe(
-      (user) => { this.getOrders(user), this.fullUser(user.id) }
+      (user) => { this.getOrders(user), this.fullUser(user.id); }
     );
   }
 

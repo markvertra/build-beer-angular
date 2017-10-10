@@ -26,3 +26,11 @@
    color: gold;
 }
 
+h4 {
+  margin: 0px 15px;
+  display: inline-block;
+}
+
+h5 {
+  margin-left: 20px;
+}

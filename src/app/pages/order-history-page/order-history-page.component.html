@@ -20,7 +20,7 @@
     <h3>Beers you have ordered</h3>
     <div *ngFor="let beerOrder of beersOrdered">
       <div *ngFor="let beer of beerOrder">
-        <h4>{{ beer.name }}</h4><app-leave-review></app-leave-review>
+        <h5>{{ beer.name }}</h5><app-leave-review [beerId]="beer.id" [user]="user"></app-leave-review>
       </div>
     </div>
   </div>

@@ -1,8 +1,13 @@
-Leave your review
-<div class="star" ng-hide="hideStars">
-  <span (click)="handleSetReviewValue(5)">☆</span>
-  <span (click)="handleSetReviewValue(4)">☆</span>
-  <span (click)="handleSetReviewValue(3)">☆</span>
-  <span (click)="handleSetReviewValue(2)">☆</span>
-  <span (click)="handleSetReviewValue(1)">☆</span>
-</div>
+<ng-container *ngIf="!reviewed">
+  <h4>Leave your review</h4>
+  <div class="star" ng-hide="hideStars">
+    <span (click)="handleSetReviewValue(5)">☆</span>
+    <span (click)="handleSetReviewValue(4)">☆</span>
+    <span (click)="handleSetReviewValue(3)">☆</span>
+    <span (click)="handleSetReviewValue(2)">☆</span>
+    <span (click)="handleSetReviewValue(1)">☆</span>
+  </div>
+</ng-container>
+<ng-container *ngIf="reviewed">
+  <h5>Thanks for reviewing this beer</h5>
+</ng-container>

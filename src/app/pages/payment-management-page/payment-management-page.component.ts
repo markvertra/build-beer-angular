@@ -15,7 +15,7 @@ export class PaymentManagementPageComponent implements OnInit {
 
   ngOnInit() {
     this.status = 'basket';
-    this.basket = this.orderService;
+    this.basket = this.orderService.basket;
   }
 
   handleStatusChange(status) {

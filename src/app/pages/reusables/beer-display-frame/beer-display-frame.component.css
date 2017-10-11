@@ -37,14 +37,12 @@ button {
   padding: 10px;
   font-size: 16px;
   background-color: rgba(0,0,0,0);
-  border: 1px solid brown;
   transition: width 1s;
 }
 
 button:hover {
   width: 300px;
   background-color: lightgray;
-  box-shadow: 1px 1px 1px 1px brown;
 }
 
 @media (max-width: 600px) {

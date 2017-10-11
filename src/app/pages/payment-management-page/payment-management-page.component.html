@@ -2,7 +2,7 @@
   <div *ngIf="basket.length >= 1" class="title-container">
       <h2>Finalise your order</h2>
   </div>
-  <div class="order-progress-wrapper">
+  <div *ngIf="basket.length >= 1" class="order-progress-wrapper">
     <app-order-progress-bar [status]="status"></app-order-progress-bar>
   </div>
   <ng-container *ngIf="status==='basket'">

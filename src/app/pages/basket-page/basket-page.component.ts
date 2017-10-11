@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./basket-page.component.css']
 })
 export class BasketPageComponent implements OnInit {
-  basket: any;
+  basket = [];
   beerForm: any;
   total = 0;
   user: any;
@@ -25,12 +25,12 @@ export class BasketPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.basket = this.orderService.basket;
     this.session.isLoggedIn()
     .subscribe(
       (user) => this.setUser(user),
       (err) => this.router.navigateByUrl('/')
     );
-    this.basket = this.orderService.basket;
     this.calculateTotal();
   }
 

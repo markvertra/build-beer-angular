@@ -14,7 +14,6 @@ p {
 
 .quantityButton {
   display: inline-block;
-  border: 1px solid brown;
   width: 20px;
   height: 20px;
   margin: 0px 2px;
@@ -25,12 +24,11 @@ p {
 
 .quantityButton:hover {
   cursor: pointer;
-  box-shadow: 1px 1px 1px 1px brown;
 }
 
 .bottleSize {
   margin-right: 2px;
-  border: 1px solid brown;
+  border-radius: 0px !important;
 }
 
 

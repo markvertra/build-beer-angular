@@ -1,7 +1,21 @@
+
 <div class="article-container">
   <h2>Our Greatest Hits</h2>
+  <div class="search-container">
+      <div>
+        <input type="text" class="search-bar" placeholder="Search our beers by..." [(ngModel)]="searchTerm" (change)="handleSearchChange()">
+      </div>
+      <div class="select-container">
+        <select class="search-bar-type-setter" [(ngModel)]="searchType" (change)="handleSearchTypeChange()">
+          <option value="name" selected>Name</option>
+          <option value="style">Style</option>
+          <option value="extraFlavours">Flavours</option>
+          <option value="slogan">Slogan</option>
+        </select>
+      </div>
+  </div>
   <ng-container *ngFor="let beer of filteredBeers; index as i">
-    <div class="article" *ngIf="i < 8" (click)="handleBeerClick(beer._id)">
+    <div class="article" *ngIf="i < 4" (click)="handleBeerClick(beer._id)">
       <h3>{{ beer.name }}</h3>
       <app-beer-image [color]="beer.beerDetails.color" 
       [opacity]="beer.beerDetails.opacity" 
@@ -16,13 +30,4 @@
       [beer]="beer"></app-beer-image>
     </div>
   </ng-container>
-</div>
-<div class="search-container">
-<input type="text" class="search-bar" placeholder="Search our beers by..." [(ngModel)]="searchTerm" (change)="handleSearchChange()">
-<select class="search-bar-type-setter" [(ngModel)]="searchType" (change)="handleSearchTypeChange()">
-  <option value="name" selected>Name</option>
-  <option value="style">Style</option>
-  <option value="extraFlavours">Flavours</option>
-  <option value="slogan">Slogan</option>
-</select>
 </div>

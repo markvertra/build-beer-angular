@@ -16,7 +16,6 @@ input:hover {
 input:focus {
   border: 1px solid brown;
   box-shadow: 1px 1px 1px 1px;
-  width: 400px;
 }
 
 select {

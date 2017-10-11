@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from '../../services/order-service.service';
 
 @Component({
   selector: 'app-payment-management-page',
@@ -6,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment-management-page.component.css']
 })
 export class PaymentManagementPageComponent implements OnInit {
-  status: String;
+  status: string;
   order: any;
+  basket: any;
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
     this.status = 'basket';
+    this.basket = this.orderService;
   }
 
   handleStatusChange(status) {

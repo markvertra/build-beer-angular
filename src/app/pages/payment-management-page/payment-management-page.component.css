@@ -1,0 +1,17 @@
+.payment-wrapper {
+  padding: 20px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+}
+
+.title-container h2 {
+  margin-bottom: 10px;
+}
+
+.order-progress-wrapper {
+  display: flex;
+  justify-content: center;
+}

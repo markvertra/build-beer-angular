@@ -47,6 +47,7 @@ import { RecommenderComponent } from './pages/reusables/recommender/recommender.
 import { RecommendationEnginePageComponent } from './pages/recommendation-engine-page/recommendation-engine-page.component';
 // tslint:disable-next-line:max-line-length
 import { RecommendationEngineComponent } from './pages/recommendation-engine-page/components/recommendation-engine/recommendation-engine.component';
+import { OrderProgressBarComponent } from './pages/payment-management-page/components/order-progress-bar/order-progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { RecommendationEngineComponent } from './pages/recommendation-engine-pag
     ChooseMethodComponent,
     RecommenderComponent,
     RecommendationEnginePageComponent,
-    RecommendationEngineComponent
+    RecommendationEngineComponent,
+    OrderProgressBarComponent
   ],
   imports: [
     BrowserModule,

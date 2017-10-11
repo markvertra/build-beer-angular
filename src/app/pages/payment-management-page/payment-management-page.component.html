@@ -1,15 +1,23 @@
-<ng-container *ngIf="status==='basket'">
-  <app-basket-page (onStatusChange)="handleStatusChange($event)" (onCheckoutSubmit)="handleCheckoutSubmit($event)"></app-basket-page>
-</ng-container>
+<div class="payment-wrapper">
+  <div *ngIf="basket.length >= 1" class="title-container">
+      <h2>Finalise your order</h2>
+  </div>
+  <div class="order-progress-wrapper">
+    <app-order-progress-bar [status]="status"></app-order-progress-bar>
+  </div>
+  <ng-container *ngIf="status==='basket'">
+    <app-basket-page (onStatusChange)="handleStatusChange($event)" (onCheckoutSubmit)="handleCheckoutSubmit($event)"></app-basket-page>
+  </ng-container>
 
-<ng-container *ngIf="status==='confirm'">
-  <app-confirm-order-page (onStatusChange)="handleStatusChange($event)" (onOrderConfirm)="handleOrderConfirm($event)"></app-confirm-order-page>
-</ng-container>
+  <ng-container *ngIf="status==='confirm'">
+    <app-confirm-order-page (onStatusChange)="handleStatusChange($event)" (onOrderConfirm)="handleOrderConfirm($event)"></app-confirm-order-page>
+  </ng-container>
 
-<ng-container *ngIf="status==='payment'">
-  <app-payment-options-page [order]="order" (onStatusChange)="handleStatusChange($event)"></app-payment-options-page>
-</ng-container>
+  <ng-container *ngIf="status==='payment'">
+    <app-payment-options-page [order]="order" (onStatusChange)="handleStatusChange($event)"></app-payment-options-page>
+  </ng-container>
 
-<ng-container *ngIf="status==='results'">
-  <app-order-results-page></app-order-results-page>
-</ng-container>
+  <ng-container *ngIf="status==='results'">
+    <app-order-results-page></app-order-results-page>
+  </ng-container>
+</div>

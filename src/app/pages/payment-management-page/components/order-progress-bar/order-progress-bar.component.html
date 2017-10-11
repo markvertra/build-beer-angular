@@ -2,9 +2,9 @@
   <div class="basket order-stage" *ngIf="!basket" >1. See Your Basket </div>
   <div class="basket order-stage selected" *ngIf="basket">1. See Your Basket </div>
   <div class="delivery order-stage" *ngIf="!confirm">2. Enter Delivery Details</div>
-  <div class="delivery order-stage" *ngIf="confirm">2. Enter Delivery Details</div>
+  <div class="delivery order-stage selected" *ngIf="confirm">2. Enter Delivery Details</div>
   <div class="payment order-stage" *ngIf="!payment">3. Enter Payment Details</div>
-  <div class="payment order-stage" *ngIf="confirm">3. Enter Payment Details</div>
+  <div class="payment order-stage selected" *ngIf="payment">3. Enter Payment Details</div>
   <div class="confirmation order-stage" *ngIf="!results">4. Receive Confirmation</div>
-  <div class="confirmation order-stage"  *ngIf="results">4. Receive Confirmation</div>
+  <div class="confirmation order-stage selected"  *ngIf="results">4. Receive Confirmation</div>
 </div>

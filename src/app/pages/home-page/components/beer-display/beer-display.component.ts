@@ -64,8 +64,12 @@ export class BeerDisplayComponent implements OnInit {
   }
 
   calculateReviewScore(beer) {
-    const scores = Object.values(beer.reviews);
-    return scores.reduce((prev, curr) => (prev + Number(curr)), 0) / scores.length;
+    if (beer.reviews) {
+      const scores = Object.values(beer.reviews);
+      return scores.reduce((prev, curr) => (prev + Number(curr)), 0) / scores.length;
+    } else {
+      return 0;
+    }
   }
 
   sortBeers(beers) {

@@ -19,5 +19,7 @@ export class PaymentOptionsPageComponent implements OnInit {
 
   handleStatusChange() {
     this.onStatusChange.emit('results');
+    this.orderService.checkoutBasket = [];
+    this.orderService.basket = [];
   }
 }

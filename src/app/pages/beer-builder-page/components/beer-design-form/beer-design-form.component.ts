@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BeerService } from '../../../../services/beer-service.service';
 import { SessionService } from '../../../../services/session-service.service';
@@ -54,9 +54,9 @@ dbColors = {'Stout': '#32312c',
   flavours: String;
   labelSelfImage: String;
   public: Boolean;
-
+  @Input () style: string;
   results;
-  style: String;
+
   @Output() onStyleChange = new EventEmitter<string>();
   @Output() onOpacityChange = new EventEmitter<string>();
   @Output() onCapColorChange = new EventEmitter<string>();
@@ -81,6 +81,11 @@ dbColors = {'Stout': '#32312c',
     .subscribe(
       (user) => { this.setUser(user); }
     );
+    console.log(this.beerService.recommended);
+    if (this.beerService.recommended) {
+      console.log(this.style);
+      this.style = this.beerService.recommended;
+    }
   }
 
   handleStyleChange(style) {

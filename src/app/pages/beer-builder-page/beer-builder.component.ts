@@ -19,6 +19,7 @@ export class BeerBuilderPageComponent implements OnInit {
             'IPA': '#e37b4c'
           };
   color;
+  style;
   opacity;
   capColor;
   name;
@@ -43,6 +44,7 @@ export class BeerBuilderPageComponent implements OnInit {
       (err) => this.router.navigateByUrl('/')
     );
     if (this.beerService.recommended) {
+      this.style = this.beerService.recommended;
       this.color = this.colors[this.beerService.recommended];
     }
   }

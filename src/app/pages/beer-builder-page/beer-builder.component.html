@@ -15,10 +15,12 @@
                       [labelFont]="labelFont"
                       [labelSlogan]="labelSlogan"
                       [name]="name"
-                      [creation]=true></app-beer-image>
+                      [creation]=true
+                      ></app-beer-image>
     </div>
     <div class="beer-order-form-wrapper">
-      <app-beer-design-form (onStyleChange)="handleStyleChange($event)" 
+      <app-beer-design-form [style]="style"
+                            (onStyleChange)="handleStyleChange($event)" 
                             (onOpacityChange)="handleOpacityChange($event)" 
                             (onCapColorChange)="handleCapColorChange($event)"
                             (onNameChange)="handleNameChange($event)"

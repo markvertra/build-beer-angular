@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../../../../services/beer-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recommendation-engine',
@@ -35,7 +36,8 @@ export class RecommendationEngineComponent implements OnInit {
                 'Coffee': 0,
                 'Caramel': 0 };
 
-  constructor(private beerService: BeerService) { }
+  constructor(private beerService: BeerService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -137,5 +139,6 @@ export class RecommendationEngineComponent implements OnInit {
 
   handleRecommendation() {
     this.beerService.recommended = this.recommended;
+    this.router.navigateByUrl('/create');
   }
 }

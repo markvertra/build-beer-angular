@@ -1,39 +1,47 @@
 <div class="order-history-container">
   <ng-container *ngIf="orders.length > 0">
-  <h2>Your Order History</h2>
-  <table>
-    <tr>
-      <th>Order ID</th>
-      <th>Order Date</th>
-      <th>Beers Ordered</th>
-      <th>Total</th>
-      <th>Order Status</th>
-    </tr>
-  <tr *ngFor="let order of orders; index as i">
-    <th class="orderID">#{{ order._id }} </th>
-    <th>{{ order.createdAt | date:'shortDate'}}</th>
-    <th><p *ngFor="let beer of order.beersOrdered">{{ beer.name }}</p> </th>
-    <th><p *ngFor="let beer of order.beersOrdered">€{{ beer.price }}</p></th>
-    <th><p *ngIf="order.isShipped">Shipped</p><p *ngIf="!order.isShipped">In production</p></th>
-  </tr>
-</table>
-  <div class="beer-history">
-    <h3>Beers you have ordered</h3>
-    <div *ngFor="let beerOrder of beersOrdered">
-      <div *ngFor="let beer of beerOrder">
-        <h5>{{ beer.name }}</h5><app-leave-review [beerId]="beer.id" [user]="user"></app-leave-review>
+    <div class="order-history-wrapper">
+      <h2>Your Order History</h2>
+      <table>
+        <tr>
+          <th>Order ID</th>
+          <th>Order Date</th>
+          <th>Beers Ordered</th>
+          <th>Total</th>
+          <th>Order Status</th>
+        </tr>
+      <tr *ngFor="let order of orders; index as i">
+        <th class="orderID">#{{ order._id }} </th>
+        <th>{{ order.createdAt | date:'shortDate'}}</th>
+        <th><p *ngFor="let beer of order.beersOrdered">{{ beer.name }}</p> </th>
+        <th><p *ngFor="let beer of order.beersOrdered">€{{ beer.price }}</p></th>
+        <th><p *ngIf="order.isShipped">Shipped</p><p *ngIf="!order.isShipped">In production</p></th>
+      </tr>
+      </table>
+      <div class="beer-history">
+        <h3>Beers you have ordered</h3>
+        <div *ngFor="let beerOrder of beersOrdered; index as i">
+          <div *ngFor="let beer of beerOrder">
+            <h5>Order {{ i + 1 }} - {{ beer.name }}</h5><app-leave-review [beerId]="beer.id" [user]="user"></app-leave-review>
+          </div>
+        </div>
+      </div>
+      <div class="button-container">
+        <button (click)="handleBeerBuild()">Build A Beer</button><br>
+        <button (click)="handleBeerRecommend()">Inspire Me</button>
       </div>
     </div>
-  </div>
-  <app-recommender></app-recommender>
+    <div class="recommender-wrapper">
+      <app-recommender></app-recommender>
+    </div>
   </ng-container>
   <div *ngIf="orders.length === 0" class="no-order-container">
     <h2>You haven't ordered anything yet!</h2>
     <img src="http://sc01.alicdn.com/kf/HTB1LZEvLpXXXXadXFXXq6xXFXXXs/Exquisite-Elegant-Clear-Big-Beer-Mug-Glass.jpg">
-  </div>
-  <div class="button-container">
-    <button (click)="handleBeerBuild()">Build A Beer</button><br>
-    <button (click)="handleBeerRecommend()">Inspire Me</button>
+    <div class="button-container">
+        <button (click)="handleBeerBuild()">Build A Beer</button><br>
+        <button (click)="handleBeerRecommend()">Inspire Me</button>
+      </div>
   </div>
 </div>
 

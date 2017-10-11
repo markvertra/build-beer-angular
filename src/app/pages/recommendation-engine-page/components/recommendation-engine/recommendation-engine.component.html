@@ -1,7 +1,9 @@
-<h2 *ngIf="!inspired">Need a hand choosing your beer? Ask us</h2>
-<h2 *ngIf="inspired">We have selected this beer just for you.</h2>
+<div class="title-wrapper">
+  <h2 *ngIf="!inspired">Need a hand choosing your beer? Ask us</h2>
+  <h2 *ngIf="inspired">We have selected this beer just for you</h2>
+</div>
 <form *ngIf="!inspired" (ngSubmit)="handleNewRecommendation(recForm)" #recForm="ngForm" class="beer-build-form" novalidate>
-  
+
   <div class="radio-button-wrapper">
   <h3>Which is your favourite season?</h3>
     <div class="radio-group">

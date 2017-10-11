@@ -4,7 +4,18 @@ th {
 }
 
 .order-history-container {
-  padding: 50px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.order-history-wrapper h2 {
+  text-align: center;
+  margin: 0px 0px 20px;
+}
+
+.button-container {
+  margin: 30px 0px 0px;
 }
 
 .no-order-container {
@@ -31,6 +42,10 @@ th {
 
 .beer-history h4 {
   margin: 5px 0px;
+}
+
+.beer-history h5 {
+  margin-left: 5px;
 }
 
 .button-container {

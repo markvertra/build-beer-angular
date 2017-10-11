@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { environment } from '../../environments/environment';
 
 import { User } from '../models/user';
 
@@ -17,7 +18,7 @@ export class SessionService {
 
   userChange$ = this.userChange.asObservable();
 
-  BASE_URL = 'http://localhost:3000';
+  BASE_URL = environment.API_URL;
   constructor(private http: Http) { }
 
   private setUser(user: User = null) {

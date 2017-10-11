@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class OrderService {
@@ -8,7 +9,7 @@ export class OrderService {
   checkoutBasket= [];
   deliveryDetails = {};
 
-  BASE_URL = 'http://localhost:3000';
+  BASE_URL = environment.API_URL;
   constructor(private http: Http) { }
 
   postOrder(id: string, order: Object) {

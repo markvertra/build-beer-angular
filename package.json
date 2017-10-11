@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "heroku-prebuild": "rm -rf node_modules && npm cache clean",
+    "heroku-prebuild": "rm -rf node_modules && npm cache clean --force",
     "ng": "ng",
     "start": "node app.js",
     "build": "ng build",

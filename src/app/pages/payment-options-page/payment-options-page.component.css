@@ -2,7 +2,12 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  border: 1px solid brown;
+  border: 1px solid black;
+}
+
+.details span {
+  font-weight: bold;
+  float: right;
 }
 
 .order-info-box {

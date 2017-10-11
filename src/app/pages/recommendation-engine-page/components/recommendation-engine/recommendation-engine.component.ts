@@ -14,6 +14,7 @@ export class RecommendationEngineComponent implements OnInit {
   error;
   recommended;
   inspired;
+  recommendedBeer;
 
   stylePoints = {'Red Ale': 0,
                 'IPA': 0,
@@ -114,6 +115,7 @@ export class RecommendationEngineComponent implements OnInit {
       }
     }
     this.findRecommendation();
+    this.searchRecommendationByStyle();
     this.inspired = !this.inspired;
   }
 
@@ -140,5 +142,13 @@ export class RecommendationEngineComponent implements OnInit {
   handleRecommendation() {
     this.beerService.recommended = this.recommended;
     this.router.navigateByUrl('/create');
+  }
+
+  searchRecommendationByStyle() {
+    this.beerService.getBeerByStyle(this.recommended)
+        .subscribe(res => {
+        if (res.length > 0) {
+          this.recommendedBeer = res[0];
+    }});
   }
 }

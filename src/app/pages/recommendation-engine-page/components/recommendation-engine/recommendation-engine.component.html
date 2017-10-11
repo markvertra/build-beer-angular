@@ -35,6 +35,19 @@
     <div *ngIf="error" class="error">{{ error }}</div>
   </div>
 </form>
+<ng-container *ngIf="recommended && recommendedBeer">
+  <app-beer-image [color]="recommendedBeer.beerDetails.color" 
+                  [opacity]="recommendedBeer.beerDetails.opacity" 
+                  [capColor]="recommendedBeer.cap.color"
+                  [labelColor]="recommendedBeer.label.color"
+                  [labelFontColor]="recommendedBeer.label.fontColor"
+                  [labelImage]="recommendedBeer.label.image"
+                  [labelFont]="recommendedBeer.label.font"
+                  [labelSlogan]="recommendedBeer.label.slogan"
+                  [name]="recommendedBeer.name"
+                  [reviews]="recommendedBeer.reviews"
+                  [beer]="recommendedBeer"></app-beer-image>
+</ng-container>
 <div class="radio-button-wrapper">
   <button *ngIf="recommended" (click)="handleRecommendation()">We recommend you build a {{ recommended }}</button>
 </div>

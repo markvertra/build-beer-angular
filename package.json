@@ -2,15 +2,18 @@
   "name": "base",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "6.11.2"
+  },
   "scripts": {
     "heroku-prebuild": "rm -rf node_modules && npm cache clean --force",
     "ng": "ng",
+    "postinstall": "ng build --aot -prod",
     "start": "node app.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

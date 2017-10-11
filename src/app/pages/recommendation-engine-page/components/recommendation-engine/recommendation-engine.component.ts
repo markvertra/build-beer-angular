@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../../../../services/beer-service.service';
+import { OrderService } from '../../../../services/order-service.service';
+import { SessionService } from '../../../../services/session-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,13 +10,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./recommendation-engine.component.css']
 })
 export class RecommendationEngineComponent implements OnInit {
-  holiday;
-  meal;
-  season;
+  holiday: string;
+  meal: string;
+  season: string;
   error;
   recommended;
   inspired;
   recommendedBeer;
+  user: any;
+  loginWarning = true;
 
   stylePoints = {'Red Ale': 0,
                 'IPA': 0,
@@ -38,9 +42,19 @@ export class RecommendationEngineComponent implements OnInit {
                 'Caramel': 0 };
 
   constructor(private beerService: BeerService,
+              private orderService: OrderService,
+              private sessionService: SessionService,
               private router: Router) { }
 
   ngOnInit() {
+    this.sessionService.isLoggedIn()
+    .subscribe(
+      (user) => { this.setUser(user); }
+    );
+  }
+
+  setUser(user: any | null) {
+    this.user = user;
   }
 
   handleNewRecommendation(form) {
@@ -150,5 +164,28 @@ export class RecommendationEngineComponent implements OnInit {
         if (res.length > 0) {
           this.recommendedBeer = res[0];
     }});
+  }
+
+  handleAddToBasket() {
+    let beerPush = true;
+    this.orderService.basket.forEach((item) => {
+      if (item._id === this.recommendedBeer._id) {
+        beerPush = false;
+      }
+    });
+    if (beerPush) { this.orderService.addItemToBasket(this.recommendedBeer); }
+    this.router.navigateByUrl('/');
+    }
+
+  basketIfLoggedIn() {
+    if (this.user) {
+      this.handleAddToBasket();
+    } else {
+      this.toggleOverlay();
+    }
+  }
+
+  toggleOverlay() {
+    this.loginWarning = !this.loginWarning;
   }
 }

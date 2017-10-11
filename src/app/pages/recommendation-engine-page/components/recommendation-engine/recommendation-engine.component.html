@@ -1,3 +1,5 @@
+<h2 *ngIf="!inspired">Need a hand choosing your beer? Ask us</h2>
+<h2 *ngIf="inspired">We have selected this beer just for you.</h2>
 <form *ngIf="!inspired" (ngSubmit)="handleNewRecommendation(recForm)" #recForm="ngForm" class="beer-build-form" novalidate>
   
   <div class="radio-button-wrapper">
@@ -35,19 +37,26 @@
     <div *ngIf="error" class="error">{{ error }}</div>
   </div>
 </form>
-<ng-container *ngIf="recommended && recommendedBeer">
-  <app-beer-image [color]="recommendedBeer.beerDetails.color" 
-                  [opacity]="recommendedBeer.beerDetails.opacity" 
-                  [capColor]="recommendedBeer.cap.color"
-                  [labelColor]="recommendedBeer.label.color"
-                  [labelFontColor]="recommendedBeer.label.fontColor"
-                  [labelImage]="recommendedBeer.label.image"
-                  [labelFont]="recommendedBeer.label.font"
-                  [labelSlogan]="recommendedBeer.label.slogan"
-                  [name]="recommendedBeer.name"
-                  [reviews]="recommendedBeer.reviews"
-                  [beer]="recommendedBeer"></app-beer-image>
-</ng-container>
-<div class="radio-button-wrapper">
-  <button *ngIf="recommended" (click)="handleRecommendation()">We recommend you build a {{ recommended }}</button>
+<div *ngIf="recommended && recommendedBeer" class="beer-recommendation-container">
+  <div class="recommended-beer">
+    <app-beer-image [color]="recommendedBeer.beerDetails.color" 
+                    [opacity]="recommendedBeer.beerDetails.opacity" 
+                    [capColor]="recommendedBeer.cap.color"
+                    [labelColor]="recommendedBeer.label.color"
+                    [labelFontColor]="recommendedBeer.label.fontColor"
+                    [labelImage]="recommendedBeer.label.image"
+                    [labelFont]="recommendedBeer.label.font"
+                    [labelSlogan]="recommendedBeer.label.slogan"
+                    [name]="recommendedBeer.name"
+                    [reviews]="recommendedBeer.reviews"
+                    [beer]="recommendedBeer"></app-beer-image>
+    <br>
+    <button (click)="basketIfLoggedIn()">Add to Basket</button>
+  </div>
 </div>
+<div *ngIf="recommended" class="radio-button-wrapper">
+  <h4>Or if you want to build your own...</h4>
+  <button (click)="handleRecommendation()">We recommend you build a {{ recommended }}</button>
+</div>
+<div *ngIf="!loginWarning" (click)="toggleOverlay()" class="login-overlay"></div>
+<div *ngIf="!loginWarning" class="log-me"><app-login-form></app-login-form></div>

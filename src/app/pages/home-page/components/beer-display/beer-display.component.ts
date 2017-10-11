@@ -20,7 +20,7 @@ export class BeerDisplayComponent implements OnInit {
     private session: SessionService) { }
 
   ngOnInit() {
-    this.beer.getPublicBeers().subscribe((res) => (this.filteredBeers = res, this.beers = res));
+    this.beer.getPublicBeers().subscribe((res) => { this.filteredBeers = this.sortBeers(res), this.beers = this.sortBeers(res);  });
   }
 
   handleSearchChange() {
@@ -69,11 +69,12 @@ export class BeerDisplayComponent implements OnInit {
   }
 
   sortBeers(beers) {
-    this.beers.sort((a, b) => {
+    beers.sort((a, b) => {
       const reviewsA = this.calculateReviewScore(a) || 0;
       const reviewsB = this.calculateReviewScore(b) || 0;
       return reviewsB - reviewsA;
     });
+    return beers;
   }
 
 }

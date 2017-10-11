@@ -30,7 +30,6 @@ import { AuthComponentComponent } from './pages/reusables/auth-component/auth-co
 import { AuthLogoutComponent } from './pages/reusables/auth-logout/auth-logout.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
-import { FBShareComponent } from 'ngx-facebook';
 import { BeerEditorPageComponent } from './pages/beer-editor-page/beer-editor-page.component';
 import { BeerEditorFormComponent } from './pages/beer-editor-page/components/beer-editor-form/beer-editor-form.component';
 import { BeerDisplayComponent } from './pages/home-page/components/beer-display/beer-display.component';
@@ -66,7 +65,6 @@ import { RecommendationEngineComponent } from './pages/recommendation-engine-pag
     AuthComponentComponent,
     AuthLogoutComponent,
     ProfilePageComponent,
-    FBShareComponent,
     BeerEditorPageComponent,
     BeerEditorFormComponent,
     BeerDisplayComponent,

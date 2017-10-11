@@ -7,6 +7,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ChooseMethodComponent implements OnInit {
   @Output() onPayment = new EventEmitter<String>();
+  cardPayment;
+  cardNumber;
+  expiryMonth;
+  expiryYear;
+  ccvNumber;
+
 
   constructor() { }
 
@@ -16,5 +22,4 @@ export class ChooseMethodComponent implements OnInit {
   handlePayment() {
     this.onPayment.emit('results');
   }
-
 }

@@ -1,3 +1,9 @@
 .results-container {
   padding: 50px;
 }
+
+.results-container img {
+  margin-top: 20px;
+  height: 200px;
+  margin: auto;
+}

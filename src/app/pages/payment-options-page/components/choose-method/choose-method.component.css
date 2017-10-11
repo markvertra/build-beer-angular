@@ -5,6 +5,11 @@
   height: 300px;
 }
 
+.card-details {
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   margin: 10px 0px;
   padding: 10px;

@@ -88,7 +88,7 @@ import { OrderProgressBarComponent } from './pages/payment-management-page/compo
     FormsModule,
     HttpModule,
     RouterModule.forRoot(beerRoutes),
-    StarRatingModule.forRoot()
+    StarRatingModule.forRoot(),
   ],
   providers: [BeerService,
               OrderService,

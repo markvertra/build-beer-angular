@@ -34,7 +34,8 @@ export class LeaveReviewComponent implements OnInit {
 }
 
   getBeerReviews() {
-    this.beerService.getBeer(this.beerId).subscribe(res => { this.beerReviews = res.reviews; });
+    this.beerService.getBeer(this.beerId).subscribe(res => { this.beerReviews = res.reviews,
+                                                             this.reviewed = this.checkBeerReviews(res.reviews); });
   }
 
   handleReviewLeft() {
@@ -47,6 +48,7 @@ export class LeaveReviewComponent implements OnInit {
     this.beerService.addReview(this.beerId, this.beerReviews).subscribe(res => { this.results = res; });
     this.getBeerReviews();
     this.reviewed = !this.reviewed;
+    this.hideStars = true;
   }
 
   handleSetReviewValue(int: Number) {
@@ -57,9 +59,9 @@ export class LeaveReviewComponent implements OnInit {
   checkBeerReviews(reviews): boolean {
     Object.keys(reviews).forEach((item) => {
       if (item + '' === this.user.id + '') {
-        return false;
+        return true;
       }
     });
-    return true;
+    return false;
   }
 }

@@ -5,7 +5,7 @@
 <ng-container *ngIf="!reviewed">
   <h4>Leave your review</h4>
 </ng-container>
-<div class="star" ng-hide="hideStars">
+<div class="star" *ngIf="!reviewed">
   <span (click)="handleSetReviewValue(5)">☆</span>
   <span (click)="handleSetReviewValue(4)">☆</span>
   <span (click)="handleSetReviewValue(3)">☆</span>

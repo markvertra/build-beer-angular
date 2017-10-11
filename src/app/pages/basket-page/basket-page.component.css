@@ -6,10 +6,34 @@ p {
   padding: 30px;
 }
 
-.basketDiv {
+.beer-build-form h2 {
+  margin-bottom: 20px;
+
+}
+
+.basket-div {
   display: flex;
   justify-content: space-between;
   margin: 10px 0px;
+}
+
+.basket-titles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.basket-right-titles {
+  font-size: 0.9em;
+  display: flex;
+  justify-content: space-around;
+}
+
+.basket-right-titles .quantity {
+  margin: 0px 55px 0px 0px;
+}
+
+.basket-right-titles .bottle-size {
+  margin: 0px 5px;
 }
 
 button {

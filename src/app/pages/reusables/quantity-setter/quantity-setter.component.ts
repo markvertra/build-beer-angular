@@ -25,7 +25,7 @@ export class QuantitySetterComponent implements OnInit {
   }
 
   handleIncreaseQuantity() {
-    if (this.quantity < 100) {
+    if (this.quantity < 90) {
     this.quantity += 10;
     this.handleQuantityChange();
     }

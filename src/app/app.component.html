@@ -15,7 +15,8 @@
     <button *ngIf="user" (click)="logOut()" class="navbar-link">Log Out</button>
   </div>
   <div class="navbar-hidden-links" *ngIf="responsiveDisplay">
-    <a *ngIf="user" [routerLink]="['checkout']" class="navbar-hidden-link">Help Me Choose</a>
+    <a *ngIf="user" [routerLink]="['recommendation']" class="navbar-hidden-link">Help Me Choose</a>
+    <a *ngIf="user" [routerLink]="['checkout']" class="navbar-hidden-link">My Basket</a>
     <a *ngIf="user" [routerLink]="['orders']" class="navbar-hidden-link">My Orders</a>
     <a *ngIf="user" [routerLink]="['profile', user.id]" class="navbar-hidden-link">My Beers</a>
     <button *ngIf="!user" (click)="popLogIn()" class="navbar-hidden-link">Log In</button>

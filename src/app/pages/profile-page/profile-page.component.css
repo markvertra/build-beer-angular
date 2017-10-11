@@ -4,14 +4,12 @@ button {
   padding: 10px;
   font-size: 14px;
   background-color: rgba(0,0,0,0);
-  border: 1px solid brown;
   transition: width 1s;
 }
 
 button:hover {
   width: 220px;
   background-color: lightgray;
-  box-shadow: 1px 1px 1px 1px brown;
 }
 
 .profile-container {

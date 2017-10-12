@@ -11,16 +11,18 @@
 <ng-container *ngIf="publicBeers.length >=1">
   <h3>Published Beers</h3>
   <div class="beer-image-container">
-      <div *ngFor="let beer of publicBeers" class="beer-article" (click)="handleBeerClick(beer._id, beer.creatorId)">
-      <app-beer-image [color]="beer.beerDetails.color" 
-                      [opacity]="beer.beerDetails.opacity" 
-                      [capColor]="beer.cap.color"
-                      [labelColor]="beer.label.color"
-                      [labelFontColor]="beer.label.fontColor"
-                      [labelImage]="beer.label.image"
-                      [labelFont]="beer.label.font"
-                      [labelSlogan]="beer.label.slogan"
-                      [name]="beer.name"></app-beer-image>
+      <div *ngFor="let beer of publicBeers" class="beer-article">
+        <ng-container (click)="handleBeerClick(beer._id, beer.creatorId)">
+          <app-beer-image [color]="beer.beerDetails.color" 
+                          [opacity]="beer.beerDetails.opacity" 
+                          [capColor]="beer.cap.color"
+                          [labelColor]="beer.label.color"
+                          [labelFontColor]="beer.label.fontColor"
+                          [labelImage]="beer.label.image"
+                          [labelFont]="beer.label.font"
+                          [labelSlogan]="beer.label.slogan"
+                          [name]="beer.name"></app-beer-image>
+        </ng-container>
       <button *ngIf="notAdded" (click)="handleAddToBasket(beer)">Add to basket</button>  
       <h4 *ngIf="!notAdded" class="beer-added">Beer added to basket</h4>
     </div>

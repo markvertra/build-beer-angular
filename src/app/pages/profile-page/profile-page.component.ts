@@ -58,7 +58,7 @@ export class ProfilePageComponent implements OnInit {
     });
     if (beerPush) {
       this.orderService.addItemToBasket(beer);
-        this.notAdded = false;
+      this.notAdded = false;
     }
   }
 }

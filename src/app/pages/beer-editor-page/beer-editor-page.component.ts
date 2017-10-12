@@ -17,18 +17,18 @@ export class BeerEditorPageComponent implements OnInit {
             'Pale Ale': '#ffa712',
             'IPA': '#e37b4c'
           };
-  color: String;
-  style: String;
+  color: string;
+  style: string;
   opacity: any;
-  capColor: String;
-  name: String;
+  capColor: string;
+  name: string;
   flavours: any;
-  labelColor: String;
-  labelFont: String;
-  labelFontColor: String;
-  labelImage: String;
-  labelSlogan: String;
-  public: String;
+  labelColor: string;
+  labelFont: string;
+  labelFontColor: string;
+  labelImage: string;
+  labelSlogan: string;
+  public: string;
 
   @Output() onBeerCreation = new EventEmitter<object>();
 

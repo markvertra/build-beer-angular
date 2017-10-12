@@ -43,20 +43,20 @@ export class BeerEditorFormComponent implements OnInit {
     'IPA': '#e37b4c'
     };
 
-    @Input() name: String;
-    @Input() style: String;
-    @Input() colourants: String;
-    @Input() labelSlogan: String;
-    @Input() labelImage: String;
-    @Input() labelColor: String;
-    @Input() labelFont: String;
-    @Input() labelFontColor: String;
-    @Input() capColor: String;
+    @Input() name: string;
+    @Input() style: string;
+    @Input() colourants: string;
+    @Input() labelSlogan: string;
+    @Input() labelImage: string;
+    @Input() labelColor: string;
+    @Input() labelFont: string;
+    @Input() labelFontColor: string;
+    @Input() capColor: string;
     @Input() flavours: any;
-    @Input() labelSelfImage: String;
+    @Input() labelSelfImage: string;
     @Input() public: Boolean;
 
-    id: String;
+    id: string;
     results;
 
     @Output() onStyleChange = new EventEmitter<string>();

@@ -17,7 +17,6 @@
       {{ beer.description }} 
       <p *ngIf="beer.beerDetails.extraFlavours">{{ beer.name }} has extra flavours of {{ beer.beerDetails.extraFlavours[0] }}</p>
     <button *ngIf="notAdded" (click)="basketIfLoggedIn()">Add to basket</button>
-    <h4 class="beer-added" *ngIf="!notAdded">Beer added to basket!</h4>
     </div>
   </div>
 </div>

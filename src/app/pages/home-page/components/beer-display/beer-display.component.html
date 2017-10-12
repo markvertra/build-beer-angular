@@ -31,5 +31,5 @@
     </div>
   </ng-container>
 </div>
-<div class="left-scroll scroll" (click)="handleScrollLeft()"></div>
-<div class="right-scroll scroll" (click)="handleScrollRight()"></div>
+<div *ngIf="filteredBeers.length !== 0" class="left-scroll scroll" (click)="handleScrollLeft()"></div>
+<div *ngIf="filteredBeers.length !== 0" class="right-scroll scroll" (click)="handleScrollRight()"></div>

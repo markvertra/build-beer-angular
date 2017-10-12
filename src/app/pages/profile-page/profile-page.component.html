@@ -4,11 +4,11 @@
   <h3>Beers made by {{ user.username }} </h3>
 </ng-container>
 
-<ng-container *ngIf="publicBeers.length === 0 && privateBeers.length === 0">
+<ng-container *ngIf="!publicBeers || publicBeers.length === 0 && privateBeers.length === 0">
   <h4>You have not designed any beers yet. Go and <a [routerLink]="['/create']">build!</a></h4>
 </ng-container>
 
-<ng-container *ngIf="publicBeers.length >=1">
+<ng-container *ngIf="!publicBeers || publicBeers.length >=1">
   <h3>Published Beers</h3>
   <div class="beer-image-container">
       <div *ngFor="let beer of publicBeers; index as i" class="beer-article">
@@ -25,12 +25,12 @@
                             [name]="beer.name"></app-beer-image>
           </div>
         </ng-container>
-      <button *ngIf="notAdded" (click)="handleAddToBasket(beer)">Add to basket</button>  
+      <button (click)="handleAddToBasket(beer)">Add to basket</button>  
     </div>
   </div>
 </ng-container>
 
-<ng-container *ngIf="privateBeers.length >= 1">
+<ng-container *ngIf="!privateBeers || privateBeers.length >= 1">
     <h3>Private Beers</h3>
     <div class="beer-image-container">
       <div *ngFor="let beer of privateBeers" class="beer-article" (click)="handleBeerClick(beer._id, beer.creatorId)">

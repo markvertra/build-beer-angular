@@ -14,22 +14,28 @@
         </select>
       </div>
   </div>
-  <ng-container *ngFor="let beer of filteredBeers; index as i">
-    <div class="article" *ngIf="i >= lowerScroll && i < upperScroll" (click)="handleBeerClick(beer._id)">
-      <h3>{{ beer.name }}</h3>
-      <app-beer-image [color]="beer.beerDetails.color" 
-      [opacity]="beer.beerDetails.opacity" 
-      [capColor]="beer.cap.color"
-      [labelColor]="beer.label.color"
-      [labelFontColor]="beer.label.fontColor"
-      [labelImage]="beer.label.image"
-      [labelFont]="beer.label.font"
-      [labelSlogan]="beer.label.slogan"
-      [name]="beer.name"
-      [reviews]="beer.reviews"
-      [beer]="beer"></app-beer-image>
-    </div>
+  <ng-container *ngIf="filteredBeers">
+    <ng-container *ngFor="let beer of filteredBeers; index as i">
+      <div class="article" *ngIf="i >= lowerScroll && i < upperScroll" (click)="handleBeerClick(beer._id)">
+        <h3>{{ beer.name }}</h3>
+        <app-beer-image [color]="beer.beerDetails.color" 
+        [opacity]="beer.beerDetails.opacity" 
+        [capColor]="beer.cap.color"
+        [labelColor]="beer.label.color"
+        [labelFontColor]="beer.label.fontColor"
+        [labelImage]="beer.label.image"
+        [labelFont]="beer.label.font"
+        [labelSlogan]="beer.label.slogan"
+        [name]="beer.name"
+        [reviews]="beer.reviews"
+        [beer]="beer"></app-beer-image>
+      </div>
+    </ng-container>
   </ng-container>
 </div>
-<div *ngIf="filteredBeers.length !== 0" class="left-scroll scroll" (click)="handleScrollLeft()"></div>
-<div *ngIf="filteredBeers.length !== 0" class="right-scroll scroll" (click)="handleScrollRight()"></div>
+<ng-container *ngIf="filteredBeers">
+  <div *ngIf="filteredBeers.length !== 0" class="left-scroll scroll" (click)="handleScrollLeft()"></div>
+</ng-container>
+<ng-container *ngIf="filteredBeers">
+  <div *ngIf="filteredBeers.length !== 0" class="right-scroll scroll" (click)="handleScrollRight()"></div>
+</ng-container>

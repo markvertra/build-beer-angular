@@ -8,7 +8,8 @@ import { OrderService } from '../../services/order-service.service';
 })
 export class PaymentOptionsPageComponent implements OnInit {
   @Input() order;
-  @Output() onStatusChange = new EventEmitter<String>();
+  @Output() onBasketSubmit = new EventEmitter<string>();
+  @Output() onStatusChange = new EventEmitter<string>();
   deliveryDetails: any;
 
   constructor(private orderService: OrderService) { }
@@ -19,6 +20,7 @@ export class PaymentOptionsPageComponent implements OnInit {
 
   handleStatusChange() {
     this.onStatusChange.emit('results');
+    this.onBasketSubmit.emit();
     this.orderService.checkoutBasket = [];
     this.orderService.basket = [];
   }

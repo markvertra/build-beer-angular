@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { SessionService } from './services/session-service.service';
 import { OrderService } from './services/order-service.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css'],
   providers: [SessionService]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnChanges {
   basket = [];
   user: any;
   error: string;
@@ -31,6 +31,10 @@ export class AppComponent implements OnInit {
       .subscribe(
         (user) => { this.setUser(user); }
       );
+    }
+
+    ngOnChanges() {
+      this.basket = this.orderService.basket;
     }
 
     popLogIn() {

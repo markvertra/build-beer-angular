@@ -57,3 +57,27 @@ select {
   border-radius: 0;
   width: 100px;
 }
+
+.scroll {
+  position: absolute;
+  bottom: -220%;
+  height: 100px;
+  width: 65px;
+  background-size: cover;
+}
+
+.right-scroll {
+  background-image: url("http://www.clker.com/cliparts/V/1/Z/A/h/U/left-arrow-right-hi.png");
+  right: 4%;
+}
+
+.left-scroll {
+  background-image: url("http://www.clker.com/cliparts/Z/n/k/Z/y/j/left-arrow-gray-hi.png");
+  left: 4%
+}
+
+@media (max-width: 1050px) {
+  .scroll {
+    display: none;
+  }
+}

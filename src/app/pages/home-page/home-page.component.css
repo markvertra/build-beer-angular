@@ -120,7 +120,7 @@ li {
   display:none;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1050px) {
   .lg-screen {
     display: block;
   }
@@ -130,3 +130,5 @@ li {
     padding: 100px;
   }
 }
+
+

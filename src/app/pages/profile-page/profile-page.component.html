@@ -21,7 +21,8 @@
                       [labelFont]="beer.label.font"
                       [labelSlogan]="beer.label.slogan"
                       [name]="beer.name"></app-beer-image>
-      <button (click)="handleAddToBasket(beer)">Add to basket</button>  
+      <button *ngIf="notAdded" (click)="handleAddToBasket(beer)">Add to basket</button>  
+      <h4 *ngIf="!notAdded" class="beer-added">Beer added to basket</h4>
     </div>
   </div>
 </ng-container>

@@ -14,6 +14,7 @@ export class ProfilePageComponent implements OnInit {
   user: any;
   publicBeers: Array<Object>;
   privateBeers: Array<Object>;
+  notAdded = true;
 
 
   constructor(private route: ActivatedRoute,
@@ -55,8 +56,10 @@ export class ProfilePageComponent implements OnInit {
         beerPush = false;
       }
     });
-    if (beerPush) { this.orderService.addItemToBasket(beer); }
-    this.router.navigateByUrl('/');
+    if (beerPush) {
+      this.orderService.addItemToBasket(beer);
+        this.notAdded = false;
+    }
   }
 }
 

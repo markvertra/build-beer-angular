@@ -15,7 +15,7 @@
       </div>
   </div>
   <ng-container *ngFor="let beer of filteredBeers; index as i">
-    <div class="article" *ngIf="i < 4" (click)="handleBeerClick(beer._id)">
+    <div class="article" *ngIf="i >= lowerScroll && i < upperScroll" (click)="handleBeerClick(beer._id)">
       <h3>{{ beer.name }}</h3>
       <app-beer-image [color]="beer.beerDetails.color" 
       [opacity]="beer.beerDetails.opacity" 
@@ -31,3 +31,5 @@
     </div>
   </ng-container>
 </div>
+<div class="left-scroll scroll" (click)="handleScrollLeft()"></div>
+<div class="right-scroll scroll" (click)="handleScrollRight()"></div>

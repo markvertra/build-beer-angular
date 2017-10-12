@@ -13,6 +13,7 @@ export class BeerDisplayFrameComponent implements OnInit {
   beer;
   color;
   user;
+  notAdded = true;
   loginWarning = true;
 
   constructor(private route: ActivatedRoute,
@@ -47,7 +48,7 @@ export class BeerDisplayFrameComponent implements OnInit {
       }
     });
     if (beerPush) { this.orderService.addItemToBasket(this.beer); }
-    this.router.navigateByUrl('/');
+      this.notAdded = false;
     }
 
   basketIfLoggedIn() {

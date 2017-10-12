@@ -14,6 +14,10 @@ export class BeerDisplayComponent implements OnInit {
   searchTerm: string;
   searchType;
   filteredBeers: any;
+  lowerScroll = 0;
+  displayNumber = 3;
+  upperScroll = this.lowerScroll + this.displayNumber;
+
 
   constructor(private beer: BeerService,
     private router: Router,
@@ -79,6 +83,20 @@ export class BeerDisplayComponent implements OnInit {
       return reviewsB - reviewsA;
     });
     return beers;
+  }
+
+  handleScrollRight() {
+    if (this.upperScroll < this.filteredBeers.length) {
+      this.upperScroll += this.displayNumber;
+      this.lowerScroll += this.displayNumber;
+    } 
+  }
+
+  handleScrollLeft() {
+    if (this.lowerScroll >= this.displayNumber) {
+      this.upperScroll -= this.displayNumber;
+      this.lowerScroll -= this.displayNumber;
+    }
   }
 
 }

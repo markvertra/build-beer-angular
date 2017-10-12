@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from './services/session-service.service';
+import { OrderService } from './services/order-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
   providers: [SessionService]
 })
 export class AppComponent implements OnInit {
+  basket = [];
   user: any;
   error: string;
   loginPop: boolean;
@@ -16,13 +18,15 @@ export class AppComponent implements OnInit {
   loginWarning = true;
 
   constructor(private session: SessionService,
-              private router: Router) { }
+              private router: Router,
+              private orderService: OrderService) { }
 
     setUser(user: any | null) {
       this.user = user;
     }
 
     ngOnInit() {
+      this.basket = this.orderService.basket;
       this.session.isLoggedIn()
       .subscribe(
         (user) => { this.setUser(user); }

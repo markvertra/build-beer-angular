@@ -89,7 +89,7 @@ export class BeerDisplayComponent implements OnInit {
     if (this.upperScroll < this.filteredBeers.length) {
       this.upperScroll += this.displayNumber;
       this.lowerScroll += this.displayNumber;
-    } 
+    }
   }
 
   handleScrollLeft() {

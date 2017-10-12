@@ -1,8 +1,8 @@
 <div class="recommender-section">
-  <h4>Customers with a similar order history have purchased</h4>
+  <h4 *ngIf="recommendedBeers.length !== 0">Customers with a similar order history have purchased</h4>
   <div class="recommendation-list">
     <ng-container *ngFor="let beer of recommendedBeers; index as i">
-      <div *ngIf="i < 3" (click)="handleBeerClick(beer._id)" class="beer-item">
+      <div *ngIf="i < 2" (click)="handleBeerClick(beer._id)" class="beer-item">
         <app-beer-image [beer]="beer" [reviews]="beer.reviews"></app-beer-image>
       </div>
     </ng-container>

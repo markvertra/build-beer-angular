@@ -8,7 +8,8 @@
   z-index: 3;
 }
 
-.navbar a{
+.navbar a, 
+.navbar span{
   color: white;
   text-decoration: none;
 }
@@ -19,6 +20,22 @@
 
 .navbar-right-menu {
   display: none;
+}
+
+.basket-number {
+  position: absolute;
+  bottom: 12%;
+  right: 2%;
+  font-size: 8px;
+  color: black !important;
+  font-weight: bold;
+  background: grey;
+  border-radius: 30px;
+  padding: 2px 6px;
+}
+
+.checkout-link {
+  position: relative;
 }
 
 .navbar-hidden-links {
@@ -43,6 +60,10 @@
   }
 
   .navbar-right-links {
+    display: none;
+  }
+
+  .basket-number {
     display: none;
   }
 }

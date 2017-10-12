@@ -21,7 +21,7 @@ export class RecommenderComponent implements OnInit {
                  'Pale Ale': 0,
                  'Porter': 0,
                  'Stout': 0,
-                 'Wheat': 0,
+                 'Wheat Beer': 0,
                  'Pilsner': 0};
   flavourPoints = {'Smoky': 0,
                    'Citrus': 0,

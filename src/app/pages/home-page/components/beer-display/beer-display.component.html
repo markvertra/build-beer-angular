@@ -14,7 +14,13 @@
         </select>
       </div>
   </div>
-  <ng-container *ngIf="filteredBeers">
+  <div *ngIf="filteredBeers" class="filtered-beers">
+    <ng-container *ngIf="filteredBeers">
+      <div *ngIf="filteredBeers.length !== 0" class="left-scroll scroll" (click)="handleScrollLeft()"></div>
+    </ng-container>
+      <ng-container *ngIf="filteredBeers">
+      <div *ngIf="filteredBeers.length !== 0" class="right-scroll scroll" (click)="handleScrollRight()"></div>
+    </ng-container>
     <ng-container *ngFor="let beer of filteredBeers; index as i">
       <div class="article" *ngIf="i >= lowerScroll && i < upperScroll" (click)="handleBeerClick(beer._id)">
         <h3>{{ beer.name }}</h3>
@@ -31,11 +37,5 @@
         [beer]="beer"></app-beer-image>
       </div>
     </ng-container>
-  </ng-container>
+  </div>
 </div>
-<ng-container *ngIf="filteredBeers">
-  <div *ngIf="filteredBeers.length !== 0" class="left-scroll scroll" (click)="handleScrollLeft()"></div>
-</ng-container>
-<ng-container *ngIf="filteredBeers">
-  <div *ngIf="filteredBeers.length !== 0" class="right-scroll scroll" (click)="handleScrollRight()"></div>
-</ng-container>

@@ -59,10 +59,14 @@ select {
 
 .scroll {
   position: absolute;
-  bottom: -220%;
+  bottom: 45%;
   height: 100px;
   width: 65px;
   background-size: cover;
+}
+
+.filtered-beers {
+  position: relative;
 }
 
 .right-scroll {

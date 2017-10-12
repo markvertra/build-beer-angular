@@ -8,7 +8,9 @@
   </div>
   <div class="navbar-right-links">
     <a *ngIf="user" [routerLink]="['recommendation']" class="navbar-link">Inspire Me</a>
-    <a *ngIf="user" [routerLink]="['checkout']" class="navbar-link checkout-link">My Basket<span *ngIf="basket.length > 0" class="basket-number">{{ basket.length }}</span></a>
+    <a *ngIf="user" [routerLink]="['checkout']" class="navbar-link checkout-link">My Basket
+      <span *ngIf="orderService.basket.length > 0" class="basket-number">{{ orderService.basket.length }}</span>
+    </a>
     <a *ngIf="user" [routerLink]="['orders']" class="navbar-link">My Orders</a>
     <a *ngIf="user" [routerLink]="['profile', user.id]" class="navbar-link">My Beers</a>
     <button *ngIf="!user" (click)="popLogIn()" class="navbar-link">Log In</button>
